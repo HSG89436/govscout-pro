@@ -8,24 +8,41 @@
       name="description"
       content="GovScout.pro helps small businesses find and act on federal contracting opportunities."
     >
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f766e'/%3E%3Cpath d='M18 40h28v6H18zm3-22h22v6H21zm-3 11h28v6H18z' fill='white'/%3E%3C/svg%3E"
+    >
     <style>
       :root {
         color-scheme: light;
         font-family: Arial, Helvetica, sans-serif;
         color: #172033;
-        background: #f7f8fb;
+        background: #f4f7fb;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
         margin: 0;
         min-height: 100vh;
-        display: grid;
-        place-items: center;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 247, 251, 0.98)),
+          #f4f7fb;
       }
 
       main {
-        width: min(920px, calc(100% - 32px));
-        padding: 48px 0;
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 56px 0;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+        gap: 48px;
+        align-items: start;
       }
 
       h1 {
@@ -41,6 +58,10 @@
         font-size: 20px;
         line-height: 1.5;
         color: #3b475f;
+      }
+
+      .lead {
+        margin-bottom: 28px;
       }
 
       .status {
@@ -59,17 +80,261 @@
         border-radius: 999px;
         background: #10b981;
       }
+
+      .trust-list {
+        display: grid;
+        gap: 14px;
+        margin: 36px 0 0;
+        padding: 0;
+        list-style: none;
+        color: #34415a;
+        font-size: 16px;
+        line-height: 1.45;
+      }
+
+      .trust-list li {
+        display: flex;
+        gap: 10px;
+      }
+
+      .trust-list span {
+        color: #0f766e;
+        font-weight: 700;
+      }
+
+      .form-panel {
+        background: #ffffff;
+        border: 1px solid #dfe7f2;
+        border-radius: 8px;
+        box-shadow: 0 18px 45px rgba(23, 32, 51, 0.1);
+        padding: 28px;
+      }
+
+      .form-panel h2 {
+        margin: 0 0 10px;
+        font-size: 28px;
+        line-height: 1.15;
+        letter-spacing: 0;
+      }
+
+      .form-panel p {
+        margin-bottom: 24px;
+        font-size: 16px;
+      }
+
+      form {
+        display: grid;
+        gap: 18px;
+      }
+
+      .field-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      label {
+        display: grid;
+        gap: 7px;
+        color: #243149;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        min-height: 46px;
+        border: 1px solid #bdc9da;
+        border-radius: 6px;
+        padding: 12px 13px;
+        color: #172033;
+        background: #ffffff;
+        font: inherit;
+        font-size: 15px;
+      }
+
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: 3px solid rgba(14, 116, 144, 0.2);
+        border-color: #0e7490;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .privacy-note {
+        color: #516079;
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      button {
+        width: 100%;
+        min-height: 50px;
+        border: 0;
+        border-radius: 6px;
+        background: #0f766e;
+        color: #ffffff;
+        font: inherit;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #115e59;
+      }
+
+      @media (max-width: 820px) {
+        main {
+          padding: 36px 0;
+        }
+
+        .layout,
+        .field-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .layout {
+          gap: 34px;
+        }
+
+        .form-panel {
+          padding: 22px;
+        }
+      }
     </style>
   </head>
   <body>
     <main>
-      <div class="status"><span class="dot"></span>Foundation ready</div>
-      <h1>GovScout.pro</h1>
-      <p>
-        AI-powered federal contracting intelligence for small businesses.
-        This repository is now prepared for GitHub, Netlify deployment, and
-        coordinated AI-assisted development.
-      </p>
+      <div class="layout">
+        <section aria-labelledby="home-heading">
+          <div class="status"><span class="dot"></span>Foundation ready</div>
+          <h1 id="home-heading">GovScout.pro</h1>
+          <p class="lead">
+            AI-powered federal contracting intelligence for small businesses.
+            Request a Marcus-assisted review when a solicitation, bid/no-bid
+            call, or proposal-readiness question needs fast human attention.
+          </p>
+          <ul class="trust-list" aria-label="Review boundaries">
+            <li><span>01</span> Opportunity review requests stay in the admin queue.</li>
+            <li><span>02</span> Confirmation copy stays clear of award or eligibility guarantees.</li>
+            <li><span>03</span> Submission activity is tracked for follow-up.</li>
+          </ul>
+        </section>
+
+        <section class="form-panel" aria-labelledby="consult-heading">
+          <h2 id="consult-heading">Request an opportunity review</h2>
+          <p>
+            Share public or non-sensitive details and Marcus can follow up about
+            fit, timing, and next steps.
+          </p>
+          <form
+            name="consult-request"
+            method="POST"
+            action="/thanks.html"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            id="consult-request-form"
+          >
+            <input type="hidden" name="form-name" value="consult-request">
+            <label class="hidden">
+              Do not fill this out if you are human
+              <input name="bot-field" autocomplete="off">
+            </label>
+
+            <div class="field-grid">
+              <label>
+                Name
+                <input name="name" autocomplete="name" required>
+              </label>
+              <label>
+                Company
+                <input name="company" autocomplete="organization" required>
+              </label>
+            </div>
+
+            <div class="field-grid">
+              <label>
+                Email
+                <input type="email" name="email" autocomplete="email" required>
+              </label>
+              <label>
+                Phone optional
+                <input type="tel" name="phone" autocomplete="tel">
+              </label>
+            </div>
+
+            <label>
+              Opportunity URL optional
+              <input type="url" name="opportunity_url" inputmode="url">
+            </label>
+
+            <div class="field-grid">
+              <label>
+                Urgency
+                <select name="urgency" required>
+                  <option value="">Select urgency</option>
+                  <option value="today">Today</option>
+                  <option value="this-week">This week</option>
+                  <option value="planning-ahead">Planning ahead</option>
+                </select>
+              </label>
+              <label>
+                Requested help
+                <select name="requested_help_type" required>
+                  <option value="">Select help type</option>
+                  <option value="bid-no-bid">Bid/no-bid decision</option>
+                  <option value="solicitation-review">Solicitation review</option>
+                  <option value="proposal-readiness">Proposal readiness</option>
+                  <option value="other">Other public question</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              Short notes
+              <textarea
+                name="notes"
+                required
+                placeholder="Deadlines, agency, NAICS, fit concerns, or the main question."
+              ></textarea>
+            </label>
+
+            <p class="privacy-note">
+              Do not submit classified, controlled, proprietary, or sensitive
+              personal data. GovScout.pro uses this request only to respond
+              about the review.
+            </p>
+            <button type="submit">Send review request</button>
+          </form>
+        </section>
+      </div>
     </main>
+    <script>
+      const consultForm = document.getElementById('consult-request-form');
+
+      consultForm?.addEventListener('submit', () => {
+        const formData = new FormData(consultForm);
+        const eventPayload = {
+          event: 'consult_request_submitted',
+          urgency: formData.get('urgency'),
+          requested_help_type: formData.get('requested_help_type'),
+        };
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(eventPayload);
+        document.dispatchEvent(new CustomEvent('consult_request_submitted', { detail: eventPayload }));
+      });
+    </script>
   </body>
 </html>
