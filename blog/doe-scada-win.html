@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How I Landed a DOE SCADA Contract as a One-Man SDVOSB (And What I Wish I Knew Earlier) — GovScout Pro</title>
+<meta name="description" content="Case study: how a one-man SDVOSB landed a DOE SCADA contract. Sources Sought strategy, technical proposal approach, and lessons learned.">
+<link rel="canonical" href="https://govscout.pro/blog/doe-scada-win">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How I Landed a DOE SCADA Contract as a One-Man SDVOSB (And What I Wish I Knew Earlier)">
+<meta property="og:description" content="Case study: how a one-man SDVOSB landed a DOE SCADA contract. Sources Sought strategy, technical proposal approach, and lessons learned.">
+<meta property="og:url" content="https://govscout.pro/blog/doe-scada-win">
+<meta property="og:site_name" content="GovScout Pro">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How I Landed a DOE SCADA Contract as a One-Man SDVOSB (And What I Wish I Knew Earlier)","description":"Case study: how a one-man SDVOSB landed a DOE SCADA contract. Sources Sought strategy, technical proposal approach, and lessons learned.","datePublished":"2026-05-22","author":{"@type":"Person","name":"Steve Harriman"},"publisher":{"@type":"Organization","name":"GovScout Pro","url":"https://govscout.pro"},"url":"https://govscout.pro/blog/doe-scada-win","articleSection":"CLIENT SUCCESS"}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#05070f;color:#eef2ff;font-family:'Space Grotesk',sans-serif;line-height:1.7;font-size:17px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(5,7,15,.95);border-bottom:1px solid #1e2a42;backdrop-filter:blur(20px);height:58px;display:flex;align-items:center;padding:0 32px;gap:16px;}
+.nav-logo{font-family:'Fraunces',serif;font-size:20px;font-weight:900;color:#eef2ff;text-decoration:none;}
+.nav-logo span{color:#f5a623;}
+.nav-links{margin-left:auto;display:flex;gap:20px;}
+.nav-links a{color:#8a9cc8;text-decoration:none;font-size:14px;}
+.nav-links a:hover{color:#eef2ff;}
+.nav-links a.cta{background:#f5a623;color:#05070f;padding:8px 18px;border-radius:6px;font-weight:700;}
+main{max-width:760px;margin:0 auto;padding:96px 24px 80px;}
+.article-meta{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
+.tag{background:rgba(245,166,35,.12);color:#f5a623;font-size:11px;font-weight:700;letter-spacing:1.5px;padding:4px 10px;border-radius:4px;}
+.article-date{color:#4a5a82;font-size:13px;}
+h1{font-family:'Fraunces',serif;font-size:clamp(26px,4vw,40px);font-weight:900;line-height:1.2;color:#eef2ff;margin-bottom:32px;}
+.article-body h2{font-size:22px;font-weight:700;color:#eef2ff;margin:36px 0 14px;}
+.article-body h3{font-size:18px;font-weight:700;color:#f5a623;margin:28px 0 10px;}
+.article-body p{color:#c5cfe8;margin-bottom:18px;}
+.article-body ul,.article-body ol{color:#c5cfe8;margin:0 0 18px 24px;}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:#eef2ff;}
+.callout{background:rgba(245,166,35,.08);border-left:3px solid #f5a623;padding:16px 20px;border-radius:0 8px 8px 0;margin:24px 0;color:#eef2ff;}
+.callout strong{color:#f5a623;}
+.article-cta{background:linear-gradient(135deg,#0e1225,#131829);border:1px solid #1e2a42;border-radius:12px;padding:32px;text-align:center;margin-top:48px;}
+.article-cta h3{font-family:'Fraunces',serif;font-size:22px;color:#eef2ff;margin-bottom:10px;}
+.article-cta p{color:#8a9cc8;margin-bottom:20px;font-size:15px;}
+.cta-btn{display:inline-block;background:#f5a623;color:#05070f;font-weight:700;padding:13px 28px;border-radius:8px;text-decoration:none;font-size:15px;}
+.breadcrumb{font-size:13px;color:#4a5a82;margin-bottom:20px;}
+.breadcrumb a{color:#8a9cc8;text-decoration:none;}
+footer{border-top:1px solid #1e2a42;padding:24px;text-align:center;font-size:13px;color:#4a5a82;}
+footer a{color:#8a9cc8;text-decoration:none;margin:0 8px;}
+
+/* ── Language toggle ── */
+.gs-lang-toggle{display:flex;align-items:center;gap:3px;margin-left:8px;}
+.gs-lang-btn{background:transparent;border:1px solid rgba(138,156,200,.35);color:#8a9cc8;font-size:10px;font-weight:700;letter-spacing:.06em;padding:4px 9px;border-radius:5px;cursor:pointer;transition:all .15s;font-family:inherit;}
+.gs-lang-btn:hover{border-color:#f5a623;color:#f5a623;}
+.gs-lang-active{background:rgba(245,166,35,.12);border-color:#f5a623 !important;color:#f5a623 !important;}
+/* Hide Google's injected toolbar */
+.goog-te-banner-frame{display:none!important;}
+.goog-te-menu-value:hover{text-decoration:none!important;}
+body{top:0!important;position:static!important;}
+#goog-gt-tt{display:none!important;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">Gov<span>Scout</span> Pro</a>
+  <div class="nav-links">
+    <a href="/blog">Blog</a>
+    <a href="/resources">Resources</a>
+    <a href="/alerts">Free Alerts</a>
+    <a href="/app" class="cta">Launch App →</a>
+  </div>
+  <div class="gs-lang-toggle"><button id="gs-lang-en" class="gs-lang-btn gs-lang-active" onclick="setLang('en')">EN</button><button id="gs-lang-es" class="gs-lang-btn" onclick="setLang('es')">ES</button></div>
+</nav>
+<main>
+  <div class="breadcrumb"><a href="/">Home</a> / <a href="/blog">Blog</a> / How I Landed a DOE SCADA Contract as a O...</div>
+  <div class="article-meta">
+    <span class="tag">CLIENT SUCCESS</span>
+    <span class="article-date">MAY 22, 2026</span>
+  </div>
+  <h1>How I Landed a DOE SCADA Contract as a One-Man SDVOSB (And What I Wish I Knew Earlier)</h1>
+  <div class="article-body">
+    <h2>Two Years of Doing It Wrong</h2>
+<p>I spent two years chasing government contracts the wrong way. Refreshing SAM.gov every morning. Copy-pasting opportunity titles into spreadsheets. Writing proposals for solicitations I had no business winning. Burning weekends on 60-page submissions for contracts that were already wired to someone else.</p>
+<p>That is the dirty secret nobody tells you about government contracting for small businesses. Most of the work happens before the solicitation drops. By the time it is on SAM.gov, the decision is often already made. You are just providing competition on paper.</p>
+<p>So I changed my approach. And it changed everything.</p>
+<h2>The SCADA Niche Nobody Was Chasing</h2>
+<p>After 20 years in SCADA and OT systems, running fiber for NV Energy, working SCADA infrastructure across the western grid, I knew something most government contractors do not. The agencies responsible for critical infrastructure are desperate for people who actually understand ICS security, not just people who can write about it.</p>
+<p>DOE's NNSA. WAPA. DHS-CISA. These agencies need engineers who can look at a SCADA network topology and tell them exactly what is exposed, what needs hardening, and how to do it without taking down the grid. That expertise is rare. And as an SDVOSB, I have a competitive advantage most firms cannot touch. Sole-source authority under the Veterans Benefits Act. A contracting officer can award me a contract without full and open competition. But only if they know I exist.</p>
+<div class="callout"><strong>Client success in government contracting is not about proposals. It is about positioning.</strong></div>
+<h2>What Government Contracting for Small Businesses Actually Means in 2026</h2>
+<p>The landscape has shifted. Agencies pushed billions in spending through small business set-asides. The VA alone runs one of the largest SDVOSB preference programs in the federal government. But most veteran-owned small businesses are invisible. No capability statement that speaks the agency language. No relationships with contracting officers. No pipeline tracking.</p>
+<p>I have watched fellow veterans with 30 years of relevant experience get passed over, not because they were not qualified, but because they could not articulate their value in the 90 seconds a program manager has to scan a one-pager. Contract wins do not happen by accident. They happen because someone did the homework.</p>
+<h2>The Tool I Built Because Nothing Else Existed</h2>
+<p>After three years of inconsistent results, I started building something for myself. A platform that pulls live SAM.gov opportunities filtered by my exact NAICS codes, pre-screens each opportunity with AI against my actual capabilities, tracks my pipeline from watching to proposal submitted to awarded, and keeps a persistent AI consultant who knows my firm's history, certifications, and competitive positioning.</p>
+<p>I called it GovScout Pro. Marcus, the AI inside it, knows I am an SDVOSB with 20 years of SCADA/OT experience. When I ask whether a DOE contract is worth pursuing, he does not give a generic answer. He gives me a GO, TEAM UP, or PASS verdict based on my specific profile. That is the difference between a search engine and a consultant.</p>
+<h2>Small Business Growth in GovCon Is a Long Game</h2>
+<p>Year one is about visibility. Getting your SAM.gov profile right. Knowing your CAGE code. Making sure your certifications are current. Getting your capability statement in front of the right people. Year two is about relationships. Attending industry days. Requesting meetings with contracting officers. Teaming with primes who need your niche. Year three and beyond is about leverage. Sole-source awards. IDIQ vehicles. Past performance that speaks for itself.</p>
+<p>Most small businesses quit in year one because the pipeline feels empty and the process feels impossible. But the pipeline is never empty if you are looking at the right opportunities and building the right relationships. The veterans who succeed are not the ones with the biggest firms. They are the ones who show up consistently, know their lane, and never stop learning the system.</p>
+<p>GovScout Pro is live at <a href="https://govscout.pro" style="color:var(--gold)">govscout.pro</a> - $9/month, built for SDVOSB and veteran-owned small businesses who are serious about winning in their niche.</p>
+<p><em>Steven Harriman is a 100% disabled veteran, SDVOSB principal, and SCADA/OT consultant with 20+ years of federal and utility experience. SDVOSB Certified.</em></p>
+  </div>
+  <div class="article-cta">
+    <h3>Put This Strategy to Work</h3>
+    <p>GovScout Pro gives you Marcus — an AI federal contracting consultant — plus real-time SAM.gov matching, bid package generation, and daily contract alerts.</p>
+    <a href="/app" class="cta-btn">Start Finding Contracts →</a>
+  </div>
+</main>
+<footer>
+  <a href="/">govscout.pro</a>
+  <a href="/blog">Blog</a>
+  <a href="/app">Launch App</a>
+  <a href="/alerts">Free Alerts</a>
+  <a href="/roadmap">Roadmap</a>
+</footer>
+
+<div id="gs_translate_el" style="display:none"></div>
+<script src="/lang.js"></script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+</body>
+</html>

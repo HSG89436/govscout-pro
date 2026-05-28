@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — GovScout Pro | Government Contracting Intelligence</title>
+<meta name="description" content="Real talk about winning federal contracts as a small business. Written by a service-disabled veteran who built the tools he wished existed.">
+<link rel="canonical" href="https://govscout.pro/blog">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+[data-theme="dark"]{--bg:#05070f;--surface:#0e1225;--s2:#131829;--border:#1e2a42;--b2:#263347;--txt:#eef2ff;--txt2:#8a9cc8;--txt3:#4a5a82;--gold:#f5a623;--gold2:#ffc04a;--gold3:rgba(245,166,35,.1);--green:#4ade80;--green2:rgba(74,222,128,.1);--red:#f87171;--purple:#c084fc;--cyan:#38bdf8;--nav-bg:rgba(5,7,15,.92);}
+[data-theme="light"]{--bg:#f8f7f2;--surface:#ffffff;--s2:#f5f3ed;--border:#ddd8cc;--b2:#ccc6b8;--txt:#1a1810;--txt2:#4a4535;--txt3:#7a7060;--gold:#c47d0e;--gold2:#a86800;--gold3:rgba(196,125,14,.1);--green:#16a34a;--green2:rgba(22,163,74,.08);--red:#dc2626;--purple:#7c3aed;--cyan:#0369a1;--nav-bg:rgba(248,247,242,.95);}
+body{background:var(--bg);color:var(--txt);font-family:'Space Grotesk',sans-serif;line-height:1.6;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--nav-bg);border-bottom:1px solid var(--border);backdrop-filter:blur(20px);height:58px;display:flex;align-items:center;padding:0 32px;gap:16px;}
+.nav-logo{font-family:'Fraunces',serif;font-size:20px;font-weight:900;color:var(--txt);text-decoration:none;}
+.nav-logo span{color:var(--gold);}
+.nav-links{margin-left:auto;display:flex;align-items:center;gap:8px;}
+.nav-link{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--txt3);text-decoration:none;padding:5px 12px;border-radius:6px;transition:all .15s;}
+.nav-link:hover{color:var(--gold);background:var(--gold3);}
+.nav-launch{background:var(--gold);color:#000;font-size:12px;font-weight:700;padding:7px 18px;border-radius:6px;text-decoration:none;transition:all .15s;}
+.nav-launch:hover{background:var(--gold2);}
+.theme-toggle{width:36px;height:36px;border-radius:6px;background:transparent;border:1px solid var(--border);color:var(--txt2);cursor:pointer;font-size:14px;}
+
+/* HERO */
+.blog-hero{padding:110px 24px 56px;text-align:center;border-bottom:1px solid var(--border);}
+.blog-eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:14px;}
+.blog-title{font-family:'Fraunces',serif;font-size:clamp(36px,6vw,64px);font-weight:900;line-height:1.0;letter-spacing:-.02em;color:var(--txt);margin-bottom:14px;}
+.blog-title em{color:var(--gold);font-style:italic;}
+.blog-sub{font-size:17px;color:var(--txt2);max-width:580px;margin:0 auto;line-height:1.7;}
+
+/* GRID */
+.blog-grid{max-width:1100px;margin:0 auto;padding:64px 24px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+@media(max-width:900px){.blog-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.blog-grid{grid-template-columns:1fr;}}
+.blog-grid .featured{grid-column:1/-1;}
+
+/* POST CARD */
+.post-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .2s;display:flex;flex-direction:column;}
+.post-card:hover{transform:translateY(-3px);border-color:var(--b2);}
+.post-card.featured{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+@media(max-width:700px){.post-card.featured{grid-template-columns:1fr;}}
+.post-thumb{background:linear-gradient(135deg,var(--s2),var(--surface));min-height:180px;display:flex;align-items:center;justify-content:center;font-size:56px;border-bottom:1px solid var(--border);}
+.featured .post-thumb{border-bottom:none;border-right:1px solid var(--border);min-height:260px;}
+@media(max-width:700px){.featured .post-thumb{border-right:none;border-bottom:1px solid var(--border);}}
+.post-body{padding:22px;flex:1;display:flex;flex-direction:column;}
+.post-meta{display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap;}
+.post-tag{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.15em;padding:3px 10px;border-radius:100px;}
+.tag-strategy{background:var(--gold3);border:1px solid rgba(245,166,35,.2);color:var(--gold);}
+.tag-cert{background:var(--green2);border:1px solid rgba(74,222,128,.2);color:var(--green);}
+.tag-docs{background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.2);color:var(--cyan);}
+.tag-pricing{background:rgba(192,132,252,.08);border:1px solid rgba(192,132,252,.2);color:var(--purple);}
+.tag-subs{background:rgba(251,146,60,.08);border:1px solid rgba(251,146,60,.2);color:#fb923c;}
+.tag-story{background:var(--s2);border:1px solid var(--border);color:var(--txt3);}
+.post-date{font-family:'DM Mono',monospace;font-size:9px;color:var(--txt3);letter-spacing:.1em;}
+.post-title{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--txt);margin-bottom:8px;line-height:1.25;letter-spacing:-.01em;}
+.featured .post-title{font-size:28px;}
+.post-excerpt{font-size:14px;color:var(--txt2);line-height:1.7;flex:1;margin-bottom:16px;}
+.post-read{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:6px;margin-top:auto;}
+.post-read:hover{text-decoration:underline;}
+
+/* ARTICLE VIEW */
+.article-wrap{max-width:720px;margin:0 auto;padding:96px 24px 80px;}
+.article-wrap.hidden{display:none;}
+.blog-list.hidden{display:none;}
+.a-back{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--txt3);background:none;border:1px solid var(--border);border-radius:6px;padding:6px 14px;cursor:pointer;margin-bottom:32px;transition:all .15s;}
+.a-back:hover{color:var(--gold);border-color:var(--gold);}
+.a-eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--gold);margin-bottom:12px;}
+.a-title{font-family:'Fraunces',serif;font-size:clamp(28px,5vw,48px);font-weight:900;line-height:1.05;letter-spacing:-.02em;color:var(--txt);margin-bottom:14px;}
+.a-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--txt3);letter-spacing:.1em;margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid var(--border);}
+.a-body{font-size:17px;color:var(--txt2);line-height:1.85;}
+.a-body h2{font-family:'Fraunces',serif;font-size:26px;font-weight:700;color:var(--txt);margin:36px 0 12px;letter-spacing:-.01em;}
+.a-body p{margin-bottom:18px;}
+.a-body p strong{color:var(--txt);}
+.a-body ul{margin:0 0 18px 20px;}
+.a-body li{margin-bottom:8px;}
+.a-body .callout{background:var(--gold3);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:18px 22px;margin:24px 0;font-size:16px;color:var(--txt);}
+.a-body .callout strong{color:var(--gold);}
+.a-cta{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px;margin-top:48px;text-align:center;}
+.a-cta h3{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--txt);margin-bottom:8px;}
+.a-cta p{font-size:15px;color:var(--txt2);margin-bottom:20px;}
+.btn-gold{display:inline-block;background:var(--gold);color:#000;font-size:14px;font-weight:700;padding:12px 28px;border-radius:8px;text-decoration:none;transition:all .15s;}
+.btn-gold:hover{background:var(--gold2);}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:32px 24px;text-align:center;font-family:'DM Mono',monospace;font-size:10px;color:var(--txt3);letter-spacing:.1em;}
+footer a{color:var(--gold);text-decoration:none;}
+.a-hero{width:100%;border-radius:12px;margin-bottom:32px;overflow:hidden;display:block;}
+.post-thumb svg{pointer-events:none;}
+
+/* ── Language toggle ── */
+.gs-lang-toggle{display:flex;align-items:center;gap:3px;margin-left:8px;}
+.gs-lang-btn{background:transparent;border:1px solid rgba(138,156,200,.35);color:#8a9cc8;font-size:10px;font-weight:700;letter-spacing:.06em;padding:4px 9px;border-radius:5px;cursor:pointer;transition:all .15s;font-family:inherit;}
+.gs-lang-btn:hover{border-color:#f5a623;color:#f5a623;}
+.gs-lang-active{background:rgba(245,166,35,.12);border-color:#f5a623 !important;color:#f5a623 !important;}
+/* Hide Google's injected toolbar */
+.goog-te-banner-frame{display:none!important;}
+.goog-te-menu-value:hover{text-decoration:none!important;}
+body{top:0!important;position:static!important;}
+#goog-gt-tt{display:none!important;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="https://govscout.pro" class="nav-logo">GOV<span>SCOUT</span> PRO</a>
+  <div class="nav-links">
+    <a href="https://govscout.pro" class="nav-link">HOME</a>
+    <a href="https://govscout.pro/roadmap.html" class="nav-link">ROADMAP</a>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+    <a href="https://govscout.pro/app" class="nav-launch">▶ LAUNCH APP</a>
+  </div>
+  <div class="gs-lang-toggle"><button id="gs-lang-en" class="gs-lang-btn gs-lang-active" onclick="setLang('en')">EN</button><button id="gs-lang-es" class="gs-lang-btn" onclick="setLang('es')">ES</button></div>
+</nav>
+
+<!-- BLOG LIST VIEW -->
+<div class="blog-list" id="blogList">
+  <div class="blog-hero">
+    <div class="blog-eyebrow">// THE GOVSCOUT PRO BLOG</div>
+    <h1 class="blog-title">Real Talk on <em>Winning</em><br>Government Contracts</h1>
+    <p class="blog-sub">No fluff. No generic advice. Written by a service-disabled veteran who built the tools he wished existed — and learned the hard way what it takes to win.</p>
+  </div>
+
+  <div class="blog-grid">
+
+    <!-- MAY 22, 2026 - DOE SCADA WIN -->
+    <div class="post-card featured" onclick="openPost('doe-scada-win')">
+      <div class="post-thumb" style="padding:0;overflow:hidden;">
+        <img src="/blog_header_1.jpg" alt="GovScout Pro blog header - How I Landed a DOE SCADA Contract as a One-Man SDVOSB - Steven Harriman, SDVOSB SCADA Consultant, govscout.pro" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+      </div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag tag-strategy">CLIENT SUCCESS</span><span class="post-tag tag-cert">CONTRACT WINS</span><span class="post-date">MAY 22, 2026</span></div>
+        <div class="post-title">How I Landed a DOE SCADA Contract as a One-Man SDVOSB (And What I Wish I Knew Earlier)</div>
+        <div class="post-excerpt">I spent two years chasing government contracts the wrong way. Then I changed my approach and it changed everything. Here is what client success in government contracting actually looks like when you stop writing proposals and start positioning.</div>
+        <a class="post-read" href="/blog/doe-scada-win" onclick="openPost('doe-scada-win');return false;">READ THIS → </a>
+      </div>
+    </div>
+
+    <!-- MAY 22, 2026 - VA RULE OF TWO -->
+    <div class="post-card" onclick="openPost('va-rule-of-two')">
+      <div class="post-thumb" style="padding:0;overflow:hidden;">
+        <img src="/blog_header_2.jpg" alt="GovScout Pro blog header - VA Contracts Are the Most Underused Opportunity in Government Contracting - Rule of Two, SDVOSB, Steven Harriman" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+      </div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag tag-cert">VA CONTRACTS</span><span class="post-tag tag-strategy">SDVOSB</span><span class="post-date">MAY 22, 2026</span></div>
+        <div class="post-title">VA Contracts Are the Most Underused Opportunity in Government Contracting</div>
+        <div class="post-excerpt">The VA is legally required to prioritize SDVOSBs under the Rule of Two. Most veteran-owned small businesses have never seriously pursued a VA contract. Here is why and exactly how to fix it.</div>
+        <a class="post-read" href="/blog/va-rule-of-two" onclick="openPost('va-rule-of-two');return false;">READ THIS → </a>
+      </div>
+    </div>
+
+    <!-- FEATURED: MAY 13, 2026 — most recent -->
+    <div class="post-card featured" onclick="openPost('small-biz-win')">
+      <div class="post-thumb">
+        <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg" width="120" height="100">
+          <circle cx="60" cy="50" r="45" fill="rgba(245,166,35,0.09)"/>
+          <path d="M44,18 L76,18 L72,58 Q66,68 60,70 Q54,68 48,58 Z" fill="none" stroke="#f5a623" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M44,28 Q28,28 28,44 Q28,60 44,56" fill="none" stroke="#f5a623" stroke-width="2" stroke-linecap="round"/>
+          <path d="M76,28 Q92,28 92,44 Q92,60 76,56" fill="none" stroke="#f5a623" stroke-width="2" stroke-linecap="round"/>
+          <line x1="52" y1="70" x2="68" y2="70" stroke="#f5a623" stroke-width="2.5"/>
+          <rect x="46" y="73" width="28" height="6" rx="2" fill="#f5a623" opacity="0.85"/>
+          <polygon points="60,27 62.5,35 71,35 64.5,40 67,48 60,43 53,48 55.5,40 49,35 57.5,35" fill="#f5a623" opacity="0.45"/>
+          <text x="10" y="78" font-size="24" fill="#4ade80" opacity="0.8" font-family="monospace" font-weight="bold">$</text>
+          <circle cx="104" cy="24" r="13" fill="rgba(74,222,128,0.12)" stroke="#4ade80" stroke-width="2"/>
+          <polyline points="97,24 102,30 112,17" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag tag-strategy">STRATEGY</span><span class="post-date">MAY 13, 2026</span></div>
+        <div class="post-title">How Small Businesses Can Win Federal Contracts (And Actually Get Paid)</div>
+        <div class="post-excerpt">Winning is only half the battle. The federal government is the largest buyer in the world — but it is also one of the slowest payers. Here is the exact playbook for landing your first federal award and making sure the money actually hits your account.</div>
+        <a class="post-read" href="/blog/small-biz-win" onclick="openPost('small-biz-win');return false;">READ THIS → </a>
+      </div>
+    </div>
+
+    <!-- MAY 13, 2026 -->
+    <div class="post-card" onclick="openPost('prime-contractor')">
+      <div class="post-thumb">
+        <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg" width="120" height="100">
+          <circle cx="60" cy="50" r="45" fill="rgba(56,189,248,0.09)"/>
+          <path d="M14,85 L14,70 L34,70 L34,55 L54,55 L54,40 L74,40 L74,25 L99,25" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="14" y="70" width="20" height="15" fill="rgba(56,189,248,0.08)"/>
+          <rect x="34" y="55" width="20" height="15" fill="rgba(56,189,248,0.08)"/>
+          <rect x="54" y="40" width="20" height="15" fill="rgba(56,189,248,0.08)"/>
+          <rect x="74" y="25" width="20" height="15" fill="rgba(56,189,248,0.08)"/>
+          <polygon points="99,12 101.5,20 110,20 103,25 105.5,33 99,28 92.5,33 95,25 88,20 96.5,20" fill="#38bdf8"/>
+        </svg>
+      </div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag tag-subs">CONTRACTING</span><span class="post-date">MAY 13, 2026</span></div>
+        <div class="post-title">How to Become a Federal Prime Contractor (The Real Path Nobody Talks About)</div>
+        <div class="post-excerpt">Every piece of government contracting advice tells you to register on SAM.gov and start bidding. That is not the real path. The contractors winning prime contracts built their position over 18 months before they submitted their first proposal.</div>
+        <a class="post-read" href="/blog/prime-contractor" onclick="openPost('prime-contractor');return false;">READ THIS → </a>
+      </div>
+    </div>
+
+    <!-- MAY 13, 2026 -->
+    <div class="post-card" onclick="openPost('fastest-money')">
+      <div class="post-thumb">
+        <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg" width="120" height="100">
+          <circle cx="60" cy="50" r="45" fill="rgba(74,222,128,0.08)"/>
+          <polygon points="64,8 49,52 62,52 50,92 79,42 64,42 77,8" fill="#f5a623"/>
+          <text x="18" y="34" font-size="15" fill="#4ade80" opacity="0.75" font-family="monospace" font-weight="bold">$</text>
+          <text x="90" y="34" font-size="15" fill="#4ade80" opacity="0.75" font-family="monospace" font-weight="bold">$</text>
+        </svg>
+      </div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag tag-pricing">REVENUE</span><span class="post-date">MAY 13, 2026</span></div>
+        <div class="post-title">The Fastest Ways to Make Real Money with Federal Contracts</div>
+        <div class="post-excerpt">Most small businesses spend two years chasing contracts they will never win. The contractors generating real revenue found the fast lanes — contract vehicles, set-asides, and agency relationships that compress the timeline from zero to paid.</div>
+        <a class="post-read" href="/blog/fastest-money" onclick="openPost('fastest-money');return false;">READ THIS → </a>
+      </div>
+    </div>
+
+    <!-- MAY 1, 2026 -->
+    <div class="post-card" onclick="openPost('veteran-contracts')">
+      <div class="post-thumb">🎖️</div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag tag-cert">SDVOSB</span><span class="post-date">MAY 1, 2026</span></div>
+        <div class="post-title">How to Find Government Contracts as a Veteran-Owned Small Business</div>
+        <div class="post-excerpt">You have the certification. You have the set-aside advantage. So why is the work not coming? Here is the exact six-step process Marcus uses to surface real SDVOSB opportunities — not the ones that are already wired.</div>
+        <a class="post-read" href="/blog/veteran-contracts" onclick="openPost('veteran-contracts');return false;">READ THIS → </a>
+      </div>
+    </div>
+
+    <!-- MAY 1, 2026 -->
+    <div class="post-card" onclick="openPost('samgov-tips')">
+      <div class="post-thumb">🔍</div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag tag-strategy">STRATEGY</span><span class="post-date">MAY 1, 2026</span></div>
+        <div class="post-title">SAM.gov Search Tips for Small Business: What the Tutorials Don't Tell You</div>
+        <div class="post-excerpt">The official SAM.gov tutorial will teach you how to log in. It will not teach you how to find contracts you can actually win. Six techniques that separate the contractors getting awards from the ones downloading PDFs they will never bid on.</div>
+        <a class="post-read" href="/blog/samgov-tips" onclick="openPost('samgov-tips');return false;">READ THIS → </a>
+      </div>
+    </div>
+
+    <!-- MAY 1, 2026 -->
+    <div class="post-card" onclick="openPost('gonogo-decision')">
+      <div class="post-thumb">⚖️</div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag tag-strategy">STRATEGY</span><span class="post-date">MAY 1, 2026</span></div>
+        <div class="post-title">The Go/No-Go Decision in Government Contracting: Why Most Small Businesses Get It Wrong</div>
+        <div class="post-excerpt">Most small businesses decide to bid on a contract based on one thing: can we do the work? That is the wrong question. Marcus evaluates seven factors before recommending a bid — and the ones that kill deals are never the obvious ones.</div>
+        <a class="post-read" href="/blog/gonogo-decision" onclick="openPost('gonogo-decision');return false;">READ THIS → </a>
+      </div>
+    </div>
+
+    <!-- APR 27, 2026 -->
+    <div class="post-card" onclick="openPost('sources-sought')">
+      <div class="post-thumb">📋</div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag tag-strategy">STRATEGY</span><span class="post-date">APR 27, 2026</span></div>
+        <div class="post-title">If You're Reading the RFP for the First Time — You're Already Late</div>
+        <div class="post-excerpt">Sources Sought notices are where 80% of federal contracts are decided. Most small businesses scroll past them. Here's exactly what to do the moment one posts in your NAICS — and why the winner of that future contract is already positioning while you're waiting for the RFP.</div>
+        <a class="post-read" href="/blog/sources-sought" onclick="openPost('sources-sought');return false;">READ THIS → </a>
+      </div>
+    </div>
+
+    <!-- APR 25, 2026 -->
+    <div class="post-card" onclick="openPost('8a-solesource')">
+      <div class="post-thumb">⭐</div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag tag-cert">CERTIFICATION</span><span class="post-date">APR 25, 2026</span></div>
+        <div class="post-title">The 8(a) Sole-Source Secret Most Companies Never Use</div>
+        <div class="post-excerpt">You can get a $4.5 million federal contract with zero competition. No bidding. No proposals. Most 8(a) companies have had this authority for years and have never used it once.</div>
+        <a class="post-read" href="/blog/8a-solesource" onclick="openPost('8a-solesource');return false;">READ THIS → </a>
+      </div>
+    </div>
+
+    <!-- APR 22, 2026 -->
+    <div class="post-card" onclick="openPost('reading-documents')">
+      <div class="post-thumb">📄</div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag tag-docs">DOCUMENTS</span><span class="post-date">APR 22, 2026</span></div>
+        <div class="post-title">How to Read a Federal Solicitation in 30 Minutes</div>
+        <div class="post-excerpt">Most contractors spend hours trying to understand a government document. Here is the exact framework a 20-year contracting officer uses to read any solicitation in 30 minutes and identify every compliance trap, evaluation weight, and incumbent signal.</div>
+        <a class="post-read" href="/blog/reading-documents" onclick="openPost('reading-documents');return false;">READ THIS → </a>
+      </div>
+    </div>
+
+    <!-- APR 18, 2026 -->
+    <div class="post-card" onclick="openPost('trojan-sub')">
+      <div class="post-thumb">🤝</div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag tag-subs">SUBCONTRACTING</span><span class="post-date">APR 18, 2026</span></div>
+        <div class="post-title">The Trojan Sub Strategy — How to Become a Prime by First Being a Sub</div>
+        <div class="post-excerpt">Get on a winning team as a subcontractor. Learn the agency. Build past performance. Come back as prime next award. Here is the exact playbook for turning subcontracting into a pipeline for priming.</div>
+        <a class="post-read" href="/blog/trojan-sub" onclick="openPost('trojan-sub');return false;">READ THIS → </a>
+      </div>
+    </div>
+
+    <!-- APR 15, 2026 -->
+    <div class="post-card" onclick="openPost('awardable-pricing')">
+      <div class="post-thumb">💰</div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag tag-pricing">PRICING</span><span class="post-date">APR 15, 2026</span></div>
+        <div class="post-title">Awardable Pricing — The Number That Wins Isn't the Lowest One</div>
+        <div class="post-excerpt">Pricing too low makes you look unqualified. Pricing too high gets you eliminated. Awardable pricing is about finding the range where you win — and how to build a CLIN structure that tells the story your price needs to tell.</div>
+        <a class="post-read" href="/blog/awardable-pricing" onclick="openPost('awardable-pricing');return false;">READ THIS → </a>
+      </div>
+    </div>
+
+    <!-- APR 10, 2026 -->
+    <div class="post-card" onclick="openPost('sdvosb-va')">
+      <div class="post-thumb">🎖️</div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag tag-cert">SDVOSB</span><span class="post-date">APR 10, 2026</span></div>
+        <div class="post-title">The VA Spent $28 Billion with SDVOSBs Last Year — Here's How to Get Your Share</div>
+        <div class="post-excerpt">The VA is legally mandated to use SDVOSB set-asides. Most of that money goes to the same 500 companies. Here is exactly how to break into that list — the agencies, the contract types, and the one move most SDVOSBs never make.</div>
+        <a class="post-read" href="/blog/sdvosb-va" onclick="openPost('sdvosb-va');return false;">READ THIS → </a>
+      </div>
+    </div>
+
+    <!-- MAR 15, 2026 -->
+    <div class="post-card" onclick="openPost('why-i-built-this')">
+      <div class="post-thumb">🔨</div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-tag tag-story">OUR STORY</span><span class="post-date">MAR 15, 2026</span></div>
+        <div class="post-title">Why I Built GovScout Pro — A Service-Disabled Veteran's Honest Account</div>
+        <div class="post-excerpt">I spent 20 years executing government contracts for big companies. When I started my own SDVOSB, I had no idea how to win them. This is the honest story of what I found — and why I built Marcus.</div>
+        <a class="post-read" href="/blog/why-i-built-this" onclick="openPost('why-i-built-this');return false;">READ THIS → </a>
+      </div>
+    </div>
+
+  </div><!-- /blog-grid -->
+</div><!-- /blog-list -->
+
+<!-- ARTICLE VIEW -->
+<div class="article-wrap hidden" id="articleView">
+  <button class="a-back" onclick="closePost()">← BACK TO BLOG</button>
+  <div id="articleContent"></div>
+  <div class="a-cta">
+    <h3>Try Marcus on Your Next Contract</h3>
+    <p>Upload your SAM.gov documents and get the complete intelligence report — what they want, what to submit, whether to bid or walk.</p>
+    <a href="https://govscout.pro/app" class="btn-gold">🎯 Launch GovScout Pro Free</a>
+  </div>
+</div>
+
+<footer>
+  <a href="https://govscout.pro">govscout.pro</a> &nbsp;·&nbsp;
+  <a href="https://govscout.pro/app">Launch App</a> &nbsp;·&nbsp;
+  <a href="https://govscout.pro/roadmap.html">Roadmap</a> &nbsp;·&nbsp;
+  <a href="mailto:stevenh89436@gmail.com">Contact</a> &nbsp;·&nbsp;
+  v6.0 · 2026-05-26
+</footer>
+
+<script>
+// THEME
+function toggleTheme(){const h=document.documentElement;const d=h.getAttribute('data-theme')==='dark';h.setAttribute('data-theme',d?'light':'dark');document.getElementById('themeBtn').textContent=d?'🌙':'☀️';localStorage.setItem('fs_theme',d?'light':'dark');}
+(function(){const s=localStorage.getItem('fs_theme');if(s){document.documentElement.setAttribute('data-theme',s);const b=document.getElementById('themeBtn');if(b)b.textContent=s==='light'?'🌙':'☀️';}})();
+
+// ARTICLES
+const POSTS = {
+  'sources-sought': {
+    tag:'STRATEGY', date:'APR 27, 2026',
+    title:"If You're Reading the RFP for the First Time — You're Already Late",
+    body:`<h2>The Moment Most Contractors Miss</h2>
+<p>Every federal contract goes through a Sources Sought phase before the RFP drops. The agency posts a notice saying: <em>we are thinking about buying something, who is out there that can do this?</em></p>
+<p>Most small business contractors scroll past these. They are waiting for the real thing — the solicitation, the RFP, the moment the opportunity officially exists. By then, the winner has already positioned.</p>
+<div class="callout"><strong>This is the core truth of federal contracting:</strong> 80% of contracts are decided during Sources Sought and market research — before the solicitation is ever written. The winner helped shape the requirement.</div>
+<h2>What a Sources Sought Notice Actually Is</h2>
+<p>A Sources Sought is a market research tool. The contracting officer is asking three questions:</p>
+<ul>
+<li>Who can do this work?</li>
+<li>Are there enough qualified small businesses to set this aside?</li>
+<li>What should the performance work statement actually say?</li>
+</ul>
+<p>That last question is the one that matters most. The agency is still writing the requirement. Your response can influence what they ask for — and what they ask for is what the evaluation criteria will score on.</p>
+<h2>What to Do the Moment One Posts</h2>
+<p><strong>Step 1 — Respond within 24 hours.</strong> Not because they will disqualify late responses. Because being first plants your name in the CO's mind before anyone else does.</p>
+<p><strong>Step 2 — Do not just say you can do it.</strong> Write two paragraphs about your specific relevant experience. Use their language. Mirror their terminology back to them. Show you understand the problem, not just that you have capabilities.</p>
+<p><strong>Step 3 — Ask one intelligent question.</strong> Not a generic question. A question that demonstrates you have done this type of work before. Something like: "Will the PWS require on-site presence at the facility or will remote monitoring be acceptable for the SCADA integration work?" That question tells the CO you know what SCADA integration actually involves on federal facilities.</p>
+<p><strong>Step 4 — Request a pre-solicitation meeting.</strong> Most COs will grant a brief call before the RFP drops. This is where relationships are built. This is where you find out what actually matters to them — not what the document says, what keeps them up at night.</p>
+<h2>How Marcus Handles Sources Sought</h2>
+<p>In GovScout Pro, Marcus monitors your saved NAICS codes and fires an alert the moment a Sources Sought posts. He drafts your response automatically — specific to that agency and contract type, written in the CO's language. He also writes the outreach message for the pre-solicitation call request.</p>
+<p>If you are using GovScout Pro today, go to GovCon School and ask Marcus: "Draft a Sources Sought response for [paste the notice title and description]." He will build it for you based on your Business Profile.</p>
+<h2>The Bottom Line</h2>
+<p>The contractors who win federal contracts consistently are not better at writing proposals. They are better at positioning before the proposal exists. Sources Sought is your window. Every one you respond to builds your name recognition with that agency. Every one you skip is a contract you will lose to someone who showed up when you did not.</p>`
+  },
+  '8a-solesource': {
+    tag:'CERTIFICATION', date:'APR 25, 2026',
+    title:"The 8(a) Sole-Source Secret Most Companies Never Use",
+    body:`<h2>What Sole-Source Authority Actually Means</h2>
+<p>If your business is enrolled in the SBA 8(a) Business Development Program, you have the legal authority to receive federal contracts up to <strong>$4.5 million</strong> without any competition. No bidding. No proposals against other companies. The agency finds you, determines you can do the work, and awards you the contract.</p>
+<p>This is not a loophole. This is the law. FAR 19.805 and the Small Business Act explicitly authorize direct awards to 8(a) firms below the sole-source threshold.</p>
+<div class="callout"><strong>Here is the problem:</strong> The majority of 8(a) companies have had this authority for years and have never once used it. Not because they are ineligible. Because nobody told them how to find sole-source opportunities — and because the contracting officers who can use this authority are not calling them.</div>
+<h2>Why Most 8(a) Companies Miss This</h2>
+<p>The agency does not post sole-source 8(a) opportunities on SAM.gov the same way competitive solicitations are posted. By the time an opportunity shows up as a sole-source justification, the award is already happening.</p>
+<p>The way 8(a) sole-source contracts actually get awarded is through relationships. A program office has a need. A contracting officer has an existing relationship with an 8(a) firm they trust. They call them. They write the requirement around what that firm can do. They award.</p>
+<p>You cannot compete for that call if you are not already in the contracting officer's mind.</p>
+<h2>How to Get Into the Pipeline</h2>
+<p><strong>Register in the DSBS.</strong> The Dynamic Small Business Search database at SBA.gov is how contracting officers find 8(a) companies. Treat your DSBS profile like a marketing page. Every keyword they search should be in your profile. Optimize it the same way you would optimize a website for search.</p>
+<p><strong>Contact the OSDBU at every target agency.</strong> Every major federal agency has an Office of Small and Disadvantaged Business Utilization. This office exists specifically to match agencies with 8(a) contractors. Call them. Introduce your company. Ask what upcoming requirements they have in your NAICS codes. Ask when the best time to schedule a capabilities presentation is.</p>
+<p><strong>Build the relationship before the requirement exists.</strong> The agencies that award sole-source 8(a) contracts to the same companies year after year do it because those companies made themselves known, proved they could deliver, and stayed in contact. That process starts with a phone call, not a proposal.</p>
+<h2>What Marcus Does With This</h2>
+<p>When you tell Marcus your business has an 8(a) certification, he shifts his entire strategy. He focuses on sole-source opportunity identification, OSDBU outreach scripts, and agency targeting based on who spends in your NAICS under the sole-source threshold. He writes your DSBS optimization language and your capabilities briefing.</p>
+<p>The 8(a) program is the single most powerful certification in federal contracting. Most companies are sitting on a tool they have never picked up. Pick it up.</p>`
+  },
+  'reading-documents': {
+    tag:'DOCUMENTS', date:'APR 22, 2026',
+    title:"How to Read a Federal Solicitation in 30 Minutes",
+    body:`<h2>The Framework</h2>
+<p>A federal solicitation can run 200 pages. Most contractors either read every word (takes all day) or skim it and miss the thing that kills their bid. Here is the 30-minute framework that experienced contracting officers use to get everything they need from any solicitation.</p>
+<h2>Minutes 1–5: The Cover Page and Section L</h2>
+<p>Read the cover page. Note the solicitation number, contracting officer name, response deadline, and contract type. Then go directly to Section L — Instructions to Offerors. This tells you exactly what to submit and in what format. Page limits. Font requirements. Number of copies. Certification attachments. Miss any of these and you are eliminated in compliance review before anyone reads a word of your proposal.</p>
+<div class="callout"><strong>Marcus's first rule:</strong> 70% of proposals on competitive federal contracts are eliminated in the compliance review before the evaluation board sees them. Section L is where your bid lives or dies.</div>
+<h2>Minutes 5–10: Section M — Evaluation Criteria</h2>
+<p>Section M tells you how they score. Is this LPTA (Lowest Price Technically Acceptable) or Best Value? What are the evaluation factors and how are they weighted? Technical approach vs past performance vs price — what matters most to this specific evaluator?</p>
+<p>If it is LPTA: stop writing essays. Hit every technical requirement, be compliant, and come in below the independent government cost estimate. Nothing else matters.</p>
+<p>If it is Best Value: every section of your proposal must map directly to an evaluation factor. Sections that do not address a stated evaluation criterion earn zero points regardless of how well written they are.</p>
+<h2>Minutes 10–18: The PWS or SOW</h2>
+<p>The Performance Work Statement or Statement of Work is what they actually need done. Read it looking for three things: what does someone actually do on this contract day to day, what is the agency afraid of (what failure are they trying to prevent), and are there any requirements that are suspiciously specific to one company's capabilities.</p>
+<p>That last one is the incumbent signal. If the PWS says the contractor must have experience with a specific proprietary system, or requires certifications that only one company in the region holds, the contract may already be wired.</p>
+<h2>Minutes 18–25: FAR and DFARS Clauses</h2>
+<p>You do not need to read every clause. Look for these specifically: FAR 52.219-14 (subcontracting limitations — the 50% rule for set-asides), any security clearance requirements, bonding requirements if construction, and the small business size standard for your NAICS code. These are the four things most likely to disqualify a small business that otherwise could have won.</p>
+<h2>Minutes 25–30: Past Performance Requirements</h2>
+<p>How many past performance references do they require? What is the minimum contract value they will accept as relevant? How recent must the experience be? This tells you whether you have a past performance problem before you spend time writing the rest of the proposal.</p>
+<h2>Upload It to Marcus</h2>
+<p>GovScout Pro's Document Intel does all of this automatically. Upload the full solicitation and Marcus produces the compliance checklist, evaluation criteria breakdown, PWS plain-English summary, FAR clause analysis, and incumbent signal assessment in minutes. The 30-minute framework is built in.</p>`
+  },
+  'trojan-sub': {
+    tag:'SUBCONTRACTING', date:'APR 18, 2026',
+    title:"The Trojan Sub Strategy — How to Become a Prime by First Being a Sub",
+    body:`<h2>Why This Is the Fastest Path to Priming</h2>
+<p>The single biggest barrier to winning federal contracts as a new small business is past performance. Agencies want to see that you have done this kind of work for the government before. But you cannot get past performance without winning a contract, and you cannot win a contract without past performance. It is a closed loop.</p>
+<p>The Trojan Sub strategy breaks that loop.</p>
+<h2>How It Works</h2>
+<p><strong>Step 1 — Find the prime who is winning in your space.</strong> Go to USASpending.gov. Search for contracts awarded in your NAICS code over the last three years. Find the company that keeps winning. That is your target.</p>
+<p><strong>Step 2 — Approach them as a sub, not a competitor.</strong> Call their business development contact. Do not pitch them as a future competitor. Pitch them as someone who makes them more competitive. If they are a large business competing against small businesses, you make them competitive for set-aside contracts. If they already have set-asides, you bring specialized technical skills they need. Frame it entirely around what you can do for them.</p>
+<div class="callout"><strong>The key message:</strong> "I am not trying to take your contracts. I am trying to help you win more of them — specifically the ones you are losing to SDVOSB competitors because you do not have a service-disabled veteran on your team."</div>
+<p><strong>Step 3 — Perform exceptionally and document everything.</strong> Every deliverable you complete as a sub is past performance. Get a CPARS-equivalent reference letter from the prime after every project. Quantify your outcomes. Document the contract number, the agency, the period of performance, and your specific scope. This is your past performance library building in real time.</p>
+<p><strong>Step 4 — Learn the agency relationship.</strong> As a sub you are on-site, you are in meetings, you are talking to the people at the agency. You are learning what they liked about the prime and what frustrated them. You are building your own relationship with the program office that awarded the contract. That relationship is worth more than any proposal you could write.</p>
+<p><strong>Step 5 — Come back as prime when the contract recompetes.</strong> The incumbent's contract ends in three to five years. You have been on-site. You know the agency. You have the past performance. Now you compete as prime — and the incumbent does not have a set-aside advantage against you.</p>
+<h2>What Marcus Identifies on Every Contract</h2>
+<p>GovScout Pro's Sub &amp; Teaming Finder automatically identifies the Trojan Sub opportunity on every contract card. It tells you which prime contractors have been winning similar contracts in your region, what they lack that you can bring, and exactly what to say when you call them. The strategy is built in.</p>`
+  },
+  'awardable-pricing': {
+    tag:'PRICING', date:'APR 15, 2026',
+    title:"Awardable Pricing — The Number That Wins Isn't the Lowest One",
+    body:`<h2>The Myth of Low-Ball Bidding</h2>
+<p>Most new federal contractors think winning means bidding the lowest price. It does not. Bidding too low raises a red flag that immediately signals one of three things to the evaluation board: you do not understand the scope, you will cut corners to make the margin work, or you will be back with a modification request after award to make up what you underbid.</p>
+<p>The government has seen all three of those scenarios hundreds of times. Low-ball bids get scrutinized, not rewarded.</p>
+<div class="callout"><strong>Awardable pricing</strong> is the price in the range where competent, experienced contractors submit. Not the cheapest. Not the most expensive. The range where the evaluation board believes the work can actually be done at a reasonable margin.</div>
+<h2>How to Find the Awardable Range</h2>
+<p><strong>Pull the Independent Government Cost Estimate range.</strong> Agencies publish IGCE data in some solicitations. When they do not, you can reverse-engineer it from historical awards on similar contracts at USASpending.gov.</p>
+<p><strong>Search USASpending.gov for similar contracts.</strong> Find contracts in the same NAICS code, same agency, similar scope, awarded in the last three years. What did they award at? That is your baseline. The awardable range is typically within 15% of the median award value for similar contracts.</p>
+<p><strong>Price above the median if you have differentiators.</strong> If your SDVOSB set-aside eliminates most competition, if your past performance is strong, if your technical approach is clearly superior — price slightly above median. You have less competition and more margin to work with.</p>
+<h2>CLIN Structure Matters as Much as the Number</h2>
+<p>A CLIN (Contract Line Item Number) structure tells the evaluation board how you think about the work. Break the work down the same way the PWS breaks it down. If the agency organized the work into five task areas in the Statement of Work, your pricing should have five CLINs that map directly to those task areas.</p>
+<p>Agencies that do Best Value evaluations often use the CLIN structure to assess whether you understand the scope. A pricing structure that matches how they organized the work signals that you read and understood the requirement. One that does not signals that you may not have.</p>
+<h2>The One Mistake That Eliminates Most Bidders</h2>
+<p>Pricing below the small business size standard threshold to avoid competition — and then being ineligible for award because you misread the size standard for the NAICS code. Check your size standard. Check it again. The SBA table of small business size standards changes. What applied to your NAICS code last year may not apply today.</p>
+<p>Marcus checks this automatically when he analyzes a contract. It is in the compliance checklist every time.</p>`
+  },
+  'sdvosb-va': {
+    tag:'SDVOSB', date:'APR 10, 2026',
+    title:"The VA Spent $28 Billion with SDVOSBs Last Year — Here's How to Get Your Share",
+    body:`<h2>The Legal Mandate You Can Enforce</h2>
+<p>The Veterans Benefits, Health Care, and Information Technology Act mandates that the Department of Veterans Affairs give SDVOSB companies the first opportunity to bid on contracts when at least two qualified SDVOSBs can perform the work at a fair and reasonable price.</p>
+<p>This is not a preference. It is a legal requirement. And it has teeth — SDVOSBs have successfully protested VA contracts to the GAO when the VA awarded to non-SDVOSBs on work where two or more SDVOSBs could have performed.</p>
+<div class="callout"><strong>What this means in practice:</strong> If you are an SDVOSB and the VA is buying something in your NAICS code, you have a legal right to compete before anyone else. Most SDVOSBs do not know this — and the VA has no incentive to remind them.</div>
+<h2>Where VA SDVOSBs Are Concentrated</h2>
+<p>The VA's highest SDVOSB spending is in IT services, construction and facilities, medical equipment, professional services, and logistics. The Veterans Health Administration and Veterans Benefits Administration are the two largest buyers.</p>
+<p>By region, the largest VA contracting hubs are the VA Central Office in Washington DC, the Veterans Integrated Service Networks (VISNs), and individual VA Medical Centers. Each VAMC has its own contracting office and its own contracting officers. Building a relationship with the contracting officer at your regional VAMC is often more valuable than pursuing national contracts you have no relationship to support.</p>
+<h2>The Three Moves Most SDVOSBs Never Make</h2>
+<p><strong>Verify your status in VetCert.</strong> The SBA's Veteran Small Business Certification program is the mandatory verification system for VA SDVOSB set-asides. If you are not verified in VetCert, you cannot compete for VA SDVOSB set-asides regardless of your self-certification. This is the most common reason qualified SDVOSBs get rejected.</p>
+<p><strong>Contact the local VAMC Contracting Officer.</strong> Find the procurement page for your regional VA Medical Center. Look up the contracting officer for facilities, IT, or whatever your specialty is. Call them. Introduce your company. Ask what upcoming requirements they have. Ask when they hold small business outreach events. Most COs at VMCs will take a 20-minute call from a qualified SDVOSB — they need you to hit their mandated goals.</p>
+<p><strong>Respond to every VA Sources Sought in your NAICS.</strong> The VA posts Sources Sought notices before competitive SDVOSB solicitations to confirm at least two qualified companies exist. Your response gets you on the contracting officer's radar before the solicitation drops. This is how the same SDVOSBs keep getting invited to compete.</p>
+<h2>How Marcus Targets VA Contracts</h2>
+<p>When your Business Profile shows SDVOSB certification, Marcus filters contract results to prioritize VA SDVOSB set-asides. He identifies the specific VA program offices that spend in your NAICS, the VISN regions with the highest SDVOSB activity, and the contracting officers to contact first. He writes the outreach email. The 72-hour attack protocol for VA contracts is built in.</p>`
+  },
+  'why-i-built-this': {
+    tag:'OUR STORY', date:'MAR 15, 2026',
+    title:"Why I Built GovScout Pro — A Service-Disabled Veteran's Honest Account",
+    body:`<h2>What I Knew and What I Did Not Know</h2>
+<p>I spent over 20 years working in the field. SCADA systems, substation construction, telecom infrastructure, offshore vessel control systems. I managed crews of 30 people. I delivered complex multi-million dollar projects under pressure, on time, on budget. I knew how to do the work.</p>
+<p>What I did not know was how to win the contracts that funded that work. That knowledge belonged to the companies I worked for — the big contractors with full business development teams, dedicated proposal writers, and consultants who charged $500 an hour to tell you what a government document meant.</p>
+<p>When I started my own SDVOSB and went to SAM.gov for the first time I felt like I was trying to read a legal filing in a foreign language. FAR clauses, PWS documents, evaluation factors, CLIN structures — no one had ever explained any of it to me. I had 20 years of directly relevant experience and I had no idea how to communicate it in a way the government could score.</p>
+<h2>What I Watched Happen</h2>
+<p>I watched qualified small businesses lose contracts they deserved to win. Not because their work was inferior. Because they did not know that 80% of contracts are decided before the RFP drops. Because they submitted proposals that got eliminated in compliance review for missing a page limit requirement. Because they priced below the range that signals competence. Because they did not know the incumbent had been on that contract for six years and the solicitation language was written around the incumbent's specific capabilities.</p>
+<p>I watched veterans with legitimate SDVOSB certifications compete for VA contracts they had a legal right to win — and lose because they did not know how to use their certification correctly, had not verified in VetCert, or had never contacted the contracting officer before the solicitation dropped.</p>
+<div class="callout"><strong>The playing field is not level.</strong> Large contractors have inside knowledge that small businesses simply do not have access to. That gap is not about capability. It is about information. And information is something you can fix.</div>
+<h2>What I Built and Why</h2>
+<p>I built GovScout Pro because I needed it. A tool that reads the documents and tells me what they actually mean. That pre-screens contracts so I stop wasting time on opportunities I cannot win. That tells me when a contract is wired before I spend 40 hours writing a proposal. That builds the bid package so I can focus on the relationship and the strategy instead of formatting a cover letter at midnight.</p>
+<p>Then I realized I was not the only one who needed it. Every small business pursuing federal contracts is hitting the same wall. The consulting firm in Atlanta. The women-owned design company in Phoenix. The minority-owned training organization in Chicago. The electrical contractor in Nevada with a HUBZone certification they have never fully used. They all need a Marcus. None of them can afford the real one.</p>
+<p>Version 5.0 is the version I always wanted to build. Marcus works for any small business now. You tell him what you do. He figures out how to win.</p>
+<p>If you are reading this and you are a small business trying to figure out federal contracting — I built this for you. Not for the big contractors. For you.</p>
+<p>Steve Harriman<br>Service-Disabled Veteran · SDVOSB Certified<br>Founder, GovScout Pro</p>`
+  },
+
+  'veteran-contracts': {
+    tag: 'SDVOSB', date: 'MAY 1, 2026',
+    title: "How to Find Government Contracts as a Veteran-Owned Small Business",
+    body: `
+<h2>You Have the Certification. So Why Isn't the Work Coming?</h2>
+<p>Service-Disabled Veteran-Owned Small Business certification is one of the most powerful advantages in federal contracting. The VA is legally mandated to give SDVOSBs first right of refusal on contracts under the Veterans First Contracting Program. The Department of Defense, GSA, and dozens of civilian agencies have SDVOSB set-aside goals built into their procurement plans.</p>
+<p>And yet most SDVOSBs spend their first two years frustrated — certified, registered on SAM.gov, and receiving zero contracts.</p>
+<p>The problem is not the certification. The problem is how most veteran-owned businesses approach the search. They go to SAM.gov, type in their service, and stare at a wall of opportunities they cannot decode, cannot qualify, and have no relationship to win.</p>
+<p>This article describes the six-step process Marcus uses to find real SDVOSB opportunities — not the ones that are already wired for someone else.</p>
+
+<h2>Step 1: Know Your Set-Aside Codes Before You Search</h2>
+<p>SAM.gov uses specific set-aside codes to flag contracts reserved for particular business categories. For veteran-owned businesses, the two codes you care about are SDVOSB (Service-Disabled Veteran-Owned Small Business) and VOSB (Veteran-Owned Small Business).</p>
+<p>When you search without filtering by these codes, you are looking at the full federal marketplace — most of which you are not eligible to win on a set-aside basis. Filter first. The universe of opportunities shrinks dramatically, but the ones that remain are actually accessible to you.</p>
+<p>Within the VA system, also look for contracts posted under the Veterans First Contracting Program. These are the highest-value set-asides because the VA is required by law to award to SDVOSBs before opening competition to the broader market.</p>
+
+<h2>Step 2: Work Backward From Your NAICS Code</h2>
+<p>Every federal contract is assigned a NAICS code — a six-digit number that describes the type of work being procured. Before you search for opportunities, you need to know which NAICS codes describe what your business actually does.</p>
+<p>Most small businesses pick one code and search only that. This is a mistake. Federal agencies frequently miscategorize contracts, and related NAICS codes often cover work you are equally qualified to perform. Marcus typically identifies three to six relevant NAICS codes for each client before beginning a contract search.</p>
+<p>Once you have your NAICS codes, use them to build a saved search in SAM.gov. Set the search to email you when new opportunities matching your codes are posted. This is your early warning system — the difference between being first to a solicitation and finding it three days before proposals are due.</p>
+
+<h2>Step 3: Read Sources Sought Notices Before They Become RFPs</h2>
+<p>A Sources Sought notice is not a solicitation. It is a market research tool agencies use to determine whether enough qualified small businesses exist to justify a set-aside. When an agency posts a Sources Sought, they are asking: is there a universe of capable vendors in this category?</p>
+<p>Most small businesses ignore Sources Sought notices because there is no contract to win from them directly. This is exactly backwards. Responding to a Sources Sought is how you get on the agency's radar before the competition starts. It is how you start a relationship with the Contracting Officer. It is how you find out whether a future contract will be set aside for SDVOSBs.</p>
+<p>When you respond to a Sources Sought, keep it professional and brief. State your SDVOSB status, your NAICS code, your relevant experience, and your capability to perform the work. Do not send a brochure. Do not send a proposal. Answer the questions they asked.</p>
+
+<h2>Step 4: Look for Expiring Contracts</h2>
+<p>Every existing federal contract has an end date. When a contract expires, the agency needs to either re-compete it or exercise an option. Re-competes are among the most predictable opportunities in federal contracting — you know the work exists, you know the agency funds it, and you know the timeline.</p>
+<p>The USASpending.gov database lets you search active contracts by agency, NAICS code, and expiration date. Find contracts in your category that expire in the next twelve to twenty-four months. That is your target list. Those are the agencies you should be building relationships with right now — before the solicitation drops.</p>
+<p>The incumbent contractor has an advantage in a re-compete. But incumbents also get complacent, raise their prices, and sometimes stop performing. If you can document that you will do the work better and at a competitive price, re-competes are very winnable — especially when the agency is required to consider SDVOSB offerors first.</p>
+
+<h2>Step 5: Use GovScout and Marcus to Pre-Screen Opportunities</h2>
+<p>This is where the search stops being manual. Marcus — the AI government contracting consultant built into GovScout — can evaluate any opportunity against your specific business profile and give you a plain-language assessment of whether it is worth pursuing.</p>
+<p>When you find a solicitation you are considering, describe it to Marcus. Tell him your certifications, your NAICS codes, your past performance, your team size, and what the opportunity is asking for. Marcus will evaluate the scope match, flag any compliance requirements you need to watch, assess the competitive landscape, and give you a direct recommendation: bid or walk away.</p>
+<p>This is the function that a $300-per-hour government contracting consultant performs for large companies. GovScout makes it available for free to every veteran-owned small business with an internet connection.</p>
+
+<h2>Step 6: Build the Relationship Before the Solicitation Drops</h2>
+<p>Federal contracting is a relationship business. This is the step that no tutorial covers — because it cannot be automated and it takes time.</p>
+<p>Once you identify a target agency and a target program office, the goal is to make a legitimate introduction before any active procurement begins. Attend industry days. Respond to Sources Sought notices. Request a capability briefing with the small business office. Get your name in the file before the clock starts.</p>
+<p>When the solicitation drops, you want the Contracting Officer to already know who you are. You want your past performance on file. You want the evaluators to have seen your capability statement. None of that happens if your first contact with an agency is a proposal submission.</p>
+
+<h2>The Bottom Line</h2>
+<p>SDVOSB certification is a tool, not a guarantee. The veteran-owned businesses that win federal contracts are the ones who treat contracting as a pipeline to be built, not a lottery to be entered. They identify targets early, respond to market research, build relationships before solicitations open, and use every resource available — including Marcus — to make smart bid decisions.</p>
+<p>If you are an SDVOSB and you are not winning contracts yet, start with step one. Know your set-aside codes. Search smarter. And respond to the next Sources Sought you find — even if there is nothing to win from it today.</p>
+<p><em>GovScout is free for every small business. Marcus is available 24 hours a day. There is no reason to navigate this alone.</em></p>
+`
+  },
+
+  'samgov-tips': {
+    tag: 'STRATEGY', date: 'MAY 1, 2026',
+    title: "SAM.gov Search Tips for Small Business: What the Tutorials Don't Tell You",
+    body: `
+<h2>The Tutorial Will Teach You to Log In. It Won't Teach You to Win.</h2>
+<p>SAM.gov is the official federal contracting opportunity database. It is where agencies post solicitations, Sources Sought notices, pre-solicitation notices, and contract awards. It is also one of the most frustrating tools in federal contracting — not because it is broken, but because most small businesses use it wrong.</p>
+<p>The official tutorials teach you how to register, how to navigate the interface, and how to download attachments. They do not teach you how to find contracts you can actually win, how to read the signals that tell you whether a competition is real, or how to use the database the way experienced contractors do.</p>
+<p>Here are six techniques that separate the contractors getting awards from the ones downloading PDFs they will never bid on.</p>
+
+<h2>Tip 1: Start With Your NAICS Code, Not a Keyword Search</h2>
+<p>The default instinct is to search for your service by keyword — type "IT support" or "janitorial services" and see what comes up. This produces a list that is too broad to be useful. You will find contracts in states you do not operate in, at dollar thresholds you cannot compete at, with requirements you do not meet.</p>
+<p>Start with your NAICS code instead. Filter by NAICS first, then layer in geographic filters, dollar thresholds, and set-aside codes. The results will be smaller — and significantly more relevant.</p>
+<p>If you are not sure which NAICS code applies to your business, the Census Bureau's NAICS search tool can help you identify the right six-digit code. Most businesses have one primary code and two or three secondary codes that also apply. Search all of them.</p>
+
+<h2>Tip 2: Use Set-Aside Filters Before Anything Else</h2>
+<p>If you are a small business, a woman-owned business, an 8(a) certified company, an SDVOSB, or a HUBZone firm — filter for your set-aside category before you look at anything else. The majority of federal contracting dollars flow through the full-and-open market, which means large businesses can compete. Set-aside contracts are reserved for you.</p>
+<p>Do not scroll through full-and-open opportunities and wonder why you cannot compete. Find the lane you belong in and work that lane first. You can always expand your search later, but most small businesses in their first three years should be focused almost entirely on set-aside work.</p>
+<p>SAM.gov's set-aside filters are in the Advanced Search panel under "Set-Aside Type." Use them every time.</p>
+
+<h2>Tip 3: Read Section M Before You Read Section L</h2>
+<p>When you download a solicitation, most contractors go straight to Section L — the instructions for offerors. They want to know what to submit. This is backwards.</p>
+<p>Section M is the evaluation criteria. It tells you exactly how your proposal will be scored. Before you spend a single hour writing, read Section M and answer one question: does the way they are evaluating this contract match what I am good at?</p>
+<p>If Section M weights past performance heavily and you have limited federal experience, that is a red flag. If it emphasizes technical approach and you have strong methodologies to present, that is a green light. Section M tells you whether you can win — Section L tells you how to format the response.</p>
+<p>Most small businesses write proposals without ever truly internalizing Section M. That is why most proposals lose.</p>
+
+<h2>Tip 4: Track Amendments as a Signal</h2>
+<p>When an agency amends a solicitation, they are usually responding to questions from industry. Reading the amendment and the Q&A document that accompanies it tells you several things: what the market was confused about, what the agency clarified, and whether the requirements changed in ways that affect your bid.</p>
+<p>Amendments also tell you something about the competition. If you see a question that reveals specific technical knowledge — a very detailed question about a particular requirement — someone with deep experience in that area is probably in the running. That is useful intelligence.</p>
+<p>More importantly: if an amendment significantly changes the scope of work and you had already decided to bid, re-evaluate. Amended solicitations sometimes shift the advantage to a different type of contractor. Do not bid a contract that changed into something you cannot win.</p>
+
+<h2>Tip 5: Use the Q&A Period Strategically</h2>
+<p>Every solicitation has a question-and-answer period before proposals are due. Most small businesses either do not submit questions or submit vague clarifying questions that do not affect their bid.</p>
+<p>The Q&A period is a strategic tool. A well-crafted question can clarify a requirement in a way that works in your favor — or reveal a requirement that would disqualify you before you spend forty hours writing a proposal. It can also signal to the Contracting Officer that a capable vendor is paying close attention.</p>
+<p>Keep your questions specific, professional, and tied directly to the solicitation language. Do not ask questions whose answers are already in the solicitation — that signals you did not read it carefully. Ask questions that genuinely affect how you would structure your approach or price your bid.</p>
+
+<h2>Tip 6: Know the Difference Between a Synopsis and a Full Solicitation</h2>
+<p>Not everything posted on SAM.gov is a full solicitation. A synopsis is a notice of intent to solicit — it tells you a contract is coming but does not yet contain the full requirements. A pre-solicitation notice tells you an agency is planning a future procurement. A Sources Sought notice is market research, not a solicitation at all.</p>
+<p>Many small businesses download a synopsis, spend hours trying to find the full requirements, and conclude that the government is withholding information. Usually, the full solicitation has not been posted yet. Set up a saved search with email alerts so you know when the full document drops — and respond to the Sources Sought in the meantime to get on the agency's radar.</p>
+<p>Understanding the lifecycle of a procurement — from market research to synopsis to full RFP to award — is the foundation of working SAM.gov effectively. Most small business tutorials skip this entirely.</p>
+
+<h2>The Bigger Picture</h2>
+<p>SAM.gov is a tool. Like any tool, it rewards the people who learn to use it correctly. The techniques above are not secrets — they are the standard practices of experienced government contractors. They are just rarely taught to the small businesses entering the market for the first time.</p>
+<p>GovScout's Marcus can walk you through any of these techniques applied to your specific situation. Tell him what you found on SAM.gov and he will help you decide what it means and whether it is worth pursuing.</p>
+<p><em>Free. Available now. No consulting fee required.</em></p>
+`
+  },
+
+  'small-biz-win': {
+    tag: 'STRATEGY', date: 'MAY 13, 2026',
+    title: "How Small Businesses Can Win Federal Contracts (And Actually Get Paid)",
+    body: `
+<svg class="a-hero" viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5a623" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#4ade80" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="180" rx="12" fill="url(#hg1)" stroke="rgba(245,166,35,0.2)" stroke-width="1"/>
+  <!-- Trophy large -->
+  <path d="M220,35 L280,35 L273,105 Q263,122 250,125 Q237,122 227,105 Z" fill="none" stroke="#f5a623" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M220,52 Q192,52 192,76 Q192,100 220,94" fill="none" stroke="#f5a623" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M280,52 Q308,52 308,76 Q308,100 280,94" fill="none" stroke="#f5a623" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="235" y1="125" x2="265" y2="125" stroke="#f5a623" stroke-width="3"/>
+  <rect x="224" y="129" width="52" height="10" rx="3" fill="#f5a623" opacity="0.8"/>
+  <polygon points="250,52 254,65 268,65 258,73 261,86 250,78 239,86 242,73 232,65 246,65" fill="#f5a623" opacity="0.5"/>
+  <!-- Dollar stack right -->
+  <rect x="380" y="62" width="80" height="48" rx="4" fill="none" stroke="#4ade80" stroke-width="2"/>
+  <rect x="376" y="56" width="80" height="48" rx="4" fill="none" stroke="#4ade80" stroke-width="1.5" opacity="0.6"/>
+  <rect x="372" y="50" width="80" height="48" rx="4" fill="rgba(74,222,128,0.08)" stroke="#4ade80" stroke-width="2"/>
+  <text x="412" y="80" text-anchor="middle" font-size="28" fill="#4ade80" font-family="monospace" font-weight="bold">$</text>
+  <line x1="382" y1="90" x2="442" y2="90" stroke="#4ade80" stroke-width="1" opacity="0.5"/>
+  <!-- Check badge -->
+  <circle cx="520" cy="75" r="36" fill="rgba(74,222,128,0.08)" stroke="#4ade80" stroke-width="2"/>
+  <polyline points="505,75 517,88 537,60" fill="none" stroke="#4ade80" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Dots grid left -->
+  <circle cx="80" cy="50" r="2" fill="#f5a623" opacity="0.2"/>
+  <circle cx="100" cy="50" r="2" fill="#f5a623" opacity="0.2"/>
+  <circle cx="120" cy="50" r="2" fill="#f5a623" opacity="0.2"/>
+  <circle cx="80" cy="70" r="2" fill="#f5a623" opacity="0.2"/>
+  <circle cx="100" cy="70" r="2" fill="#f5a623" opacity="0.3"/>
+  <circle cx="120" cy="70" r="2" fill="#f5a623" opacity="0.2"/>
+  <circle cx="80" cy="90" r="2" fill="#f5a623" opacity="0.2"/>
+  <circle cx="100" cy="90" r="2" fill="#f5a623" opacity="0.2"/>
+  <circle cx="120" cy="90" r="2" fill="#f5a623" opacity="0.2"/>
+  <circle cx="80" cy="110" r="2" fill="#f5a623" opacity="0.15"/>
+  <circle cx="100" cy="110" r="2" fill="#f5a623" opacity="0.15"/>
+  <circle cx="120" cy="110" r="2" fill="#f5a623" opacity="0.15"/>
+  <!-- Label -->
+  <text x="350" y="162" text-anchor="middle" font-size="10" fill="rgba(245,166,35,0.5)" font-family="monospace" letter-spacing="3">WIN · INVOICE RIGHT · GET PAID</text>
+</svg>
+<h2>The Two Problems Nobody Warns You About</h2>
+<p>The federal government is the largest buyer of goods and services in the world — over $700 billion a year in contracts. You have heard that statistic. What you have probably not heard is that there are two entirely separate problems every small business faces in federal contracting.</p>
+<p>The first problem is winning. The second problem is getting paid. Most small business guides stop at the first one. This is a mistake, because winning a contract you cannot cash-flow is not a victory — it is a trap.</p>
+<div class="callout"><strong>The real goal:</strong> Win contracts that fit your capacity, set up your billing correctly from day one, and make sure the money hits your account before your payroll does not.</div>
+<h2>Step 1 — Get Your House in Order Before You Bid Anything</h2>
+<p>Before you bid a single federal contract, you need four things in place. Not three of them. All four.</p>
+<ul>
+<li><strong>Active SAM.gov registration.</strong> This takes up to two weeks and is the non-negotiable baseline. Without it, you cannot be awarded anything and your bids are disqualified.</li>
+<li><strong>A DUNS/UEI number.</strong> This is your federal business identifier. It is issued through SAM.gov and links all your federal activity together.</li>
+<li><strong>Correct NAICS codes.</strong> These are the industry classification codes that determine which contracts you are eligible to compete for. Get them right. Wrong NAICS codes mean you are invisible to the contracting officers who would otherwise find you.</li>
+<li><strong>A capability statement.</strong> A two-page document that summarizes what your business does, who you have done it for, and your relevant certifications. Contracting officers ask for these at industry days, pre-solicitation meetings, and networking events. Have one ready before you need it.</li>
+</ul>
+<h2>Step 2 — Find the Right Contract, Not Just Any Contract</h2>
+<p>SAM.gov lists tens of thousands of active opportunities at any given time. The mistake most small businesses make is treating this as a browsing exercise — scrolling through opportunities and bidding on anything that looks related to their business.</p>
+<p>The contractors who win consistently have a defined target: a specific agency, a specific contract type, a specific dollar range. They know their set-aside category. They filter for it every time.</p>
+<p>Your first federal contract should be a small contract. Under $250,000 if possible. Micro-purchase thresholds, simplified acquisition procedures, and small business set-asides all reduce the competition and reduce the administrative burden. Win something small first. Build your past performance. Then move up.</p>
+<h2>Step 3 — Understand How Federal Payments Actually Work</h2>
+<p>Here is what nobody tells you: the federal government is legally required to pay within 30 days of a proper invoice. The Prompt Payment Act mandates this. If they pay late, they owe you interest.</p>
+<p>The problem is not the law. The problem is <strong>the proper invoice requirement.</strong> Federal agencies have very specific invoicing requirements. Wrong format. Wrong submission portal. Wrong billing period. Any of these can result in your invoice being returned unpaid — and the 30-day clock does not start until a proper invoice is accepted.</p>
+<ul>
+<li>Read your contract's invoicing instructions in Section G before you perform a single day of work.</li>
+<li>Know which system you submit invoices through — IPP, Wide Area WorkFlow, or agency-specific systems.</li>
+<li>Submit your first invoice on day one of the billing period, not at the end of the month.</li>
+<li>Track your invoice status weekly. A rejected invoice that sits unnoticed for two weeks is two weeks of cash flow you will never recover.</li>
+</ul>
+<h2>Step 4 — Plan Your Cash Flow for the Gap</h2>
+<p>Even with perfect invoicing, there will be a gap. From contract award to first invoice acceptance to payment, you are typically looking at 60 to 90 days of gap. You need to be able to fund your operations — labor, materials, overhead — during that window without the government's money.</p>
+<p>If you cannot bridge that gap, look at two options before you take on a federal contract: SBA surety bond programs and government contract financing. There are lenders who specialize in federal contractor receivables financing. The interest rate is real but so is the cost of failing to perform because you ran out of cash.</p>
+<h2>Step 5 — Deliver and Document</h2>
+<p>The single most valuable asset in federal contracting is past performance. Your first contract is not just revenue — it is the foundation of every future proposal you will write. Deliver exactly what the contract says. Not more. Not differently. Exactly what it says.</p>
+<p>And document everything. Keep your Contracting Officer's Representative informed weekly. Respond to every email within 24 hours. When the contract ends, ask the COR to complete your performance evaluation promptly. That evaluation is your credential for the next bid.</p>
+<h2>What Marcus Does With This</h2>
+<p>When you open GovScout and tell Marcus what your business does, he runs a full qualification analysis: which set-asides you are eligible for, which agencies spend in your NAICS codes, which contract vehicles are accepting new vendors. He also reviews SAM.gov opportunities against your profile and flags the ones worth your time.</p>
+<p>The goal is not to bid on everything. The goal is to bid on the right things and win them. Start there.</p>
+`
+  },
+
+  'prime-contractor': {
+    tag: 'CONTRACTING', date: 'MAY 13, 2026',
+    title: "How to Become a Federal Prime Contractor (The Real Path Nobody Talks About)",
+    body: `
+<svg class="a-hero" viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="180" rx="12" fill="url(#hg2)" stroke="rgba(56,189,248,0.2)" stroke-width="1"/>
+  <!-- Staircase path -->
+  <path d="M80,148 L80,120 L160,120 L160,92 L240,92 L240,64 L320,64 L320,36 L420,36" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Step fills -->
+  <rect x="80" y="120" width="80" height="28" fill="rgba(56,189,248,0.08)"/>
+  <rect x="160" y="92" width="80" height="28" fill="rgba(56,189,248,0.08)"/>
+  <rect x="240" y="64" width="80" height="28" fill="rgba(56,189,248,0.08)"/>
+  <rect x="320" y="36" width="80" height="28" fill="rgba(56,189,248,0.1)"/>
+  <!-- Step labels -->
+  <text x="120" y="138" text-anchor="middle" font-size="9" fill="#38bdf8" opacity="0.8" font-family="monospace">SUBCONTRACT</text>
+  <text x="200" y="110" text-anchor="middle" font-size="9" fill="#38bdf8" opacity="0.8" font-family="monospace">INTELLIGENCE</text>
+  <text x="280" y="82" text-anchor="middle" font-size="9" fill="#38bdf8" opacity="0.8" font-family="monospace">PROPOSAL</text>
+  <text x="360" y="54" text-anchor="middle" font-size="9" fill="#38bdf8" opacity="0.8" font-family="monospace" font-weight="bold">PRIME</text>
+  <!-- Person icon at start -->
+  <circle cx="80" cy="106" r="8" fill="rgba(56,189,248,0.2)" stroke="#38bdf8" stroke-width="2"/>
+  <line x1="80" y1="114" x2="80" y2="124" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+  <!-- Arrow at end -->
+  <polyline points="412,36 420,36 416,30" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Star at peak -->
+  <polygon points="500,32 504,46 519,46 507,55 511,69 500,60 489,69 493,55 481,46 496,46" fill="#38bdf8"/>
+  <!-- Timeline months -->
+  <text x="120" y="162" text-anchor="middle" font-size="7.5" fill="rgba(56,189,248,0.45)" font-family="monospace">MO 1-6</text>
+  <text x="200" y="162" text-anchor="middle" font-size="7.5" fill="rgba(56,189,248,0.45)" font-family="monospace">MO 6-12</text>
+  <text x="280" y="162" text-anchor="middle" font-size="7.5" fill="rgba(56,189,248,0.45)" font-family="monospace">MO 12-18</text>
+  <text x="360" y="162" text-anchor="middle" font-size="7.5" fill="rgba(56,189,248,0.6)" font-family="monospace">AWARD</text>
+  <!-- Dotted continuation -->
+  <line x1="420" y1="36" x2="470" y2="36" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.4"/>
+  <!-- Dots pattern right -->
+  <circle cx="580" cy="60" r="2" fill="#38bdf8" opacity="0.15"/>
+  <circle cx="600" cy="60" r="2" fill="#38bdf8" opacity="0.15"/>
+  <circle cx="620" cy="60" r="2" fill="#38bdf8" opacity="0.15"/>
+  <circle cx="580" cy="80" r="2" fill="#38bdf8" opacity="0.15"/>
+  <circle cx="600" cy="80" r="2" fill="#38bdf8" opacity="0.2"/>
+  <circle cx="620" cy="80" r="2" fill="#38bdf8" opacity="0.15"/>
+  <circle cx="580" cy="100" r="2" fill="#38bdf8" opacity="0.15"/>
+  <circle cx="600" cy="100" r="2" fill="#38bdf8" opacity="0.15"/>
+  <circle cx="620" cy="100" r="2" fill="#38bdf8" opacity="0.15"/>
+</svg>
+<h2>The Advice Everyone Gives Is Incomplete</h2>
+<p>Register on SAM.gov. Get your certifications. Search for opportunities. Submit proposals. Win contracts.</p>
+<p>That is the advice. It is not wrong. It is just incomplete to the point of being useless for most small businesses trying to break into federal prime contracting for the first time.</p>
+<p>Here is what that advice leaves out: the contractors who successfully transitioned to prime status built their position over 12 to 24 months before they submitted their first winning prime proposal. They did not stumble into prime contracting — they engineered it.</p>
+<div class="callout"><strong>The real path to prime contracting</strong> runs through three stages: intelligence, relationship-building, and positioning. The proposal is the last step, not the first.</div>
+<h2>Stage 1 — Intelligence: Know the Market Before You Enter It</h2>
+<p>Before you write a single proposal, spend 60 days studying the market you want to enter. This is not optional. It is the difference between competing and winning.</p>
+<p>Go to USASpending.gov and pull every contract award in your NAICS code for the last three years. Look at which agencies are buying what you sell, in what dollar ranges, under which contract vehicles, and to which companies. This data is public. It tells you everything:</p>
+<ul>
+<li>Which agencies are your best targets (they already buy what you do)</li>
+<li>Who the incumbent contractors are (they are your competition)</li>
+<li>What the typical contract length and value looks like (helps you scope your pursuit)</li>
+<li>Whether the work goes through set-asides or full-and-open competition</li>
+</ul>
+<p>Most small businesses skip this step because it takes time and does not feel like progress. It is the highest-value work you will do in your first year of federal contracting.</p>
+<h2>Stage 2 — Relationship Building: Get Known Before the RFP Drops</h2>
+<p>Federal contracts are awarded through formal competition. The award decision is made by a Source Selection Authority following evaluation criteria written by a Contracting Officer. All of that is true — and all of that happens after relationships have already shaped the requirement.</p>
+<p>The agencies that award contracts consistently to the same small businesses do so because those businesses have invested in the relationship. They attend industry days. They respond to Sources Sought notices. They request capability briefings. They know the program office by name.</p>
+<p>This is not corruption. It is how every large procurement market works. The agency needs to trust that a vendor can perform before they award them a contract. That trust is built through visibility and demonstrated competence, not through proposals sent cold.</p>
+<p>Your relationship-building calendar for year one should include:</p>
+<ul>
+<li>Attending every industry day posted by your target agencies</li>
+<li>Responding to every Sources Sought in your NAICS at those agencies</li>
+<li>Requesting a capabilities briefing at the OSDBU of your top two target agencies</li>
+<li>Following up with every contact you make within 48 hours — every time</li>
+</ul>
+<h2>Stage 3 — Positioning: Build the Credibility That Wins Proposals</h2>
+<p>Federal source selection evaluators score proposals against written criteria. Past performance is almost always a factor. Technical approach is almost always a factor. Price is almost always a factor. You need to be competitive on all three before you submit your first prime proposal.</p>
+<p>If you do not yet have federal past performance, build it through subcontracting. Find a prime contractor working an agency you are targeting and get on their team as a sub. Perform the work. Document it. Get the reference. That reference becomes your past performance citation on the next proposal.</p>
+<p>If your technical approach is weak — if you are describing what you will do rather than how you will do it — study the evaluation criteria and work backwards. Section M tells you what the evaluators want to see. Build your technical approach to answer those criteria directly, not to describe your company generally.</p>
+<p>On price: know the market rate before you submit a number. USASpending.gov shows you what previous contracts in your space were awarded at. FPDS shows you labor rates on recent awards. Price yourself to win, not to preserve margin on a contract you will never get.</p>
+<h2>The Timeline That Works</h2>
+<p>Month 1-2: Market intelligence. Know your targets, know the incumbents, know the contract vehicles.</p>
+<p>Month 3-6: Relationship building. Industry days, Sources Sought responses, OSDBU outreach, teaming conversations.</p>
+<p>Month 6-12: Subcontracting. Get on a prime team. Perform. Get the reference.</p>
+<p>Month 12-18: First prime proposal. Submit to an agency that knows your name, for a contract type you have performed as a sub, at a price based on market data.</p>
+<p>That timeline feels long. It is also the timeline that works. The alternative — submitting cold proposals to agencies that have never heard of you, for work you have never documented performing — has a success rate that rounds to zero.</p>
+<h2>How Marcus Accelerates This</h2>
+<p>GovScout's Marcus compresses the intelligence phase from two months to two hours. Tell him your NAICS codes and your target agencies, and he pulls the spending data, identifies the incumbent contractors, and maps the contract vehicles you should be pursuing.</p>
+<p>He writes your Sources Sought responses. He drafts your capability briefing request. He identifies subcontracting opportunities with primes currently working your target agencies.</p>
+<p>The path to prime contracting is real. It just requires the right map. Let Marcus build it for you.</p>
+`
+  },
+
+  'fastest-money': {
+    tag: 'REVENUE', date: 'MAY 13, 2026',
+    title: "The Fastest Ways to Make Real Money with Federal Contracts",
+    body: `
+<svg class="a-hero" viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ade80" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#f5a623" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="bolt" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffc04a"/>
+      <stop offset="100%" stop-color="#f5a623"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="180" rx="12" fill="url(#hg3)" stroke="rgba(74,222,128,0.2)" stroke-width="1"/>
+  <!-- Speed lines left (fast streaks) -->
+  <line x1="30" y1="55" x2="200" y2="55" stroke="#4ade80" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
+  <line x1="50" y1="70" x2="185" y2="70" stroke="#4ade80" stroke-width="1.5" opacity="0.25" stroke-linecap="round"/>
+  <line x1="20" y1="85" x2="195" y2="85" stroke="#4ade80" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
+  <line x1="40" y1="100" x2="188" y2="100" stroke="#4ade80" stroke-width="1.5" opacity="0.25" stroke-linecap="round"/>
+  <line x1="25" y1="115" x2="196" y2="115" stroke="#4ade80" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
+  <line x1="60" y1="130" x2="190" y2="130" stroke="#4ade80" stroke-width="1" opacity="0.2" stroke-linecap="round"/>
+  <!-- Speed lines right -->
+  <line x1="500" y1="55" x2="670" y2="55" stroke="#4ade80" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
+  <line x1="515" y1="70" x2="650" y2="70" stroke="#4ade80" stroke-width="1.5" opacity="0.25" stroke-linecap="round"/>
+  <line x1="505" y1="85" x2="680" y2="85" stroke="#4ade80" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
+  <line x1="512" y1="100" x2="660" y2="100" stroke="#4ade80" stroke-width="1.5" opacity="0.25" stroke-linecap="round"/>
+  <line x1="504" y1="115" x2="675" y2="115" stroke="#4ade80" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
+  <line x1="510" y1="130" x2="640" y2="130" stroke="#4ade80" stroke-width="1" opacity="0.2" stroke-linecap="round"/>
+  <!-- Lightning bolt center -->
+  <polygon points="360,14 324,96 350,96 328,166 396,78 368,78 394,14" fill="url(#bolt)"/>
+  <polygon points="360,14 324,96 350,96 328,166 396,78 368,78 394,14" fill="none" stroke="#ffc04a" stroke-width="1" stroke-linejoin="round" opacity="0.6"/>
+  <!-- Dollar signs -->
+  <text x="205" y="88" font-size="36" fill="#4ade80" opacity="0.65" font-family="monospace" font-weight="bold">$</text>
+  <text x="450" y="88" font-size="36" fill="#4ade80" opacity="0.65" font-family="monospace" font-weight="bold">$</text>
+  <text x="215" y="135" font-size="24" fill="#4ade80" opacity="0.35" font-family="monospace">$</text>
+  <text x="455" y="135" font-size="24" fill="#4ade80" opacity="0.35" font-family="monospace">$</text>
+  <!-- Speed dots -->
+  <circle cx="100" cy="148" r="3" fill="#f5a623" opacity="0.25"/>
+  <circle cx="120" cy="148" r="3" fill="#f5a623" opacity="0.2"/>
+  <circle cx="140" cy="148" r="3" fill="#f5a623" opacity="0.15"/>
+  <circle cx="560" cy="148" r="3" fill="#f5a623" opacity="0.15"/>
+  <circle cx="580" cy="148" r="3" fill="#f5a623" opacity="0.2"/>
+  <circle cx="600" cy="148" r="3" fill="#f5a623" opacity="0.25"/>
+  <!-- Label -->
+  <text x="350" y="168" text-anchor="middle" font-size="9.5" fill="rgba(245,166,35,0.5)" font-family="monospace" letter-spacing="3">MICRO · SAP · GSA · IDIQ</text>
+</svg>
+<h2>Speed Is a Strategy, Not Just a Preference</h2>
+<p>Most government contracting advice is written for the long game. Build relationships. Develop past performance. Position before the solicitation drops. That advice is correct — and it is completely useless to a small business that needs revenue in the next 90 days.</p>
+<p>This post is about speed. The federal contracting market has legitimate fast lanes — mechanisms that compress the timeline from zero to paid. They are not shortcuts that bypass the rules. They are tools the government itself built to move money quickly. Most small businesses have never heard of them.</p>
+<div class="callout"><strong>The fastest path to federal revenue</strong> is not the biggest contract. It is the right contract — small enough to move fast, structured to pay quickly, and sourced from an agency ready to buy now.</div>
+<h2>Fast Lane 1: The Micro-Purchase Threshold</h2>
+<p>Contracting Officers can buy goods and services up to $10,000 (and in some categories up to $25,000) without any competition, any solicitation, or any formal award process. They put a government credit card against your invoice and pay you. That is it.</p>
+<p>These purchases never appear in competitive solicitations because they are not competitive. They are discretionary purchases made by individual program offices when they need something quickly.</p>
+<p>How do you get micro-purchase work? You get known to program offices before they need something. Attend agency events. Respond to Sources Sought. Get on the GSA Advantage marketplace. The contracting officers making micro-purchases are not searching SAM.gov for bids — they are calling vendors they already know.</p>
+<h2>Fast Lane 2: Simplified Acquisition Procedures (SAP)</h2>
+<p>Contracts between $10,000 and $250,000 fall under Simplified Acquisition Procedures. SAP contracts require competition — but not the full, formal, multi-month competition process used for large contracts. They can be awarded in weeks rather than months.</p>
+<p>SAP contracts are also the ones most likely to be set aside exclusively for small businesses, and most likely to be awarded to businesses in specific socioeconomic categories: 8(a), SDVOSB, HUBZone, WOSB. If you have one of these certifications, SAP contracts are your fastest path to federal revenue.</p>
+<p>SAP opportunities are posted on SAM.gov but they move fast and close fast. Set up email alerts for your NAICS codes and your set-aside category. When an SAP opportunity posts that fits your business, respond the same day.</p>
+<h2>Fast Lane 3: GSA Schedule (Federal Supply Schedule)</h2>
+<p>A GSA Schedule contract is a pre-negotiated agreement between your company and the federal government that allows any agency to buy from you directly — without posting a competitive solicitation. The government has already vetted your pricing, your past performance, and your capabilities. Any of the thousands of federal buyers across every agency can now purchase from you on demand.</p>
+<p>Getting a GSA Schedule takes 3 to 6 months to set up. Once it is in place, it is one of the most valuable assets a small business can have. Orders can come in at any time from agencies across the country, and the payment terms are standard and fast.</p>
+<p>If you are serious about federal revenue over a multi-year horizon, a GSA Schedule should be your Year 1 project. The investment of time to get approved pays off in every order that follows.</p>
+<h2>Fast Lane 4: IDIQs and BPA Call Orders</h2>
+<p>Indefinite Delivery Indefinite Quantity contracts and Blanket Purchase Agreements are umbrella vehicles — large contract awards that allow agencies to issue smaller "call orders" or "task orders" against the vehicle without going through a full competition for each order.</p>
+<p>Getting onto an IDIQ or BPA as a vendor typically requires a competitive process upfront. But once you are on the vehicle, you receive task order solicitations that are often restricted to the small pool of vendors on that vehicle — which dramatically improves your odds and compresses the award timeline.</p>
+<p>The fastest way to access IDIQ vehicles is to get on as a subcontractor to an existing prime, perform the work, and position for the next recompete as a prime yourself.</p>
+<h2>Fast Lane 5: State and Local Government (the Overlooked Bridge)</h2>
+<p>This one is not federal — but it is relevant. State and local governments spend over $2 trillion annually on contracts. Their procurement processes are simpler, faster, and significantly less formal than federal procurement.</p>
+<p>Many small businesses that struggle to break into federal contracting build their past performance record and cash flow through state and local contracts first. A three-year state contract for the same type of work you are pursuing federally is excellent past performance — and it keeps the lights on while you build your federal positioning.</p>
+<p>Do not treat state and local contracting as a consolation prize. Treat it as the proving ground that makes your federal proposals competitive.</p>
+<h2>What Marcus Does With This</h2>
+<p>When you tell Marcus you need federal revenue fast, he filters your opportunity search by contract type, set-aside category, and dollar threshold to surface the SAP and IDIQ task order opportunities that move quickest. He identifies which agencies have active IDIQ vehicles in your NAICS that are still accepting new vendors. He reviews GSA Schedule requirements against your current qualifications and tells you what you need to get approved.</p>
+<p>Speed in federal contracting is not luck. It is targeting. Let Marcus help you find the right targets.</p>
+`
+  },
+
+  'gonogo-decision': {
+    tag: 'STRATEGY', date: 'MAY 1, 2026',
+    title: "The Go/No-Go Decision in Government Contracting: Why Most Small Businesses Get It Wrong — and How to Fix That",
+    body: `
+<h2>The Wrong Question</h2>
+<p>When a small business finds a government contract opportunity, the first question they ask is almost always: can we do this work?</p>
+<p>It is the wrong question. The ability to perform the work is the baseline — it is table stakes. Every company that submits a proposal believes they can do the work. The question that actually determines whether you should bid is: can we win this competition?</p>
+<p>Those are very different questions. And the gap between them is where most small businesses lose months of time, tens of thousands of dollars, and eventually the will to keep pursuing federal contracts at all.</p>
+<p>Marcus — the AI government contracting consultant inside GovScout — evaluates seven factors before recommending a bid. Understanding these factors will change how you approach every opportunity you find.</p>
+
+<h2>Factor 1: Scope Match</h2>
+<p>Does the work described in the solicitation match what your business actually does — not what you could theoretically do, but what you do regularly and well?</p>
+<p>Federal solicitations are often written by Contracting Officers working from requirements documents created by the program office. The language is frequently technical, specific, and laden with government jargon. Underneath that language is a description of a specific type of work. Your job is to strip away the jargon and determine whether what they are describing is your core business.</p>
+<p>If you have to stretch your capabilities to meet the requirements — if you would need to hire new staff, learn new systems, or partner with someone who actually has the expertise — your scope match is weak. A weak scope match means a weak technical proposal, which means a likely loss.</p>
+<p>Marcus rates scope match on a simple scale: strong, moderate, or weak. Weak scope matches do not get a bid recommendation.</p>
+
+<h2>Factor 2: Cost Estimate and Price-to-Win</h2>
+<p>Government contracts are awarded to the offeror who provides the best value — and in many competitions, price is a significant part of that calculation. Before you decide to bid, you need a realistic estimate of what it will cost you to perform the work and what price you would need to submit to be competitive.</p>
+<p>The Most Probable Price — the price the government has estimated for the work — is sometimes included in the solicitation. When it is not, you can estimate it using data from USASpending.gov on similar contracts, industry labor rates, and your own cost structure.</p>
+<p>If the price-to-win is below your cost to perform, you should not bid. Bidding below cost to win a contract is a path to financial loss, performance failure, and potential legal liability. Marcus will flag any opportunity where the competitive price range appears to be below a reasonable cost estimate.</p>
+
+<h2>Factor 3: Competitive Position</h2>
+<p>How many other companies will bid on this, and what is your realistic position in that competitive set?</p>
+<p>Some contracts attract dozens of qualified offerors. Others attract two or three. Your probability of award is very different in each scenario. Before you bid, research who else is in the market for this type of work: check past awards on USASpending.gov, look at the incumbent contractor, and assess whether large businesses are competing (which typically reduces small business win rates significantly).</p>
+<p>If you are one of twenty companies likely to bid and you have no differentiating factor — no unique technical approach, no superior past performance, no price advantage — your expected return on the investment of writing a proposal is very low. Marcus will tell you this directly, without the optimism bias that tends to creep into internal bid decisions.</p>
+
+<h2>Factor 4: Compliance Flags</h2>
+<p>Does the solicitation contain requirements that you cannot meet? Certifications you do not have? Security clearances that are not in place? Bonding thresholds you cannot reach? Facilities requirements you do not meet?</p>
+<p>Compliance flags are often buried in the solicitation — in the clauses section, in the attachments, or in references to other documents. Many small businesses miss them because they focus on the statement of work and skip the administrative requirements.</p>
+<p>A single compliance failure can disqualify an otherwise strong proposal. Marcus scans specifically for compliance requirements when evaluating an opportunity and flags anything that needs to be resolved before a bid decision is made.</p>
+
+<h2>Factor 5: Past Performance</h2>
+<p>Most federal solicitations require offerors to submit past performance references — documentation of similar work performed for previous clients, including contract value, scope, and client evaluation.</p>
+<p>Past performance is often the deciding factor in competitions where technical approaches are similar and prices are close. A strong past performance record — with documented successful outcomes, satisfied clients, and relevant contract values — is a significant competitive advantage. A thin or absent past performance record is a significant liability.</p>
+<p>If you are a new business pursuing your first federal contract, you face a genuine catch-22: you need past performance to win contracts, but you need contracts to build past performance. The way out of this is to target contracts that explicitly allow commercial or non-federal past performance, to pursue subcontracting opportunities that build your record, and to start with smaller contracts where past performance requirements are less stringent.</p>
+
+<h2>Factor 6: Teaming</h2>
+<p>Does this opportunity require capabilities or capacity that you do not have on your own? And if so, do you have a teaming partner who can fill that gap?</p>
+<p>Teaming is common in federal contracting. A prime contractor (the company that holds the contract and is responsible for performance) often brings in subcontractors to perform specific portions of the work. A well-structured team can win contracts that neither partner could win alone.</p>
+<p>If you are considering teaming to fill a capability gap, the teaming decision needs to be made before the proposal is written — not after. A last-minute team assembled to satisfy a requirement the agency can see through rarely wins. A strategic team with documented prior collaboration and a clear division of responsibilities is a genuine competitive differentiator.</p>
+
+<h2>Factor 7: Verdict and Action Steps</h2>
+<p>After evaluating the six factors above, Marcus produces a verdict: bid, no-bid, or conditional bid (proceed only if a specific condition is met — teaming partner confirmed, compliance issue resolved, etc.).</p>
+<p>The verdict is accompanied by specific action steps. If the recommendation is to bid, Marcus identifies what needs to happen to maximize win probability: which past performance references to emphasize, what pricing approach to consider, what the technical differentiators should be. If the recommendation is no-bid, Marcus explains which factor drove the decision — so you can address it before the next opportunity.</p>
+<p>This is the function that proposal management consultants provide to large contractors at significant hourly rates. The go/no-go decision is not an art form or a gut call. It is a structured analysis of concrete factors. Marcus makes that analysis available to every small business that needs it.</p>
+
+<h2>Why Most Small Businesses Get This Wrong</h2>
+<p>Small businesses overbid because they are optimistic, because they need the revenue, and because nobody has ever taught them to evaluate an opportunity systematically. They spend forty hours on proposals they never had a realistic chance of winning. They burn out. They quit.</p>
+<p>The fix is discipline. Make the go/no-go decision before you start writing. Ask Marcus. Listen to the answer. Save your effort for the bids you can win.</p>
+<p><em>Open GovScout. Tell Marcus what you found. Let him help you decide.</em></p>
+`
+  }
+};
+
+function openPost(id) {
+  const post = POSTS[id];
+  if (!post) return;
+  document.getElementById('articleContent').innerHTML = `
+    <div class="a-eyebrow">${post.tag} &nbsp;·&nbsp; ${post.date}</div>
+    <h1 class="a-title">${post.title}</h1>
+    <div class="a-meta">BY STEVE HARRIMAN &nbsp;·&nbsp; GOVSCOUT PRO FOUNDER &nbsp;·&nbsp; GOVSCOUT.PRO</div>
+    <div class="a-body">${post.body}</div>
+  `;
+  document.getElementById('blogList').classList.add('hidden');
+  document.getElementById('articleView').classList.remove('hidden');
+  window.scrollTo(0,0);
+  if (history.replaceState) history.replaceState(null, '', '/blog/' + id);
+}
+function closePost() {
+  document.getElementById('articleView').classList.add('hidden');
+  document.getElementById('blogList').classList.remove('hidden');
+  window.scrollTo(0,0);
+  if (history.replaceState) history.replaceState(null, '', '/blog');
+}
+// On load: open post from URL path or hash (e.g. /blog/trojan-sub or /blog#trojan-sub)
+document.addEventListener('DOMContentLoaded', function() {
+  // Support /blog/slug path (from individual article pages redirect back to blog.html)
+  var path = window.location.pathname;
+  var pathSlug = path.replace(/^\/blog\/?/, '');
+  // Support hash fallback
+  var hash = window.location.hash.replace('#', '');
+  var slug = (pathSlug && POSTS[pathSlug]) ? pathSlug : (hash && POSTS[hash] ? hash : null);
+  if (slug) openPost(slug);
+});
+</script>
+
+<div id="gs_translate_el" style="display:none"></div>
+<script src="/lang.js"></script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+</body>
+</html>

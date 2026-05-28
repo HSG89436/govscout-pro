@@ -1,0 +1,12 @@
+# /src — Future Use
+#
+# Reserved for compiled/bundled frontend source code when the build
+# process is separated from the static files in the repository root.
+#
+# Current state (v6.1): Frontend HTML files (index.html, fedscout5.html, etc.)
+# live in the repository root per Netlify static site convention.
+# This directory will be used when a build pipeline (webpack, vite, etc.)
+# is introduced in a future sprint.
+#
+# DO NOT add application source here without a corresponding build config
+# update in netlify.toml.

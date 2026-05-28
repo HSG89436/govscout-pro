@@ -1,0 +1,42 @@
+CASE FILE REPORT TEMPLATE — v1.0
+Used by: Marcus in netlify/functions/chat.js
+Format: Structured markdown output
+Trigger: User provides solicitation details + requests analysis
+
+---
+
+## CASE FILE: [Solicitation title or topic]
+
+**RECOMMENDATION: [GO / TEAM / PASS]**
+
+**CONFIDENCE: [HIGH / MEDIUM / LOW]**
+[One sentence basis: "HIGH: full solicitation text provided; MEDIUM: NAICS and agency only; LOW: incomplete details, assumptions made."]
+
+**WHY:**
+[2–4 sentences on the key factors driving the recommendation — set-aside fit, NAICS match, past performance positioning, competitive window, incumbent signals]
+
+**RISK FACTORS:**
+- [Risk 1 — specific, not generic]
+- [Risk 2]
+- [Risk 3]
+- [Risk 4 if warranted]
+
+**COMPETITIVE POSITIONING:**
+[Who you're likely competing against. What your differentiation angle should be. How set-asides, certifications, or teaming could shift the odds.]
+
+**72-HOUR ACTION PLAN:**
+1. [Concrete step — not generic "review the RFP"]
+2. [Step]
+3. [Step]
+4. [Step if needed]
+5. [Step if needed]
+
+**QUESTIONS FOR THE CONTRACTING OFFICER:**
+1. [Specific question through permitted channel]
+2. [Question]
+3. [Question if warranted]
+
+---
+
+NOTE: Confidence level instruction not yet in deployed v1.0 system prompt.
+Planned for marcus_system_v1.1.txt.

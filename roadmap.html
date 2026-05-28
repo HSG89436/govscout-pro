@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Roadmap — GovScout Pro | Federal Contract AI Platform</title>
+<meta name="description" content="See what's coming to GovScout Pro — AI bid package generation, compliance matrix builder, real-time SAM.gov alerts, and more features for small business federal contractors.">
+<link rel="canonical" href="https://govscout.pro/roadmap">
+<meta property="og:title" content="Product Roadmap — GovScout Pro">
+<meta property="og:description" content="Upcoming features for the AI federal contracting platform built for small businesses and SDVOSBs.">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--transition:.3s ease;}
+[data-theme="dark"]{--bg:#05070f;--surface:#0e1225;--s2:#131829;--border:#1e2a42;--b2:#263347;--txt:#eef2ff;--txt2:#8a9cc8;--txt3:#4a5a82;--gold:#f5a623;--gold2:#ffc04a;--gold3:rgba(245,166,35,.1);--green:#4ade80;--green2:rgba(74,222,128,.1);--red:#f87171;--purple:#c084fc;--cyan:#38bdf8;--nav-bg:rgba(5,7,15,.92);}
+[data-theme="light"]{--bg:#f8f7f2;--surface:#ffffff;--s2:#f5f3ed;--border:#ddd8cc;--b2:#ccc6b8;--txt:#1a1810;--txt2:#4a4535;--txt3:#7a7060;--gold:#c47d0e;--gold2:#a86800;--gold3:rgba(196,125,14,.1);--green:#16a34a;--green2:rgba(22,163,74,.08);--red:#dc2626;--purple:#7c3aed;--cyan:#0369a1;--nav-bg:rgba(248,247,242,.95);}
+body{background:var(--bg);color:var(--txt);font-family:'Space Grotesk',sans-serif;line-height:1.6;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--nav-bg);border-bottom:1px solid var(--border);backdrop-filter:blur(20px);height:58px;display:flex;align-items:center;padding:0 32px;gap:16px;}
+.nav-logo{font-family:'Fraunces',serif;font-size:20px;font-weight:900;color:var(--txt);text-decoration:none;}
+.nav-logo span{color:var(--gold);}
+.nav-back{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--txt3);text-decoration:none;padding:5px 14px;border:1px solid var(--border);border-radius:6px;margin-left:auto;transition:all .15s;}
+.nav-back:hover{color:var(--gold);border-color:var(--gold);}
+.theme-toggle{width:36px;height:36px;border-radius:6px;background:transparent;border:1px solid var(--border);color:var(--txt2);cursor:pointer;font-size:14px;}
+.wrap{max-width:900px;margin:0 auto;padding:96px 24px 80px;}
+.page-eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:12px;}
+.page-title{font-family:'Fraunces',serif;font-size:clamp(36px,6vw,64px);font-weight:900;line-height:1.0;letter-spacing:-.02em;color:var(--txt);margin-bottom:12px;}
+.page-title em{color:var(--gold);font-style:italic;}
+.page-sub{font-size:17px;color:var(--txt2);margin-bottom:56px;line-height:1.7;}
+
+/* NEXT RELEASE */
+.next-release{background:linear-gradient(135deg,var(--green2),rgba(74,222,128,.05));border:1px solid rgba(74,222,128,.25);border-radius:14px;padding:24px 28px;margin-bottom:48px;display:flex;align-items:center;gap:20px;}
+.nr-dot{width:12px;height:12px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);flex-shrink:0;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+.nr-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--green);margin-bottom:4px;}
+.nr-title{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--txt);}
+.nr-date{font-family:'DM Mono',monospace;font-size:10px;color:var(--txt3);margin-top:4px;}
+
+/* PHASES */
+.phase{margin-bottom:48px;}
+.phase-hdr{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+.phase-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;padding:4px 12px;border-radius:100px;}
+.pl-done{background:var(--green2);border:1px solid rgba(74,222,128,.25);color:var(--green);}
+.pl-now{background:var(--gold3);border:1px solid rgba(245,166,35,.25);color:var(--gold);}
+.pl-next{background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.2);color:var(--cyan);}
+.pl-later{background:rgba(192,132,252,.08);border:1px solid rgba(192,132,252,.2);color:var(--purple);}
+.phase-title{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--txt);}
+.items{display:flex;flex-direction:column;gap:10px;}
+.item{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 20px;display:flex;align-items:flex-start;gap:14px;transition:border-color .2s;}
+.item:hover{border-color:var(--b2);}
+.item-icon{font-size:20px;flex-shrink:0;margin-top:2px;}
+.item-title{font-size:16px;font-weight:700;color:var(--txt);margin-bottom:3px;}
+.item-desc{font-size:13px;color:var(--txt2);line-height:1.7;}
+.item-done .item-title{text-decoration:line-through;opacity:.5;}
+.badge-done{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.15em;background:var(--green2);border:1px solid rgba(74,222,128,.2);color:var(--green);padding:2px 8px;border-radius:100px;margin-left:8px;vertical-align:middle;}
+
+/* CHANGELOG */
+.changelog{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px;margin-top:48px;}
+.changelog-title{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--txt);margin-bottom:20px;}
+.log{display:flex;gap:16px;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px;}
+.log:last-child{border-bottom:none;}
+.log-date{font-family:'DM Mono',monospace;font-size:10px;color:var(--txt3);white-space:nowrap;min-width:100px;padding-top:2px;}
+.log-text{color:var(--txt2);line-height:1.7;}
+.log-text strong{color:var(--txt);}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:32px 24px;text-align:center;font-family:'DM Mono',monospace;font-size:10px;color:var(--txt3);letter-spacing:.1em;}
+footer a{color:var(--gold);text-decoration:none;}
+
+/* ── Language toggle ── */
+.gs-lang-toggle{display:flex;align-items:center;gap:3px;margin-left:8px;}
+.gs-lang-btn{background:transparent;border:1px solid rgba(138,156,200,.35);color:#8a9cc8;font-size:10px;font-weight:700;letter-spacing:.06em;padding:4px 9px;border-radius:5px;cursor:pointer;transition:all .15s;font-family:inherit;}
+.gs-lang-btn:hover{border-color:#f5a623;color:#f5a623;}
+.gs-lang-active{background:rgba(245,166,35,.12);border-color:#f5a623 !important;color:#f5a623 !important;}
+/* Hide Google's injected toolbar */
+.goog-te-banner-frame{display:none!important;}
+.goog-te-menu-value:hover{text-decoration:none!important;}
+body{top:0!important;position:static!important;}
+#goog-gt-tt{display:none!important;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="https://govscout.pro" class="nav-logo">FED<span>SCOUT</span></a>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+  <a href="https://govscout.pro" class="nav-back">← BACK TO HOME</a>
+  <div class="gs-lang-toggle"><button id="gs-lang-en" class="gs-lang-btn gs-lang-active" onclick="setLang('en')">EN</button><button id="gs-lang-es" class="gs-lang-btn" onclick="setLang('es')">ES</button></div>
+</nav>
+
+<div class="wrap">
+  <div class="page-eyebrow">// PRODUCT ROADMAP</div>
+  <h1 class="page-title">Where <em>GovScout Pro</em> Is Going</h1>
+  <p class="page-sub">Built in the open. Updated based on what beta testers actually need. Every feature on this page came from a real contractor hitting a real wall.</p>
+
+  <!-- NEXT RELEASE -->
+  <div class="next-release">
+    <div class="nr-dot"></div>
+    <div>
+      <div class="nr-label">// NEXT RELEASE</div>
+      <div class="nr-title">Sources Sought Interceptor + Email Alerts</div>
+      <div class="nr-date">Target: May 2026</div>
+    </div>
+  </div>
+
+  <!-- PHASE 1 — DONE -->
+  <div class="phase">
+    <div class="phase-hdr">
+      <span class="phase-label pl-done">✓ COMPLETE — v1.0 through v5.0</span>
+      <div class="phase-title">Foundation + Marcus</div>
+    </div>
+    <div class="items">
+      <div class="item item-done"><div class="item-icon">✓</div><div><div class="item-title">SAM.gov Live Search <span class="badge-done">DONE</span></div><div class="item-desc">Real-time opportunity search filtered by NAICS and set-aside type using the SAM.gov API.</div></div></div>
+      <div class="item item-done"><div class="item-icon">✓</div><div><div class="item-title">Marcus Hale AI Persona <span class="badge-done">DONE</span></div><div class="item-desc">Complete GovCon expert persona built into every AI interaction — 20 years of federal contracting intelligence in the system prompt.</div></div></div>
+      <div class="item item-done"><div class="item-icon">✓</div><div><div class="item-title">Document Intelligence <span class="badge-done">DONE</span></div><div class="item-desc">Upload all SAM.gov files. Marcus reads everything and produces a complete plain-English breakdown — what they want, what to submit, compliance checklist, pricing intelligence, 72-hour attack plan.</div></div></div>
+      <div class="item item-done"><div class="item-icon">✓</div><div><div class="item-title">Business Profile System <span class="badge-done">DONE</span></div><div class="item-desc">Any small business type — consulting, design, manufacturing, IT, construction, staffing. Tell Marcus what you do and he figures out NAICS codes, agencies, and set-aside strategy.</div></div></div>
+      <div class="item item-done"><div class="item-icon">✓</div><div><div class="item-title">All Certification Types <span class="badge-done">DONE</span></div><div class="item-desc">SDVOSB, VOSB, 8(a), HUBZone, WOSB, EDWOSB, MBE. Marcus tailors strategy completely based on which certifications you hold.</div></div></div>
+      <div class="item item-done"><div class="item-icon">✓</div><div><div class="item-title">Sub &amp; Teaming Finder <span class="badge-done">DONE</span></div><div class="item-desc">Every contract card shows automatic subcontracting intelligence — General Foreman needs, electrical subs, teaming partners, prime contractors to approach.</div></div></div>
+      <div class="item item-done"><div class="item-icon">✓</div><div><div class="item-title">Bid Package Builder <span class="badge-done">DONE</span></div><div class="item-desc">Complete proposal package in one click. Cover letter, capability statement, technical approach, pricing narrative, compliance matrix — specific to each contract.</div></div></div>
+      <div class="item item-done"><div class="item-icon">✓</div><div><div class="item-title">GovCon School <span class="badge-done">DONE</span></div><div class="item-desc">Plain English education on every federal contracting concept — FAR, DFARS, LPTA, IDIQ, Sources Sought, Trojan Sub, awardable pricing, past performance building.</div></div></div>
+      <div class="item item-done"><div class="item-icon">✓</div><div><div class="item-title">Certification Guide <span class="badge-done">DONE</span></div><div class="item-desc">Marcus assesses what certifications you qualify for and walks you through exactly how to get each one, step by step.</div></div></div>
+      <div class="item item-done"><div class="item-icon">✓</div><div><div class="item-title">Light + Dark Mode <span class="badge-done">DONE</span></div><div class="item-desc">Full light and dark mode on landing page and app. Preference saves and persists.</div></div></div>
+      <div class="item item-done"><div class="item-icon">✓</div><div><div class="item-title">Multi-LLM Support <span class="badge-done">DONE</span></div><div class="item-desc">Claude, GPT-4, Gemini, Groq. Bring your own key — no markup, no data interception.</div></div></div>
+      <div class="item item-done"><div class="item-icon">✓</div><div><div class="item-title">Pipeline Tracker <span class="badge-done">DONE</span></div><div class="item-desc">Kanban board for tracking contracts through Watching → Pursuing → Submitted → Won/Lost.</div></div></div>
+    </div>
+  </div>
+
+  <!-- PHASE 2 — NOW -->
+  <div class="phase">
+    <div class="phase-hdr">
+      <span class="phase-label pl-now">▶ NOW — May 2026</span>
+      <div class="phase-title">Intelligence Automation</div>
+    </div>
+    <div class="items">
+      <div class="item"><div class="item-icon">▶</div><div><div class="item-title">Sources Sought Interceptor</div><div class="item-desc">Monitor your saved NAICS codes and fire an alert the moment a Sources Sought or RFI posts — before the RFP exists. Marcus drafts your response automatically. This is where 80% of contracts are decided and most contractors miss it entirely.</div></div></div>
+      <div class="item"><div class="item-icon">▶</div><div><div class="item-title">Email Deadline Alerts</div><div class="item-desc">Get notified when tracked contracts hit 72 hours, 7 days, and 30 days out. Marcus includes a specific action item in each alert — not just a reminder, a move.</div></div></div>
+      <div class="item"><div class="item-icon">▶</div><div><div class="item-title">Incumbent Hunter</div><div class="item-desc">Automatic cross-reference against USASpending.gov for every contract — who has held it, how long, what they charged. Marcus tells you if this is worth fighting or already locked.</div></div></div>
+      <div class="item"><div class="item-icon">▶</div><div><div class="item-title">CO Outreach Templates</div><div class="item-desc">Marcus writes the actual email to the contracting officer — specific to the contract, written in your voice, referencing their recent awards. One click to have a draft ready before competitors wake up.</div></div></div>
+      <div class="item"><div class="item-icon">▶</div><div><div class="item-title">Proposal Section Scorer v2</div><div class="item-desc">Paste any section of your draft proposal and Marcus scores it against the evaluation criteria in real time. Rewrites weak sections on demand. Every sentence earns points or gets cut.</div></div></div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 — NEXT -->
+  <div class="phase">
+    <div class="phase-hdr">
+      <span class="phase-label pl-next">→ NEXT — June–July 2026</span>
+      <div class="phase-title">Platform &amp; Intelligence</div>
+    </div>
+    <div class="items">
+      <div class="item"><div class="item-icon">○</div><div><div class="item-title">Real Competitor Intelligence</div><div class="item-desc">Pull SAM.gov and USASpending data to build an actual list of companies that have won similar contracts in your NAICS and set-aside category in the last 3 years. Marcus tells you their pricing strategy and how to beat them specifically.</div></div></div>
+      <div class="item"><div class="item-icon">○</div><div><div class="item-title">Agency Budget Calendar — Live Data</div><div class="item-desc">Real fiscal year spending data by agency. Marcus tells you which agencies are burning budget right now and when each agency's spending window opens and closes based on actual award history.</div></div></div>
+      <div class="item"><div class="item-icon">○</div><div><div class="item-title">Past Performance Builder</div><div class="item-desc">Turn commercial and utility industry experience into federal-equivalent past performance narratives using CPARS language. Track every project as past performance and build your federal record from day one.</div></div></div>
+      <div class="item"><div class="item-icon">○</div><div><div class="item-title">GAO Protest Intelligence</div><div class="item-desc">Before you bid, Marcus checks the GAO protest database for that agency and contract type. If you lose unfairly, Marcus tells you if your bid is protest-worthy and walks you through the filing process.</div></div></div>
+      <div class="item"><div class="item-icon">○</div><div><div class="item-title">NAICS Optimizer — Live Competition Data</div><div class="item-desc">Real competition density and SDVOSB count per NAICS code. Marcus recommends where to focus based on actual award data — stop competing where 800 other SDVOSBs are fighting for the same contracts.</div></div></div>
+      <div class="item"><div class="item-icon">○</div><div><div class="item-title">Subcontractor Finder — SAM.gov Integration</div><div class="item-desc">Search real registered SAM.gov companies matching the specific NAICS and scope of each contract. Marcus builds the outreach message for each one.</div></div></div>
+    </div>
+  </div>
+
+  <!-- PHASE 4 — LATER -->
+  <div class="phase">
+    <div class="phase-hdr">
+      <span class="phase-label pl-later">◇ LATER — Q3–Q4 2026</span>
+      <div class="phase-title">Full Platform</div>
+    </div>
+    <div class="items">
+      <div class="item"><div class="item-icon">◇</div><div><div class="item-title">User Accounts + Cloud Storage</div><div class="item-desc">Save your business profile, pipeline, documents, and bid packages to the cloud. Access from any device. Today everything lives in your browser — this unlocks the full multi-device experience.</div></div></div>
+      <div class="item"><div class="item-icon">◇</div><div><div class="item-title">True Daily Intelligence Briefing</div><div class="item-desc">Marcus sends you a morning briefing by email every day — new contracts matching your profile, deadline warnings, Sources Sought alerts, and one specific action he has identified that most contractors will miss today.</div></div></div>
+      <div class="item"><div class="item-icon">◇</div><div><div class="item-title">Team Accounts</div><div class="item-desc">Multiple users on one account. BD team, proposal writer, and principal all working in the same pipeline with shared documents and Marcus available to everyone.</div></div></div>
+      <div class="item"><div class="item-icon">◇</div><div><div class="item-title">White-Label for GovCon Consultants</div><div class="item-desc">Let GovCon consultants run GovScout Pro under their own brand for their clients. Marcus as a service — the consultant brings the relationship, Marcus brings the intelligence.</div></div></div>
+      <div class="item"><div class="item-icon">◇</div><div><div class="item-title">Win/Loss Analytics Dashboard</div><div class="item-desc">After enough bid cycles Marcus identifies your patterns automatically. Which agencies you win at. Which set-aside categories perform. What your average win probability is by contract type. The data that turns guessing into strategy.</div></div></div>
+      <div class="item"><div class="item-icon">◇</div><div><div class="item-title">Marcus Mobile App</div><div class="item-desc">Full Marcus on iOS and Android. Review contracts, upload documents with your camera, get push notifications on deadlines and Sources Sought alerts. GovCon intelligence in your pocket.</div></div></div>
+    </div>
+  </div>
+
+  <!-- CHANGELOG -->
+  <div class="changelog">
+    <div class="changelog-title">// Release History</div>
+    <div class="log"><div class="log-date">Apr 27, 2026</div><div class="log-text"><strong>v5.0 — Complete Rebuild.</strong> New conversation-first interface. Business Profile system works for any small business type. Sub &amp; Teaming Finder on every contract card. Document Intelligence rebuilt. GovCon School. Certification Guide. Light/dark mode. govscout.pro domain live.</div></div>
+    <div class="log"><div class="log-date">Apr 18, 2026</div><div class="log-text"><strong>v4.5</strong> — Mission dashboard, proposal scorer, agency budget calendar, NAICS optimizer, 20-feature Navigator system.</div></div>
+    <div class="log"><div class="log-date">Apr 14, 2026</div><div class="log-text"><strong>v4.0</strong> — All AI prompts rewritten in Marcus's voice. Compliance guardian, pricing engine, sub strategy injected into every analysis.</div></div>
+    <div class="log"><div class="log-date">Apr 09, 2026</div><div class="log-text"><strong>v3.0</strong> — Navigator tab introduced. Marcus Hale persona. Document upload with AI analysis. 72-hour attack protocol.</div></div>
+    <div class="log"><div class="log-date">Mar 31, 2026</div><div class="log-text"><strong>v2.0</strong> — Description fetch bug fixed (lastResults → contracts). File upload added to docs modal.</div></div>
+    <div class="log"><div class="log-date">Mar 15, 2026</div><div class="log-text"><strong>v1.0</strong> — Beta launch. SAM.gov live search. GO Score opportunity rating. Pipeline tracker. Multi-LLM support. Privacy, Terms, Roadmap pages live.</div></div>
+  </div>
+</div>
+
+<footer>
+  <a href="https://govscout.pro">govscout.pro</a> &nbsp;·&nbsp;
+  <a href="https://govscout.pro/app">Launch App</a> &nbsp;·&nbsp;
+  <a href="https://govscout.pro/blog.html">Blog</a> &nbsp;·&nbsp;
+  <a href="mailto:stevenh89436@gmail.com">Contact</a> &nbsp;·&nbsp;
+  v6.0 · 2026-05-26
+<div id="gs_translate_el" style="display:none"></div>
+<script src="/lang.js"></script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>

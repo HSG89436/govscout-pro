@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GOVSCOUT — Owner Admin</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#05050a;color:#cdd9e5;font-family:'Courier New',monospace;min-height:100vh}
+.login-wrap{display:flex;align-items:center;justify-content:center;min-height:100vh}
+.login-box{background:#0d1117;border:1px solid #1e3a2f;border-radius:12px;padding:48px 40px;width:360px;text-align:center}
+.logo{font-size:28px;font-weight:900;color:#fff;letter-spacing:-1px;margin-bottom:4px}
+.logo span{color:#00c896}
+.sub{font-size:10px;color:#4a7a66;letter-spacing:3px;margin-bottom:32px}
+input{width:100%;padding:12px 14px;background:#111;border:1px solid #1e3a2f;border-radius:6px;color:#cdd9e5;font-size:14px;font-family:inherit;margin-bottom:12px;outline:none}
+input:focus{border-color:#00c896}
+.btn{width:100%;padding:13px;background:#00c896;color:#000;border:none;border-radius:6px;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:1px;font-family:inherit}
+.btn:hover{background:#00a87e}
+.err{color:#ff6b6b;font-size:12px;margin-top:8px}
+
+/* Dashboard */
+#dashboard{display:none;padding:24px}
+.dash-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid #1e3a2f}
+.dash-title{font-size:22px;font-weight:900;color:#fff}
+.dash-title span{color:#00c896}
+.logout-btn{background:none;border:1px solid #334;color:#8899aa;padding:7px 14px;border-radius:4px;cursor:pointer;font-family:inherit;font-size:11px}
+.logout-btn:hover{color:#fff;border-color:#556}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px}
+.stat-card{background:#0d1117;border:1px solid #1e3a2f;border-radius:10px;padding:24px}
+.stat-label{font-size:10px;color:#4a7a66;letter-spacing:2px;margin-bottom:8px}
+.stat-value{font-size:36px;font-weight:900;color:#00c896}
+.stat-sub{font-size:11px;color:#556677;margin-top:4px}
+
+.section-title{font-size:11px;color:#4a7a66;letter-spacing:2px;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.section-title::after{content:'';flex:1;height:1px;background:#1e3a2f}
+
+.sub-table{width:100%;border-collapse:collapse}
+.sub-table th{text-align:left;font-size:10px;color:#4a7a66;letter-spacing:2px;padding:8px 12px;border-bottom:1px solid #1e3a2f}
+.sub-table td{padding:12px;border-bottom:1px solid #0d1117;font-size:12px;vertical-align:middle}
+.sub-table tr:hover td{background:#0d1117}
+.badge{padding:3px 8px;border-radius:3px;font-size:10px;font-weight:700;letter-spacing:1px}
+.badge-active{background:#1a3a2f;color:#00c896}
+.badge-cancel{background:#3a1a1a;color:#ff6b6b}
+.cancel-btn{background:none;border:1px solid #ff6b6b33;color:#ff6b6b;padding:5px 10px;border-radius:4px;cursor:pointer;font-size:10px;font-family:inherit}
+.cancel-btn:hover{background:#ff6b6b22}
+.refresh-btn{background:none;border:1px solid #1e3a2f;color:#8899aa;padding:7px 16px;border-radius:4px;cursor:pointer;font-family:inherit;font-size:11px}
+.refresh-btn:hover{color:#00c896;border-color:#00c896}
+.loading{text-align:center;padding:40px;color:#4a7a66;font-size:13px}
+.empty{text-align:center;padding:40px;color:#4a7a66;font-size:13px}
+</style>
+</head>
+<body>
+
+<!-- Login Gate -->
+<div class="login-wrap" id="loginWrap">
+  <div class="login-box">
+    <div class="logo">FED<span>SCOUT</span></div>
+    <div class="sub">// OWNER ADMIN PANEL</div>
+    <input type="password" id="passInput" placeholder="Admin password" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="btn" onclick="doLogin()">ENTER DASHBOARD</button>
+    <div class="err" id="loginErr"></div>
+  </div>
+</div>
+
+<!-- Dashboard -->
+<div id="dashboard">
+  <div class="dash-header">
+    <div class="dash-title">FED<span>SCOUT</span> &mdash; Owner Dashboard</div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <button class="refresh-btn" onclick="loadData()">&#8635; Refresh</button>
+      <a href="https://dashboard.stripe.com" target="_blank" style="color:#00c896;font-size:11px;text-decoration:none;">&#8599; Stripe Dashboard</a>
+      <button class="logout-btn" onclick="doLogout()">LOGOUT</button>
+    </div>
+  </div>
+
+  <div class="stats" id="statsRow">
+    <div class="stat-card"><div class="stat-label">ACTIVE SUBSCRIBERS</div><div class="stat-value" id="statSubs">—</div><div class="stat-sub">paying users</div></div>
+    <div class="stat-card"><div class="stat-label">MONTHLY REVENUE (MRR)</div><div class="stat-value" id="statMrr">—</div><div class="stat-sub">$9 × subscribers</div></div>
+    <div class="stat-card"><div class="stat-label">STRIPE BALANCE</div><div class="stat-value" id="statBal">—</div><div class="stat-sub">available to pay out</div></div>
+  </div>
+
+  <div class="section-title">SUBSCRIBER LIST</div>
+  <div id="tableWrap"><div class="loading">Loading subscribers...</div></div>
+</div>
+
+<script>
+let adminPass = '';
+
+function doLogin() {
+  const pass = document.getElementById('passInput').value.trim();
+  if (!pass) return;
+  adminPass = pass;
+  document.getElementById('loginErr').textContent = '';
+  loadData();
+}
+
+function doLogout() {
+  adminPass = '';
+  document.getElementById('loginWrap').style.display = 'flex';
+  document.getElementById('dashboard').style.display = 'none';
+}
+
+async function loadData() {
+  const res = await fetch('/.netlify/functions/admin-dashboard', {
+    headers: { 'X-Admin-Password': adminPass }
+  });
+
+  if (res.status === 401) {
+    document.getElementById('loginErr').textContent = 'Wrong password. Try again.';
+    adminPass = '';
+    return;
+  }
+
+  const data = await res.json();
+  if (data.error) {
+    document.getElementById('loginErr').textContent = 'Error: ' + data.error;
+    return;
+  }
+
+  // Show dashboard
+  document.getElementById('loginWrap').style.display = 'none';
+  document.getElementById('dashboard').style.display = 'block';
+
+  // Stats
+  document.getElementById('statSubs').textContent = data.subscriberCount;
+  document.getElementById('statMrr').textContent = '$' + data.mrr;
+  document.getElementById('statBal').textContent = '$' + data.available;
+
+  // Table
+  renderTable(data.subscribers || []);
+}
+
+function renderTable(subs) {
+  const wrap = document.getElementById('tableWrap');
+  if (!subs.length) {
+    wrap.innerHTML = '<div class="empty">No active subscribers yet. Share govscout.pro and get that first $9!</div>';
+    return;
+  }
+
+  const rows = subs.map(s => `
+    <tr>
+      <td style="color:#fff">${s.email || '—'}</td>
+      <td>${s.name || '—'}</td>
+      <td>$${s.amount}/mo</td>
+      <td>${s.created}</td>
+      <td>${s.currentPeriodEnd}</td>
+      <td>${s.cancelAtPeriodEnd
+        ? '<span class="badge badge-cancel">CANCELS</span>'
+        : '<span class="badge badge-active">ACTIVE</span>'}</td>
+      <td>
+        <button class="cancel-btn" onclick="cancelSub('${s.id}','${s.email}')">Cancel</button>
+      </td>
+    </tr>
+  `).join('');
+
+  wrap.innerHTML = `
+    <table class="sub-table">
+      <thead>
+        <tr>
+          <th>EMAIL</th><th>NAME</th><th>PLAN</th>
+          <th>SINCE</th><th>NEXT BILL</th><th>STATUS</th><th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+  `;
+}
+
+async function cancelSub(subId, email) {
+  if (!confirm(`Cancel subscription for ${email}? They keep access until end of billing period.`)) return;
+  const res = await fetch('/.netlify/functions/admin-dashboard?action=cancel', {
+    method: 'POST',
+    headers: { 'X-Admin-Password': adminPass, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ subscriptionId: subId })
+  });
+  const data = await res.json();
+  if (data.success) { alert('Subscription cancelled. They keep access until period end.'); loadData(); }
+  else alert('Error: ' + (data.error || 'Unknown error'));
+}
+</script>
+</body>
+</html>

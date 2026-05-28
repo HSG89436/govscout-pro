@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI SAM.gov Contract Search — Find Federal Opportunities Faster | GovScout Pro</title>
+<meta name="description" content="Search SAM.gov with AI. GovScout Pro scores federal opportunities by your certifications and NAICS codes, so you only see contracts you can actually win.">
+<meta property="og:title" content="AI SAM.gov Contract Search — GovScout Pro">
+<meta property="og:description" content="Stop wading through hundreds of irrelevant listings. AI-powered SAM.gov search filtered by your certifications, NAICS codes, and set-aside status.">
+<meta property="og:url" content="https://govscout.pro/sam-gov-contract-search-ai">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://govscout.pro/sam-gov-contract-search-ai">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "GovScout Pro — AI SAM.gov Search",
+  "url": "https://govscout.pro",
+  "description": "AI-powered SAM.gov contract search that scores opportunities by your certifications, NAICS codes, and set-aside eligibility.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "GovScout Pro", "url": "https://govscout.pro" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do I need a SAM.gov API key to use GovScout Pro?", "acceptedAnswer": { "@type": "Answer", "text": "GovScout Pro uses a shared SAM.gov API key by default. You can optionally provide your own free key from sam.gov for higher rate limits." } },
+    { "@type": "Question", "name": "How is this different from searching SAM.gov directly?", "acceptedAnswer": { "@type": "Answer", "text": "SAM.gov returns raw listings with no fit scoring. GovScout Pro filters by your certifications, NAICS codes, and set-aside status, then rates each opportunity GO, TEAM, or PASS based on your company profile." } },
+    { "@type": "Question", "name": "What certifications does GovScout Pro support?", "acceptedAnswer": { "@type": "Answer", "text": "SDVOSB, VOSB, 8(a), WOSB, EDWOSB, HUBZone, SDB, SBA small business, and open competition. Tell Marcus your certifications and he filters accordingly." } }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{--transition:0.3s ease;}
+[data-theme="dark"]{--bg:#05070f;--bg2:#090c18;--surface:#0e1225;--s2:#131829;--s3:#18202f;--border:#1e2a42;--b2:#263347;--txt:#eef2ff;--txt2:#8a9cc8;--txt3:#4a5a82;--gold:#f5a623;--gold2:#ffc04a;--gold3:rgba(245,166,35,.12);--cyan:#38bdf8;--cyan2:rgba(56,189,248,.1);--green:#4ade80;--green2:rgba(74,222,128,.1);--red:#f87171;--nav-bg:rgba(5,7,15,.92);}
+[data-theme="light"]{--bg:#f8f7f2;--bg2:#f0ede4;--surface:#ffffff;--s2:#f5f3ed;--border:#ddd8cc;--txt:#1a1810;--txt2:#4a4535;--txt3:#7a7060;--gold:#c47d0e;--gold3:rgba(196,125,14,.1);--cyan:#0369a1;--green:#16a34a;--green2:rgba(22,163,74,.08);--red:#dc2626;--nav-bg:rgba(248,247,242,.95);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--txt);font-family:'Space Grotesk',sans-serif;line-height:1.6;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--nav-bg);border-bottom:1px solid var(--border);backdrop-filter:blur(20px);height:60px;display:flex;align-items:center;padding:0 32px;}
+.nav-logo{font-family:'Fraunces',serif;font-weight:900;font-size:18px;color:var(--txt);text-decoration:none;}
+.nav-logo .accent{color:var(--gold);}
+.nav-spacer{flex:1;}
+.nav-link{font-family:'DM Mono',monospace;font-size:12px;color:var(--txt2);text-decoration:none;padding:6px 12px;border-radius:6px;}
+.nav-link:hover{color:var(--gold);}
+.nav-cta{background:var(--gold);color:#05070f;font-family:'DM Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.05em;padding:8px 16px;border-radius:8px;text-decoration:none;margin-left:8px;}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:8px;width:34px;height:34px;cursor:pointer;color:var(--txt2);font-size:14px;margin-left:8px;}
+.hero{padding:120px 24px 80px;text-align:center;max-width:900px;margin:0 auto;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(36px,6vw,64px);line-height:1.05;color:var(--txt);margin-bottom:20px;}
+h1 em{color:var(--gold);font-style:italic;}
+.hero-sub{font-size:18px;color:var(--txt2);max-width:620px;margin:0 auto 40px;line-height:1.7;}
+.btn-primary{display:inline-block;background:var(--gold);color:#05070f;font-family:'DM Mono',monospace;font-weight:700;font-size:14px;letter-spacing:.05em;padding:14px 32px;border-radius:10px;text-decoration:none;}
+.btn-secondary{display:inline-block;border:1px solid var(--border);color:var(--txt2);font-family:'DM Mono',monospace;font-size:13px;padding:12px 24px;border-radius:10px;text-decoration:none;margin-left:12px;}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold);}
+.proof-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;padding:32px 24px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:0 0 80px;}
+.proof-item{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--txt3);display:flex;align-items:center;gap:6px;}
+.proof-dot{width:6px;height:6px;border-radius:50%;background:var(--green);}
+section{padding:72px 24px;max-width:1100px;margin:0 auto;}
+.section-alt{background:var(--bg2);padding:72px 24px;margin:0;}
+.section-alt .inner{max-width:1100px;margin:0 auto;}
+.section-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(28px,4vw,44px);color:var(--txt);line-height:1.1;margin-bottom:16px;}
+h2 em{color:var(--gold);font-style:italic;}
+.section-lead{font-size:17px;color:var(--txt2);line-height:1.75;max-width:680px;margin-bottom:48px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;}
+.card-icon{font-size:28px;margin-bottom:14px;}
+.card-title{font-size:16px;font-weight:700;color:var(--txt);margin-bottom:8px;}
+.card-body{font-size:14px;color:var(--txt2);line-height:1.7;}
+.workflow{counter-reset:step;display:flex;flex-direction:column;gap:24px;max-width:700px;}
+.step{display:flex;gap:20px;align-items:flex-start;}
+.step-num{counter-increment:step;min-width:36px;height:36px;border-radius:50%;background:var(--gold3);border:1px solid rgba(245,166,35,.3);color:var(--gold);font-family:'DM Mono',monospace;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.step-num::before{content:counter(step);}
+.step-content h3{font-size:16px;font-weight:700;color:var(--txt);margin-bottom:6px;}
+.step-content p{font-size:14px;color:var(--txt2);line-height:1.7;}
+.score-demo{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;max-width:700px;margin-top:32px;}
+.score-card{border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;}
+.score-badge{font-family:'DM Mono',monospace;font-size:18px;font-weight:700;margin-bottom:8px;}
+.score-badge.go{color:var(--green);}
+.score-badge.team{color:var(--gold);}
+.score-badge.pass{color:var(--red);}
+.score-desc{font-size:12px;color:var(--txt3);line-height:1.5;}
+.faq-list{display:flex;flex-direction:column;gap:2px;max-width:760px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{padding:18px 0;font-size:15px;font-weight:600;color:var(--txt);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.faq-arrow{color:var(--txt3);font-size:12px;transition:transform .2s;}
+.faq-item.open .faq-arrow{transform:rotate(180deg);}
+.faq-a{max-height:0;overflow:hidden;font-size:14px;color:var(--txt2);line-height:1.8;transition:max-height .3s ease,padding .3s;}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:16px;}
+.cta-block{text-align:center;padding:80px 24px;background:linear-gradient(135deg,var(--bg),var(--surface));border-top:1px solid var(--border);}
+.cta-block h2{margin-bottom:12px;}
+.cta-sub{font-size:16px;color:var(--txt2);margin-bottom:32px;}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24px;text-align:center;font-family:'DM Mono',monospace;font-size:11px;color:var(--txt3);line-height:2.4;}
+footer a{color:var(--txt3);text-decoration:none;margin:0 8px;}
+footer a:hover{color:var(--gold);}
+@media(max-width:600px){.btn-secondary{margin-left:0;margin-top:12px;}h1{font-size:36px;}}
+
+/* ── Language toggle ── */
+.gs-lang-toggle{display:flex;align-items:center;gap:3px;margin-left:8px;}
+.gs-lang-btn{background:transparent;border:1px solid rgba(138,156,200,.35);color:#8a9cc8;font-size:10px;font-weight:700;letter-spacing:.06em;padding:4px 9px;border-radius:5px;cursor:pointer;transition:all .15s;font-family:inherit;}
+.gs-lang-btn:hover{border-color:#f5a623;color:#f5a623;}
+.gs-lang-active{background:rgba(245,166,35,.12);border-color:#f5a623 !important;color:#f5a623 !important;}
+/* Hide Google's injected toolbar */
+.goog-te-banner-frame{display:none!important;}
+.goog-te-menu-value:hover{text-decoration:none!important;}
+body{top:0!important;position:static!important;}
+#goog-gt-tt{display:none!important;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="https://govscout.pro" class="nav-logo">GOV<span class="accent">SCOUT</span> PRO</a>
+  <div class="nav-spacer"></div>
+  <a href="https://govscout.pro" class="nav-link">Home</a>
+  <a href="https://govscout.pro/alerts.html" class="nav-link">Alerts</a>
+  <a href="https://govscout.pro/app" class="nav-cta">Launch App →</a>
+  <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">☀️</button>
+  <div class="gs-lang-toggle"><button id="gs-lang-en" class="gs-lang-btn gs-lang-active" onclick="setLang('en')">EN</button><button id="gs-lang-es" class="gs-lang-btn" onclick="setLang('es')">ES</button></div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="eyebrow">// AI SAM.GOV CONTRACT SEARCH</div>
+  <h1>Stop Guessing.<br>Find Contracts <em>You Can Win.</em></h1>
+  <p class="hero-sub">GovScout Pro searches SAM.gov and scores every opportunity against your certifications, NAICS codes, and set-aside status — so you see GO, TEAM, or PASS before you read a single page of the solicitation.</p>
+  <div>
+    <a href="https://govscout.pro/app" class="btn-primary">Start Searching — $9/month</a>
+    <a href="https://govscout.pro" class="btn-secondary">Learn More</a>
+  </div>
+</div>
+
+<!-- PROOF STRIP -->
+<div class="proof-strip">
+  <div class="proof-item"><div class="proof-dot"></div>SAM.gov live data</div>
+  <div class="proof-item"><div class="proof-dot"></div>SDVOSB · 8(a) · WOSB · HUBZone scoring</div>
+  <div class="proof-item"><div class="proof-dot"></div>NAICS-based filtering</div>
+  <div class="proof-item"><div class="proof-dot"></div>GO / TEAM / PASS ratings</div>
+  <div class="proof-item"><div class="proof-dot"></div>Bring your own AI key</div>
+  <div class="proof-item"><div class="proof-dot"></div>Cancel anytime</div>
+</div>
+
+<!-- PROBLEM -->
+<section>
+  <div class="section-eyebrow">// THE PROBLEM</div>
+  <h2>SAM.gov Returns<br><em>Everything.</em> You Need Relevant.</h2>
+  <p class="section-lead">A generic keyword search on SAM.gov returns hundreds of listings — most of which are set aside for certifications you don't have, NAICS codes you don't cover, or agencies in regions you don't serve. You spend hours reading solicitations that were never going to work for your business.</p>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">😤</div>
+      <div class="card-title">Zero filtering by your profile</div>
+      <div class="card-body">SAM.gov doesn't know your certifications, NAICS codes, or set-aside status. Every search requires manual filtering and guesswork.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">📄</div>
+      <div class="card-title">Dense solicitations, no summary</div>
+      <div class="card-body">You can't tell if an opportunity is worth pursuing without reading 50–200 pages of requirements, clauses, and attachments.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">⏱️</div>
+      <div class="card-title">Hours per week, wasted</div>
+      <div class="card-body">Small businesses without a dedicated BD team burn their most limited resource — time — chasing contracts that were never a fit.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<div class="section-alt">
+<div class="inner">
+  <div class="section-eyebrow">// HOW IT WORKS</div>
+  <h2>AI Search That <em>Knows Your Business</em></h2>
+  <p class="section-lead">Marcus reads your business profile once, then scores every matching SAM.gov opportunity automatically.</p>
+  <div class="workflow">
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <h3>Build your profile</h3>
+        <p>Tell Marcus your NAICS codes, certifications (SDVOSB, 8(a), WOSB, HUBZone, etc.), service areas, and past performance. This takes 5–10 minutes and stays in your browser — no servers, no account required.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <h3>Search or let the alerts run</h3>
+        <p>Enter keywords, agency names, or NAICS codes to search SAM.gov live. Or turn on daily contract alerts and Marcus will surface matches every morning before you start your day.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <h3>Get your GO / TEAM / PASS score</h3>
+        <p>Every opportunity gets rated before you read a single page. GO means the set-aside matches your certification. TEAM means it's open competition — pursue as prime or teaming partner. PASS means certification mismatch — skip it and move on.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <h3>Ask Marcus to analyze the opportunity</h3>
+        <p>Click any listing and Marcus explains what the agency needs, the contract's real requirements, red flags, competition level, and whether your company is positioned to compete. No 200-page PDF reading required.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="score-demo">
+    <div class="score-card">
+      <div class="score-badge go">🟢 GO</div>
+      <div class="score-desc">Set-aside matches your certification. This is your lane — pursue as prime contractor.</div>
+    </div>
+    <div class="score-card">
+      <div class="score-badge team">🟡 TEAM</div>
+      <div class="score-desc">Open competition. Worth pursuing as prime or exploring as teaming / subcontractor.</div>
+    </div>
+    <div class="score-card">
+      <div class="score-badge pass">🔴 PASS</div>
+      <div class="score-desc">Certification mismatch. Filtered out automatically — don't waste time reading it.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- WHO IT'S FOR -->
+<section>
+  <div class="section-eyebrow">// WHO USES IT</div>
+  <h2>Built for Small Businesses<br><em>Pursuing Federal Contracts</em></h2>
+  <p class="section-lead">GovScout Pro is designed specifically for companies that don't have a full-time capture manager or BD team.</p>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🎖️</div>
+      <div class="card-title">SDVOSB &amp; VOSB contractors</div>
+      <div class="card-body">Service-disabled and veteran-owned businesses with set-aside eligibility who want to find contracts where they have a structural advantage.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏢</div>
+      <div class="card-title">8(a), WOSB, and HUBZone firms</div>
+      <div class="card-body">Certified businesses looking for set-aside opportunities that match their certification without manually filtering every SAM.gov result.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔧</div>
+      <div class="card-title">Technical small businesses</div>
+      <div class="card-body">IT, engineering, telecom, SCADA, construction, and professional services companies looking for agency-specific opportunities in their NAICS codes.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🆕</div>
+      <div class="card-title">New government contractors</div>
+      <div class="card-body">Businesses just starting out on SAM.gov who need help understanding what they're reading and where to focus their limited time and resources.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<div class="section-alt">
+<div class="inner">
+  <div class="section-eyebrow">// FAQ</div>
+  <h2>Common <em>Questions</em></h2>
+  <div class="faq-list">
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do I need a SAM.gov API key to search?<div class="faq-arrow">▾</div></div><div class="faq-a">GovScout Pro uses a shared SAM.gov API key by default — you don't need to provide one to get started. If you want higher search rate limits, you can add your own free SAM.gov key from sam.gov/profile/details. It takes about 2 minutes to generate.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How is this different from searching SAM.gov directly?<div class="faq-arrow">▾</div></div><div class="faq-a">SAM.gov returns raw listings with no fit scoring. GovScout Pro adds your profile — your certifications, NAICS codes, and service areas — and scores each result before you see it. Instead of reading 50 listings to find 3 worth pursuing, you see your GO opportunities immediately.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What certifications does GovScout Pro score for?<div class="faq-arrow">▾</div></div><div class="faq-a">SDVOSB, VOSB, 8(a), WOSB, EDWOSB, HUBZone, Small Disadvantaged Business (SDB), and general SBA small business. Tell Marcus which certifications your company holds and he filters and scores accordingly.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Does GovScout Pro submit bids for me?<div class="faq-arrow">▾</div></div><div class="faq-a">No. GovScout Pro helps you find and analyze opportunities, build compliance checklists, and draft bid materials. Actual bid submission happens through your company's SAM.gov account and the awarding agency's designated submission system.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is the SAM.gov data current?<div class="faq-arrow">▾</div></div><div class="faq-a">GovScout Pro pulls live data directly from the SAM.gov API. Data is current within SAM.gov's own update cycle (typically same-day for new postings). Always verify deadlines and amendments directly on SAM.gov before submitting anything.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How much does it cost?<div class="faq-arrow">▾</div></div><div class="faq-a">$9/month for full access. Cancel anytime — no contracts, no cancellation fees. Cancel through your PayPal account under Manage Automatic Payments, or contact us directly.</div></div>
+  </div>
+</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-block">
+  <div class="section-eyebrow">// GET STARTED</div>
+  <h2>Start Finding Contracts<br><em>Worth Your Time</em></h2>
+  <p class="cta-sub">$9/month. Cancel anytime. Your API keys and business profile stay in your browser — never on our servers.</p>
+  <div>
+    <a href="https://govscout.pro/app" class="btn-primary">Launch GovScout Pro — $9/month</a>
+  </div>
+  <div style="margin-top:24px;font-family:'DM Mono',monospace;font-size:11px;color:var(--txt3);">
+    Also useful: <a href="/ai-rfp-analyzer" style="color:var(--txt3);">AI RFP Analyzer</a> &nbsp;·&nbsp; <a href="/government-contract-bid-package-builder" style="color:var(--txt3);">Bid Package Builder</a> &nbsp;·&nbsp; <a href="/alerts.html" style="color:var(--txt3);">Daily Contract Alerts</a>
+  </div>
+</div>
+
+<footer>
+  <div>GovScout Pro &nbsp;·&nbsp; Harriman Solution Group &nbsp;·&nbsp; Reno, NV &nbsp;·&nbsp; SDVOSB · CAGE: 9YZ59</div>
+  <div>
+    <a href="/">Home</a>
+    <a href="/sam-gov-contract-search-ai">SAM.gov AI Search</a>
+    <a href="/ai-rfp-analyzer">RFP Analyzer</a>
+    <a href="/government-contract-bid-package-builder">Bid Package Builder</a>
+    <a href="/alerts.html">Alerts</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="mailto:sharriman2002@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+function toggleTheme(){const h=document.documentElement,d=h.getAttribute('data-theme')==='dark';h.setAttribute('data-theme',d?'light':'dark');document.getElementById('themeBtn').textContent=d?'🌙':'☀️';localStorage.setItem('fs_theme',d?'light':'dark');}
+(function(){const s=localStorage.getItem('fs_theme');if(s){document.documentElement.setAttribute('data-theme',s);const b=document.getElementById('themeBtn');if(b)b.textContent=s==='light'?'🌙':'☀️';}})();
+function toggleFaq(el){const item=el.closest('.faq-item'),was=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!was)item.classList.add('open');}
+</script>
+
+<div id="gs_translate_el" style="display:none"></div>
+<script src="/lang.js"></script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+</body>
+</html>

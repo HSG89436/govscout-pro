@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HUBZone Federal Contracts — Find Set-Aside Opportunities for HUBZone Businesses | GovScout Pro</title>
+<meta name="description" content="Find HUBZone set-aside federal contracts on SAM.gov. GovScout Pro scores every opportunity against your HUBZone certification and NAICS codes — see only the contracts you're eligible to win.">
+<meta property="og:title" content="HUBZone Federal Contracts — GovScout Pro">
+<meta property="og:description" content="AI-powered contract search for HUBZone certified businesses. Find set-aside opportunities filtered by your NAICS codes and geographic eligibility.">
+<meta property="og:url" content="https://govscout.pro/hubzone-federal-contracts">
+<link rel="canonical" href="https://govscout.pro/hubzone-federal-contracts">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is a HUBZone set-aside contract?","acceptedAnswer":{"@type":"Answer","text":"A HUBZone set-aside contract is reserved for businesses certified in SBA's Historically Underutilized Business Zone program. These contracts are restricted to HUBZone-certified firms, giving them a structural advantage in federal competition."}},
+{"@type":"Question","name":"What is the 10% price evaluation preference for HUBZone?","acceptedAnswer":{"@type":"Answer","text":"On full-and-open competition contracts, HUBZone firms receive a 10% price evaluation preference. This means if a HUBZone firm bids $110,000 and a non-HUBZone firm bids $100,000, the HUBZone firm is evaluated as if they bid $99,000 — making them the apparent low bidder."}},
+{"@type":"Question","name":"How does GovScout Pro find HUBZone contracts?","acceptedAnswer":{"@type":"Answer","text":"GovScout Pro searches SAM.gov and filters by HUBZone set-aside type. When you add your HUBZone certification to your profile, Marcus scores every opportunity as GO (HUBZone set-aside), TEAM (price preference applies in open competition), or PASS."}}
+]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{--transition:0.3s ease;}
+[data-theme="dark"]{--bg:#05070f;--bg2:#090c18;--surface:#0e1225;--s2:#131829;--border:#1e2a42;--txt:#eef2ff;--txt2:#8a9cc8;--txt3:#4a5a82;--gold:#f5a623;--gold3:rgba(245,166,35,.12);--green:#4ade80;--green2:rgba(74,222,128,.1);--nav-bg:rgba(5,7,15,.92);}
+[data-theme="light"]{--bg:#f8f7f2;--bg2:#f0ede4;--surface:#ffffff;--s2:#f5f3ed;--border:#ddd8cc;--txt:#1a1810;--txt2:#4a4535;--txt3:#7a7060;--gold:#c47d0e;--gold3:rgba(196,125,14,.1);--green:#16a34a;--green2:rgba(22,163,74,.08);--nav-bg:rgba(248,247,242,.95);}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--txt);font-family:'Space Grotesk',sans-serif;line-height:1.6;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--nav-bg);border-bottom:1px solid var(--border);backdrop-filter:blur(20px);height:60px;display:flex;align-items:center;padding:0 32px;}
+.nav-logo{font-family:'Fraunces',serif;font-weight:900;font-size:18px;color:var(--txt);text-decoration:none;}.nav-logo .accent{color:var(--gold);}
+.nav-spacer{flex:1;}.nav-link{font-family:'DM Mono',monospace;font-size:12px;color:var(--txt2);text-decoration:none;padding:6px 12px;}.nav-link:hover{color:var(--gold);}
+.nav-cta{background:var(--gold);color:#05070f;font-family:'DM Mono',monospace;font-size:11px;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none;margin-left:8px;}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:8px;width:34px;height:34px;cursor:pointer;color:var(--txt2);font-size:14px;margin-left:8px;}
+.hero{padding:120px 24px 80px;text-align:center;max-width:900px;margin:0 auto;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--green);margin-bottom:16px;}
+h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(34px,5.5vw,60px);line-height:1.05;color:var(--txt);margin-bottom:20px;}h1 em{color:var(--gold);font-style:italic;}
+.hero-sub{font-size:18px;color:var(--txt2);max-width:640px;margin:0 auto 40px;line-height:1.7;}
+.btn-primary{display:inline-block;background:var(--gold);color:#05070f;font-family:'DM Mono',monospace;font-weight:700;font-size:14px;padding:14px 32px;border-radius:10px;text-decoration:none;}
+.btn-secondary{display:inline-block;border:1px solid var(--border);color:var(--txt2);font-family:'DM Mono',monospace;font-size:13px;padding:12px 24px;border-radius:10px;text-decoration:none;margin-left:12px;}
+.proof-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;padding:32px 24px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:0 0 80px;}
+.proof-item{font-family:'DM Mono',monospace;font-size:11px;color:var(--txt3);display:flex;align-items:center;gap:6px;}
+.proof-dot{width:6px;height:6px;border-radius:50%;background:var(--green);}
+section{padding:72px 24px;max-width:1100px;margin:0 auto;}
+.section-alt{background:var(--bg2);padding:72px 24px;margin:0;}.section-alt .inner{max-width:1100px;margin:0 auto;}
+.section-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(26px,4vw,42px);color:var(--txt);line-height:1.1;margin-bottom:16px;}h2 em{color:var(--gold);font-style:italic;}
+h3{font-size:17px;font-weight:700;color:var(--txt);margin:28px 0 8px;}
+.section-lead{font-size:17px;color:var(--txt2);line-height:1.75;max-width:680px;margin-bottom:48px;}
+p{font-size:15px;color:var(--txt2);line-height:1.8;margin-bottom:14px;}
+ul{margin:0 0 20px 20px;}li{font-size:15px;color:var(--txt2);line-height:1.8;margin-bottom:6px;}
+.pref-box{background:var(--green2);border:1px solid rgba(74,222,128,.2);border-radius:12px;padding:24px;margin:24px 0;max-width:700px;}
+.pref-box h3{margin-top:0;color:var(--green);}
+.pref-box p{margin:0;font-size:14px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;}
+.card-icon{font-size:26px;margin-bottom:12px;}.card-title{font-size:16px;font-weight:700;color:var(--txt);margin-bottom:8px;}.card-body{font-size:14px;color:var(--txt2);line-height:1.7;}
+.faq-list{display:flex;flex-direction:column;gap:2px;max-width:760px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{padding:18px 0;font-size:15px;font-weight:600;color:var(--txt);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.faq-arrow{color:var(--txt3);font-size:12px;transition:transform .2s;}
+.faq-item.open .faq-arrow{transform:rotate(180deg);}
+.faq-a{max-height:0;overflow:hidden;font-size:14px;color:var(--txt2);line-height:1.8;transition:max-height .3s,padding .3s;}
+.faq-item.open .faq-a{max-height:400px;padding-bottom:16px;}
+.cta-block{text-align:center;padding:80px 24px;border-top:1px solid var(--border);}
+.cta-sub{font-size:16px;color:var(--txt2);margin:12px 0 32px;}
+.related{font-family:'DM Mono',monospace;font-size:11px;color:var(--txt3);margin-top:24px;}
+.related a{color:var(--txt3);text-decoration:none;margin:0 6px;}.related a:hover{color:var(--gold);}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24px;text-align:center;font-family:'DM Mono',monospace;font-size:11px;color:var(--txt3);line-height:2.4;}
+footer a{color:var(--txt3);text-decoration:none;margin:0 8px;}footer a:hover{color:var(--gold);}
+a{color:var(--gold);text-decoration:none;}a:hover{text-decoration:underline;}
+
+/* ── Language toggle ── */
+.gs-lang-toggle{display:flex;align-items:center;gap:3px;margin-left:8px;}
+.gs-lang-btn{background:transparent;border:1px solid rgba(138,156,200,.35);color:#8a9cc8;font-size:10px;font-weight:700;letter-spacing:.06em;padding:4px 9px;border-radius:5px;cursor:pointer;transition:all .15s;font-family:inherit;}
+.gs-lang-btn:hover{border-color:#f5a623;color:#f5a623;}
+.gs-lang-active{background:rgba(245,166,35,.12);border-color:#f5a623 !important;color:#f5a623 !important;}
+/* Hide Google's injected toolbar */
+.goog-te-banner-frame{display:none!important;}
+.goog-te-menu-value:hover{text-decoration:none!important;}
+body{top:0!important;position:static!important;}
+#goog-gt-tt{display:none!important;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">GOV<span class="accent">SCOUT</span> PRO</a>
+  <div class="nav-spacer"></div>
+  <a href="/" class="nav-link">Home</a>
+  <a href="/alerts.html" class="nav-link">Alerts</a>
+  <a href="/app" class="nav-cta">Launch App →</a>
+  <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">☀️</button>
+  <div class="gs-lang-toggle"><button id="gs-lang-en" class="gs-lang-btn gs-lang-active" onclick="setLang('en')">EN</button><button id="gs-lang-es" class="gs-lang-btn" onclick="setLang('es')">ES</button></div>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">// HUBZONE FEDERAL CONTRACTS</div>
+  <h1>HUBZone Certification Gives You<br><em>A Built-In Price Advantage.</em></h1>
+  <p class="hero-sub">HUBZone firms get set-aside contracts and a 10% price evaluation preference on open competition. GovScout Pro finds both — scored against your NAICS codes so you know exactly where you stand before opening the solicitation.</p>
+  <div>
+    <a href="/app" class="btn-primary">Find HUBZone Contracts — $9/month</a>
+    <a href="/sam-gov-contract-search-ai" class="btn-secondary">How It Works</a>
+  </div>
+</div>
+
+<div class="proof-strip">
+  <div class="proof-item"><div class="proof-dot"></div>HUBZone set-aside filter</div>
+  <div class="proof-item"><div class="proof-dot"></div>Price preference tracking</div>
+  <div class="proof-item"><div class="proof-dot"></div>NAICS code scoring</div>
+  <div class="proof-item"><div class="proof-dot"></div>Daily alert delivery</div>
+  <div class="proof-item"><div class="proof-dot"></div>$9/month · Cancel anytime</div>
+</div>
+
+<section>
+  <div class="section-eyebrow">// THE HUBZONE ADVANTAGE</div>
+  <h2>Two Ways HUBZone<br><em>Opens Federal Doors</em></h2>
+  <p class="section-lead">HUBZone certification isn't just a set-aside program — it gives you a competitive pricing advantage on full-and-open contracts that no other small business certification provides.</p>
+
+  <div class="pref-box">
+    <h3>📊 The 10% price evaluation preference</h3>
+    <p>On full-and-open competition contracts, the government evaluates HUBZone bids as if they're 10% lower than submitted. If you bid $110,000 and a non-HUBZone competitor bids $100,000, you're evaluated at $99,000 — making you the apparent low bidder. This applies even when you're not in a set-aside.</p>
+  </div>
+
+  <h3>HUBZone set-aside contracts</h3>
+  <p>Contracting officers can set contracts aside exclusively for HUBZone firms when there are at least two qualified HUBZone businesses that can meet the requirement. These are restricted competition — only HUBZone-certified firms can bid. With less competition than open market contracts, your win probability is structurally higher.</p>
+
+  <h3>HUBZone eligibility requirements</h3>
+  <ul>
+    <li>Principal office must be located in a Historically Underutilized Business Zone</li>
+    <li>At least 35% of employees must reside in a HUBZone</li>
+    <li>Small business under SBA size standards for your NAICS code</li>
+    <li>At least 51% owned and controlled by U.S. citizens, a Community Development Corporation, an agricultural cooperative, an Alaska Native Corporation, or an Indian tribe</li>
+    <li>Certified through SBA at certify.sba.gov (annual recertification required)</li>
+  </ul>
+</section>
+
+<div class="section-alt">
+<div class="inner">
+  <div class="section-eyebrow">// HOW GOVSCOUT PRO HELPS</div>
+  <h2>Find Every HUBZone Opportunity<br><em>In Your NAICS Codes</em></h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🗺️</div>
+      <div class="card-title">Set-aside identification</div>
+      <div class="card-body">Marcus filters SAM.gov results to HUBZone set-asides in your NAICS codes and marks them GO. You see your priority opportunities first — no manual filtering required.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <div class="card-title">Price preference flag</div>
+      <div class="card-body">On open competition contracts where your 10% price preference applies, Marcus flags them as TEAM with a note about the preference advantage — so you know where you have a built-in edge.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">📋</div>
+      <div class="card-title">RFP analysis</div>
+      <div class="card-body">Upload any solicitation and Marcus explains requirements, competition level, your pricing position, and whether it's worth pursuing given your HUBZone status and other certifications.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">📱</div>
+      <div class="card-title">Daily HUBZone alerts</div>
+      <div class="card-body">New HUBZone set-asides in your NAICS codes delivered to your email or Telegram every morning. Consistent monitoring without constant manual SAM.gov searches.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="section-alt" style="background:var(--bg);">
+<div class="inner">
+  <div class="section-eyebrow">// FAQ</div>
+  <h2>Common <em>Questions</em></h2>
+  <div class="faq-list">
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How do I check if my location qualifies as a HUBZone?<div class="faq-arrow">▾</div></div><div class="faq-a">Use SBA's HUBZone map at <a href="https://maps.certify.sba.gov/hubzone/map" target="_blank" rel="noopener">maps.certify.sba.gov/hubzone/map</a>. Enter your principal office address to see if it falls within a designated HUBZone. HUBZone maps are updated periodically — zones can be added or removed.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is the 35% employee residency requirement?<div class="faq-arrow">▾</div></div><div class="faq-a">At least 35% of your total employees must live in a HUBZone — not necessarily the same HUBZone where your principal office is located. Any qualifying HUBZone counts. This is a continuing requirement — you must maintain it to keep your certification active, and SBA can audit compliance.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can HUBZone firms also have other certifications?<div class="faq-arrow">▾</div></div><div class="faq-a">Yes, and it's advantageous. HUBZone + SDVOSB, HUBZone + 8(a), HUBZone + WOSB — stacking certifications expands the pool of set-aside contracts you can compete on. GovScout Pro lets you enter all your certifications and scores every opportunity against your full eligibility profile.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Does the 10% price preference apply to all federal contracts?<div class="faq-arrow">▾</div></div><div class="faq-a">The 10% price evaluation preference applies to full-and-open competition contracts. It does not apply to set-aside contracts (where only HUBZone firms can bid) or contracts awarded under other set-aside programs. It's most valuable in large open-competition procurements where price is a significant evaluation factor.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How much does GovScout Pro cost?<div class="faq-arrow">▾</div></div><div class="faq-a">$9/month for full access including SAM.gov search, daily alerts, RFP analysis, and Marcus AI. Cancel anytime through PayPal — no contracts, no cancellation fees.</div></div>
+  </div>
+</div>
+</div>
+
+<div class="cta-block">
+  <div class="section-eyebrow">// GET STARTED</div>
+  <h2>Your Location Is an Asset.<br><em>Let's Find the Contracts It Unlocks.</em></h2>
+  <p class="cta-sub">$9/month. Cancel anytime. No SAM.gov key required.</p>
+  <a href="/app" class="btn-primary">Find HUBZone Contracts — $9/month</a>
+  <div class="related">
+    Also: <a href="/sdvosb-federal-contracts">SDVOSB Contracts</a> · <a href="/wosb-federal-contracts">WOSB Contracts</a> · <a href="/8a-federal-contracts">8(a) Contracts</a> · <a href="/alerts.html">Daily Alerts</a>
+  </div>
+</div>
+
+<footer>
+  <div>GovScout Pro · Harriman Solution Group · Reno, NV · SDVOSB · CAGE: 9YZ59</div>
+  <div><a href="/">Home</a><a href="/sdvosb-federal-contracts">SDVOSB</a><a href="/wosb-federal-contracts">WOSB</a><a href="/8a-federal-contracts">8(a)</a><a href="/hubzone-federal-contracts">HUBZone</a><a href="/alerts.html">Alerts</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+</footer>
+<script>
+function toggleTheme(){const h=document.documentElement,d=h.getAttribute('data-theme')==='dark';h.setAttribute('data-theme',d?'light':'dark');document.getElementById('themeBtn').textContent=d?'🌙':'☀️';localStorage.setItem('fs_theme',d?'light':'dark');}
+(function(){const s=localStorage.getItem('fs_theme');if(s){document.documentElement.setAttribute('data-theme',s);const b=document.getElementById('themeBtn');if(b)b.textContent=s==='light'?'🌙':'☀️';}})();
+function toggleFaq(el){const i=el.closest('.faq-item'),w=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));if(!w)i.classList.add('open');}
+</script>
+
+<div id="gs_translate_el" style="display:none"></div>
+<script src="/lang.js"></script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+</body>
+</html>

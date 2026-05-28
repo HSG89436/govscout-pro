@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Government Contract Bid Package Builder — AI Proposal Tool | GovScout Pro</title>
+<meta name="description" content="Build a compliant federal bid package with AI. GovScout Pro generates compliance matrices, proposal outlines, and draft sections from your solicitation — in a fraction of the time.">
+<meta property="og:title" content="Government Contract Bid Package Builder — GovScout Pro">
+<meta property="og:description" content="AI-assisted federal proposal builder. Upload your RFP and get a compliance matrix, proposal outline, and draft sections in minutes.">
+<meta property="og:url" content="https://govscout.pro/government-contract-bid-package-builder">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://govscout.pro/government-contract-bid-package-builder">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "GovScout Pro — Bid Package Builder",
+  "url": "https://govscout.pro",
+  "description": "AI-powered government contract bid package builder. Generates compliance matrices, proposal outlines, and draft sections from federal solicitations.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "GovScout Pro", "url": "https://govscout.pro" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Does GovScout Pro write my proposal for me?", "acceptedAnswer": { "@type": "Answer", "text": "GovScout Pro provides AI-assisted drafts and outlines based on the solicitation requirements. It generates a starting point — compliance matrix, section outlines, capability statement drafts, past performance narratives. You review, revise, and submit. The final proposal is always yours." } },
+    { "@type": "Question", "name": "What documents should I upload to build a bid package?", "acceptedAnswer": { "@type": "Answer", "text": "Upload the full solicitation (RFP, RFQ, or IFB), the Statement of Work or Performance Work Statement, any amendments or Q&A documents, and your capability statement if you have one. The more you upload, the more specific Marcus's outputs will be." } },
+    { "@type": "Question", "name": "Can GovScout Pro guarantee my bid will win?", "acceptedAnswer": { "@type": "Answer", "text": "No. GovScout Pro helps you research, qualify, and prepare federal contract bids. It does not guarantee contract awards and does not replace legal, compliance, or contracting officer guidance. Always review AI-generated content before submitting to any government agency." } }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{--transition:0.3s ease;}
+[data-theme="dark"]{--bg:#05070f;--bg2:#090c18;--surface:#0e1225;--s2:#131829;--border:#1e2a42;--txt:#eef2ff;--txt2:#8a9cc8;--txt3:#4a5a82;--gold:#f5a623;--gold3:rgba(245,166,35,.12);--cyan:#38bdf8;--green:#4ade80;--green2:rgba(74,222,128,.1);--red:#f87171;--nav-bg:rgba(5,7,15,.92);}
+[data-theme="light"]{--bg:#f8f7f2;--bg2:#f0ede4;--surface:#ffffff;--s2:#f5f3ed;--border:#ddd8cc;--txt:#1a1810;--txt2:#4a4535;--txt3:#7a7060;--gold:#c47d0e;--gold3:rgba(196,125,14,.1);--cyan:#0369a1;--green:#16a34a;--green2:rgba(22,163,74,.08);--red:#dc2626;--nav-bg:rgba(248,247,242,.95);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--txt);font-family:'Space Grotesk',sans-serif;line-height:1.6;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--nav-bg);border-bottom:1px solid var(--border);backdrop-filter:blur(20px);height:60px;display:flex;align-items:center;padding:0 32px;}
+.nav-logo{font-family:'Fraunces',serif;font-weight:900;font-size:18px;color:var(--txt);text-decoration:none;}
+.nav-logo .accent{color:var(--gold);}
+.nav-spacer{flex:1;}
+.nav-link{font-family:'DM Mono',monospace;font-size:12px;color:var(--txt2);text-decoration:none;padding:6px 12px;}
+.nav-link:hover{color:var(--gold);}
+.nav-cta{background:var(--gold);color:#05070f;font-family:'DM Mono',monospace;font-size:11px;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none;margin-left:8px;}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:8px;width:34px;height:34px;cursor:pointer;color:var(--txt2);font-size:14px;margin-left:8px;}
+.hero{padding:120px 24px 80px;text-align:center;max-width:900px;margin:0 auto;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(36px,6vw,60px);line-height:1.05;color:var(--txt);margin-bottom:20px;}
+h1 em{color:var(--gold);font-style:italic;}
+.hero-sub{font-size:18px;color:var(--txt2);max-width:640px;margin:0 auto 40px;line-height:1.7;}
+.btn-primary{display:inline-block;background:var(--gold);color:#05070f;font-family:'DM Mono',monospace;font-weight:700;font-size:14px;padding:14px 32px;border-radius:10px;text-decoration:none;}
+.btn-secondary{display:inline-block;border:1px solid var(--border);color:var(--txt2);font-family:'DM Mono',monospace;font-size:13px;padding:12px 24px;border-radius:10px;text-decoration:none;margin-left:12px;}
+.proof-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;padding:32px 24px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:0 0 80px;}
+.proof-item{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--txt3);display:flex;align-items:center;gap:6px;}
+.proof-dot{width:6px;height:6px;border-radius:50%;background:var(--green);}
+section{padding:72px 24px;max-width:1100px;margin:0 auto;}
+.section-alt{background:var(--bg2);padding:72px 24px;margin:0;}
+.section-alt .inner{max-width:1100px;margin:0 auto;}
+.section-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(28px,4vw,44px);color:var(--txt);line-height:1.1;margin-bottom:16px;}
+h2 em{color:var(--gold);font-style:italic;}
+.section-lead{font-size:17px;color:var(--txt2);line-height:1.75;max-width:680px;margin-bottom:48px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;}
+.card-icon{font-size:28px;margin-bottom:14px;}
+.card-title{font-size:16px;font-weight:700;color:var(--txt);margin-bottom:8px;}
+.card-body{font-size:14px;color:var(--txt2);line-height:1.7;}
+.workflow{counter-reset:step;display:flex;flex-direction:column;gap:24px;max-width:700px;}
+.step{display:flex;gap:20px;align-items:flex-start;}
+.step-num{counter-increment:step;min-width:36px;height:36px;border-radius:50%;background:var(--gold3);border:1px solid rgba(245,166,35,.3);color:var(--gold);font-family:'DM Mono',monospace;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.step-num::before{content:counter(step);}
+.step-content h3{font-size:16px;font-weight:700;color:var(--txt);margin-bottom:6px;}
+.step-content p{font-size:14px;color:var(--txt2);line-height:1.7;}
+.deliverable-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:8px;}
+.deliverable{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-size:13px;color:var(--txt2);display:flex;align-items:flex-start;gap:10px;}
+.deliverable-icon{color:var(--green);font-size:16px;flex-shrink:0;margin-top:1px;}
+.warn-box{background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:12px;padding:20px 24px;margin:32px 0;max-width:700px;}
+.warn-box p{font-size:14px;color:var(--txt2);line-height:1.7;margin:0;}
+.faq-list{display:flex;flex-direction:column;gap:2px;max-width:760px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{padding:18px 0;font-size:15px;font-weight:600;color:var(--txt);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.faq-arrow{color:var(--txt3);font-size:12px;transition:transform .2s;}
+.faq-item.open .faq-arrow{transform:rotate(180deg);}
+.faq-a{max-height:0;overflow:hidden;font-size:14px;color:var(--txt2);line-height:1.8;transition:max-height .3s ease,padding .3s;}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:16px;}
+.cta-block{text-align:center;padding:80px 24px;border-top:1px solid var(--border);}
+.cta-sub{font-size:16px;color:var(--txt2);margin:12px 0 32px;}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24px;text-align:center;font-family:'DM Mono',monospace;font-size:11px;color:var(--txt3);line-height:2.4;}
+footer a{color:var(--txt3);text-decoration:none;margin:0 8px;}
+footer a:hover{color:var(--gold);}
+
+/* ── Language toggle ── */
+.gs-lang-toggle{display:flex;align-items:center;gap:3px;margin-left:8px;}
+.gs-lang-btn{background:transparent;border:1px solid rgba(138,156,200,.35);color:#8a9cc8;font-size:10px;font-weight:700;letter-spacing:.06em;padding:4px 9px;border-radius:5px;cursor:pointer;transition:all .15s;font-family:inherit;}
+.gs-lang-btn:hover{border-color:#f5a623;color:#f5a623;}
+.gs-lang-active{background:rgba(245,166,35,.12);border-color:#f5a623 !important;color:#f5a623 !important;}
+/* Hide Google's injected toolbar */
+.goog-te-banner-frame{display:none!important;}
+.goog-te-menu-value:hover{text-decoration:none!important;}
+body{top:0!important;position:static!important;}
+#goog-gt-tt{display:none!important;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="https://govscout.pro" class="nav-logo">GOV<span class="accent">SCOUT</span> PRO</a>
+  <div class="nav-spacer"></div>
+  <a href="https://govscout.pro" class="nav-link">Home</a>
+  <a href="https://govscout.pro/alerts.html" class="nav-link">Alerts</a>
+  <a href="https://govscout.pro/app" class="nav-cta">Launch App →</a>
+  <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">☀️</button>
+  <div class="gs-lang-toggle"><button id="gs-lang-en" class="gs-lang-btn gs-lang-active" onclick="setLang('en')">EN</button><button id="gs-lang-es" class="gs-lang-btn" onclick="setLang('es')">ES</button></div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="eyebrow">// BID PACKAGE BUILDER</div>
+  <h1>Build a Compliant<br>Federal Bid Package <em>Faster.</em></h1>
+  <p class="hero-sub">GovScout Pro reads your solicitation and generates a compliance matrix, proposal outline, capability statement draft, and past performance narrative starters — so you spend your time refining the proposal instead of building it from scratch.</p>
+  <div>
+    <a href="https://govscout.pro/app" class="btn-primary">Start Building — $9/month</a>
+    <a href="https://govscout.pro" class="btn-secondary">Learn More</a>
+  </div>
+</div>
+
+<!-- PROOF STRIP -->
+<div class="proof-strip">
+  <div class="proof-item"><div class="proof-dot"></div>Compliance matrix generation</div>
+  <div class="proof-item"><div class="proof-dot"></div>Proposal section outlines</div>
+  <div class="proof-item"><div class="proof-dot"></div>Capability statement drafts</div>
+  <div class="proof-item"><div class="proof-dot"></div>Past performance starters</div>
+  <div class="proof-item"><div class="proof-dot"></div>FAR compliance checks</div>
+  <div class="proof-item"><div class="proof-dot"></div>Docs never stored on our servers</div>
+</div>
+
+<!-- PROBLEM -->
+<section>
+  <div class="section-eyebrow">// THE PROBLEM</div>
+  <h2>Building a Federal Bid Package<br><em>Takes Days You Don't Have.</em></h2>
+  <p class="section-lead">A competitive federal bid package typically requires a compliance matrix, technical volume, management approach, staffing plan, past performance references, and a capability statement — all tailored to the specific solicitation's instructions. For a small business without a proposal team, that's a full week of work per opportunity.</p>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🗂️</div>
+      <div class="card-title">Starting from a blank page</div>
+      <div class="card-body">Every bid package starts the same way: reading the entire solicitation, mapping requirements to sections, and building a compliance matrix by hand. It takes hours before you've written a single word.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚠️</div>
+      <div class="card-title">Missing compliance requirements</div>
+      <div class="card-body">A single missing form, expired certification reference, or non-responsive section can get your bid rejected before evaluation. Small businesses don't catch everything on their own.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔄</div>
+      <div class="card-title">Rewriting the same content repeatedly</div>
+      <div class="card-body">Capability statements and past performance narratives get rewritten for every opportunity — slightly different angles, slightly different emphasis — which is both time-consuming and inconsistent.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<div class="section-alt">
+<div class="inner">
+  <div class="section-eyebrow">// WHAT MARCUS BUILDS FOR YOU</div>
+  <h2>From Solicitation<br><em>to Bid-Ready in Hours</em></h2>
+  <p class="section-lead">Upload your solicitation and give Marcus your company details. He produces the foundation of your bid package — you review, refine, and submit.</p>
+  <div class="deliverable-list">
+    <div class="deliverable"><div class="deliverable-icon">✓</div><div><strong>Compliance matrix</strong> — every solicitation requirement mapped to your response section</div></div>
+    <div class="deliverable"><div class="deliverable-icon">✓</div><div><strong>Proposal outline</strong> — section-by-section structure matching the agency's L/M (instructions for offerors)</div></div>
+    <div class="deliverable"><div class="deliverable-icon">✓</div><div><strong>Technical approach draft</strong> — first-pass narrative describing how you'll meet the requirements</div></div>
+    <div class="deliverable"><div class="deliverable-icon">✓</div><div><strong>Management plan starter</strong> — organizational approach, key personnel, quality control</div></div>
+    <div class="deliverable"><div class="deliverable-icon">✓</div><div><strong>Capability statement draft</strong> — tailored to the specific opportunity and agency</div></div>
+    <div class="deliverable"><div class="deliverable-icon">✓</div><div><strong>Past performance narrative starters</strong> — structured references based on your past projects</div></div>
+    <div class="deliverable"><div class="deliverable-icon">✓</div><div><strong>FAR compliance check</strong> — flagged clauses and required certifications</div></div>
+    <div class="deliverable"><div class="deliverable-icon">✓</div><div><strong>Submission checklist</strong> — what to include, what format to use, where and how to submit</div></div>
+  </div>
+
+  <div class="warn-box">
+    <p><strong style="color:var(--gold);">Important:</strong> GovScout Pro generates AI-assisted drafts as a starting point. They are not final proposals. You are responsible for reviewing, revising, and ensuring compliance before submitting any bid to a government agency. AI-generated content should always be reviewed by a human familiar with the specific opportunity and your company's capabilities.</p>
+  </div>
+</div>
+</div>
+
+<!-- HOW TO USE -->
+<section>
+  <div class="section-eyebrow">// HOW TO BUILD YOUR BID PACKAGE</div>
+  <h2>A Repeatable Process<br><em>for Every Opportunity</em></h2>
+  <div class="workflow">
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <h3>Complete your business profile</h3>
+        <p>Enter your company details in Marcus's business profile: NAICS codes, certifications, past performance history, key personnel, core capabilities, and insurance information. This takes 15–20 minutes once and Marcus uses it for every bid package you build.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <h3>Upload the solicitation package</h3>
+        <p>Download the full solicitation from SAM.gov and upload it to GovScout Pro. Include the RFP/RFQ, Statement of Work, Performance Work Statement, and any Section L (Instructions) and Section M (Evaluation Criteria) documents. The more you upload, the more specific and compliant Marcus's outputs will be.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <h3>Ask Marcus to build your compliance matrix</h3>
+        <p>Start with: "Build a compliance matrix for this solicitation." Marcus maps every evaluation criterion and submission requirement to a response section. This becomes your proposal blueprint — everything you need to address, in the order the agency wants to see it.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <h3>Draft each section with Marcus</h3>
+        <p>Work through the proposal section by section. Ask Marcus to draft each one based on the solicitation requirements and your company profile. Review and revise each draft — adding your company-specific details, real project references, and voice — before moving to the next.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <h3>Run a final compliance check</h3>
+        <p>Before submitting, ask Marcus: "Does my proposal address every requirement in the compliance matrix?" He'll identify gaps, missing certifications, or non-responsive sections you need to fix. Then submit through the agency's designated system.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<div class="section-alt">
+<div class="inner">
+  <div class="section-eyebrow">// FAQ</div>
+  <h2>Common <em>Questions</em></h2>
+  <div class="faq-list">
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Does GovScout Pro write my proposal for me?<div class="faq-arrow">▾</div></div><div class="faq-a">Marcus generates AI-assisted drafts and outlines — a starting point, not a finished product. He builds the structure, drafts sections based on your profile and the solicitation, and flags compliance requirements. You review, revise with your company's real details, and submit. The final proposal is always yours.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What documents should I upload?<div class="faq-arrow">▾</div></div><div class="faq-a">Upload the full solicitation (RFP, RFQ, or IFB), the Statement of Work or PWS, Section L (Instructions to Offerors), Section M (Evaluation Criteria), any amendments, and Q&A documents. Your capability statement and past performance references are also helpful. The more complete your upload, the more specific Marcus's outputs.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Are my documents secure?<div class="faq-arrow">▾</div></div><div class="faq-a">Yes. When you upload a document, your browser sends it directly to your chosen AI provider (OpenAI, Anthropic, Groq, or Gemini). GovScout Pro's servers never receive or store your documents. Your sensitive proposal materials stay between you and your AI provider.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can GovScout Pro guarantee my bid will win?<div class="faq-arrow">▾</div></div><div class="faq-a">No. GovScout Pro helps you research, qualify, and prepare federal contract bids. It does not guarantee contract awards and does not replace legal, compliance, or contracting officer guidance. AI-generated content should always be reviewed before submitting to any government agency.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do I need my own AI key?<div class="faq-arrow">▾</div></div><div class="faq-a">Yes. GovScout Pro uses your own AI provider key (OpenAI, Anthropic/Claude, Groq, or Gemini). This keeps your documents in your control — they go directly from your browser to your AI provider, not through our servers. New provider accounts typically include free credits to get started.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How much does GovScout Pro cost?<div class="faq-arrow">▾</div></div><div class="faq-a">$9/month for full access to Marcus, the bid package builder, SAM.gov search, and all other features. Cancel anytime through PayPal — no contracts, no cancellation fees.</div></div>
+  </div>
+</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-block">
+  <div class="section-eyebrow">// GET STARTED</div>
+  <h2>Build Your First<br><em>Bid Package in Hours.</em></h2>
+  <p class="cta-sub">$9/month. Cancel anytime. Your documents never touch our servers.</p>
+  <a href="https://govscout.pro/app" class="btn-primary">Start Building — $9/month</a>
+  <div style="margin-top:24px;font-family:'DM Mono',monospace;font-size:11px;color:var(--txt3);">
+    Also useful: <a href="/sam-gov-contract-search-ai" style="color:var(--txt3);">SAM.gov AI Search</a> &nbsp;·&nbsp; <a href="/ai-rfp-analyzer" style="color:var(--txt3);">AI RFP Analyzer</a> &nbsp;·&nbsp; <a href="/alerts.html" style="color:var(--txt3);">Daily Contract Alerts</a>
+  </div>
+</div>
+
+<footer>
+  <div>GovScout Pro &nbsp;·&nbsp; Harriman Solution Group &nbsp;·&nbsp; Reno, NV &nbsp;·&nbsp; SDVOSB · CAGE: 9YZ59</div>
+  <div>
+    <a href="/">Home</a>
+    <a href="/sam-gov-contract-search-ai">SAM.gov AI Search</a>
+    <a href="/ai-rfp-analyzer">RFP Analyzer</a>
+    <a href="/government-contract-bid-package-builder">Bid Package Builder</a>
+    <a href="/alerts.html">Alerts</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="mailto:sharriman2002@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+function toggleTheme(){const h=document.documentElement,d=h.getAttribute('data-theme')==='dark';h.setAttribute('data-theme',d?'light':'dark');document.getElementById('themeBtn').textContent=d?'🌙':'☀️';localStorage.setItem('fs_theme',d?'light':'dark');}
+(function(){const s=localStorage.getItem('fs_theme');if(s){document.documentElement.setAttribute('data-theme',s);const b=document.getElementById('themeBtn');if(b)b.textContent=s==='light'?'🌙':'☀️';}})();
+function toggleFaq(el){const item=el.closest('.faq-item'),was=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!was)item.classList.add('open');}
+</script>
+
+<div id="gs_translate_el" style="display:none"></div>
+<script src="/lang.js"></script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+</body>
+</html>

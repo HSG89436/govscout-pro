@@ -1,0 +1,66 @@
+# Local Netlify folder (database + state)
+.netlify
+
+# Netlify function build artifacts (zip bundles, temp build IDs)
+netlify/functions/*.zip
+netlify/functions/zi*
+
+# Root-level deploy zip archives (large binaries — not source code)
+*.zip
+deploy_final.zip
+deploy_v2.zip
+govscout_saas_deploy.zip
+deploy-*.zip
+
+# Node modules
+node_modules/
+
+# Local test and deploy artifacts
+auth_result.txt
+test_result.txt
+netlify_deploy_out.txt
+test_out.html
+deploy_v57_out.txt
+diag_out.txt
+diag_result.txt
+
+# Local utility/build scripts (not application source)
+add_auth.py
+backup_copy.py
+read_html.py
+rebuild_v1_zips.py
+rebuild_zip.py
+rewrite_auth.py
+test_edit.py
+build_zip.py
+check_zip.py
+diagnose.py
+read_struct2.ps1
+read_structure.ps1
+read_tail.ps1
+poll_deploy.ps1
+check_deploy.ps1
+check_env.ps1
+enable_identity.ps1
+run_deploy.bat
+deploy_v57.bat
+run_deploy.js
+netlify_deploy.js
+check_deploys.js
+test_full.js
+deploy.bat
+deploy.ps1
+
+# Blog post drafts (source for blog/. directory)
+blog_post_1.md
+blog_post_2.md
+
+# Working HTML copies
+Govscout-pro-working-*.html
+
+# Log files
+*.log
+
+# Large PDF reports (store in GitHub Releases, not repo)
+GovScout_*.pdf
+GovScout_Pro_*.pdf

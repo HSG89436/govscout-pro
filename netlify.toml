@@ -1,0 +1,181 @@
+[build]
+  functions = "netlify/functions"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "nft"
+
+[functions."run-alerts"]
+  schedule = "0 9 * * *"
+
+# App route must come BEFORE the wildcard
+[[redirects]]
+  from = "/app"
+  to = "/fedscout5.html"
+  status = 200
+
+[[redirects]]
+  from = "/app/*"
+  to = "/fedscout5.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog"
+  to = "/blog.html"
+  status = 200
+
+# Individual blog article pages (SEO-indexable URLs)
+[[redirects]]
+  from = "/blog/sources-sought"
+  to = "/blog/sources-sought.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/8a-solesource"
+  to = "/blog/8a-solesource.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/reading-documents"
+  to = "/blog/reading-documents.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/trojan-sub"
+  to = "/blog/trojan-sub.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/awardable-pricing"
+  to = "/blog/awardable-pricing.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/sdvosb-va"
+  to = "/blog/sdvosb-va.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/why-i-built-this"
+  to = "/blog/why-i-built-this.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/veteran-contracts"
+  to = "/blog/veteran-contracts.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/samgov-tips"
+  to = "/blog/samgov-tips.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/small-biz-win"
+  to = "/blog/small-biz-win.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/prime-contractor"
+  to = "/blog/prime-contractor.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/fastest-money"
+  to = "/blog/fastest-money.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/gonogo-decision"
+  to = "/blog/gonogo-decision.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/doe-scada-win"
+  to = "/blog/doe-scada-win.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/va-rule-of-two"
+  to = "/blog/va-rule-of-two.html"
+  status = 200
+
+[[redirects]]
+  from = "/roadmap"
+  to = "/roadmap.html"
+  status = 200
+
+[[redirects]]
+  from = "/alerts"
+  to = "/alerts.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to = "/index.html#founder"
+  status = 301
+
+[[redirects]]
+  from = "/resources"
+  to = "/resources.html"
+  status = 200
+
+[[redirects]]
+  from = "/verify-email"
+  to = "/verify-email.html"
+  status = 200
+
+[[redirects]]
+  from = "/sdvosb"
+  to = "/sdvosb.html"
+  status = 200
+
+[[redirects]]
+  from = "/8a-certification"
+  to = "/8a-certification.html"
+  status = 200
+
+[[redirects]]
+  from = "/hubzone"
+  to = "/hubzone.html"
+  status = 200
+
+[[redirects]]
+  from = "/wosb"
+  to = "/wosb.html"
+  status = 200
+
+[[redirects]]
+  from = "/set-asides"
+  to = "/set-asides.html"
+  status = 200
+
+# Alert API routes (must be before the general /api/* rule)
+[[redirects]]
+  from = "/api/alert-*"
+  to = "/.netlify/functions/alert-:splat"
+  status = 200
+  force = true
+
+# General API routes: /api/me → api-me, /api/profile → api-profile, etc.
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api-:splat"
+  status = 200
+  force = true
+
+# All other routes -> landing page (keep last)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify Email — GovScout Pro</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #05070f; font-family: 'Helvetica Neue', Arial, sans-serif; color: #eef2ff; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+    .card { background: #0e1225; border: 1px solid #1e2a42; border-radius: 12px; max-width: 480px; width: 100%; overflow: hidden; }
+    .card-header { background: linear-gradient(135deg, #0e1225, #131829); padding: 24px 32px; border-bottom: 1px solid #1e2a42; }
+    .logo { font-size: 20px; color: #f5a623; font-weight: 700; letter-spacing: 1px; }
+    .logo span { color: #eef2ff; }
+    .card-body { padding: 40px 32px; text-align: center; }
+    .icon { font-size: 48px; margin-bottom: 20px; }
+    h1 { font-size: 22px; color: #eef2ff; margin-bottom: 12px; }
+    p { color: #8a9cc8; font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
+    .spinner { width: 40px; height: 40px; border: 3px solid #1e2a42; border-top-color: #f5a623; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 24px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .btn { display: inline-block; background: #f5a623; color: #05070f; font-weight: 700; font-size: 15px; padding: 13px 32px; border-radius: 8px; text-decoration: none; }
+    .btn:hover { background: #e6951a; }
+    .btn-ghost { background: transparent; border: 1px solid #2a3a5c; color: #8a9cc8; margin-top: 12px; display: inline-block; padding: 10px 24px; border-radius: 8px; font-size: 14px; text-decoration: none; }
+    .error-detail { font-size: 13px; color: #e74c3c; background: #2a1515; border: 1px solid #5a2020; border-radius: 6px; padding: 10px 14px; margin-top: 12px; margin-bottom: 20px; }
+    #state-loading, #state-success, #state-error { display: none; }
+    #state-loading.active, #state-success.active, #state-error.active { display: block; }
+  
+/* ── Language toggle ── */
+.gs-lang-toggle{display:flex;align-items:center;gap:3px;margin-left:8px;}
+.gs-lang-btn{background:transparent;border:1px solid rgba(138,156,200,.35);color:#8a9cc8;font-size:10px;font-weight:700;letter-spacing:.06em;padding:4px 9px;border-radius:5px;cursor:pointer;transition:all .15s;font-family:inherit;}
+.gs-lang-btn:hover{border-color:#f5a623;color:#f5a623;}
+.gs-lang-active{background:rgba(245,166,35,.12);border-color:#f5a623 !important;color:#f5a623 !important;}
+/* Hide Google's injected toolbar */
+.goog-te-banner-frame{display:none!important;}
+.goog-te-menu-value:hover{text-decoration:none!important;}
+body{top:0!important;position:static!important;}
+#goog-gt-tt{display:none!important;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-header">
+      <div class="logo">GOV<span>SCOUT</span> PRO</div>
+    </div>
+    <div class="card-body">
+
+      <!-- Loading -->
+      <div id="state-loading">
+        <div class="spinner"></div>
+        <h1>Verifying your email…</h1>
+        <p>Give us one second.</p>
+      </div>
+
+      <!-- Success -->
+      <div id="state-success">
+        <div class="icon">✅</div>
+        <h1>Email verified!</h1>
+        <p>Your GovScout Pro account is fully active. You're ready to find contracts.</p>
+        <a href="/app" class="btn">Go to GovScout Pro →</a>
+      </div>
+
+      <!-- Error -->
+      <div id="state-error">
+        <div class="icon">❌</div>
+        <h1>Verification failed</h1>
+        <p>This link may be expired or already used. Log in and request a new verification email.</p>
+        <div id="error-detail" class="error-detail" style="display:none;"></div>
+        <a href="/app" class="btn">Go to GovScout Pro</a><br>
+        <a href="#" id="resend-link" class="btn-ghost">Resend verification email</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function show(state) {
+      ['loading','success','error'].forEach(s => {
+        document.getElementById('state-' + s).classList.remove('active');
+      });
+      document.getElementById('state-' + state).classList.add('active');
+    }
+
+    async function verify() {
+      show('loading');
+      const params = new URLSearchParams(window.location.search);
+      const token  = params.get('token');
+
+      if (!token) {
+        show('error');
+        return;
+      }
+
+      try {
+        const res  = await fetch('/api/auth?action=verify-email&token=' + encodeURIComponent(token));
+        const data = await res.json();
+
+        if (data.ok && data.verified) {
+          show('success');
+        } else {
+          const detail = document.getElementById('error-detail');
+          if (data.error) {
+            detail.textContent = data.error;
+            detail.style.display = 'block';
+          }
+          show('error');
+        }
+      } catch (e) {
+        show('error');
+      }
+    }
+
+    // Resend button — requires user to be logged in
+    document.getElementById('resend-link').addEventListener('click', async function(e) {
+      e.preventDefault();
+      const token = localStorage.getItem('gs_token');
+      if (!token) {
+        alert('Please log in first, then use the resend option in the app.');
+        return;
+      }
+      this.textContent = 'Sending…';
+      try {
+        const res  = await fetch('/api/auth?action=resend-verification', {
+          headers: { 'Authorization': 'Bearer ' + token }
+        });
+        const data = await res.json();
+        this.textContent = data.sent ? 'Email sent! Check your inbox.' : 'Could not send — try again later.';
+      } catch (e) {
+        this.textContent = 'Error — try again later.';
+      }
+    });
+
+    verify();
+  </script>
+
+<div id="gs_translate_el" style="display:none"></div>
+<script src="/lang.js"></script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+</body>
+</html>

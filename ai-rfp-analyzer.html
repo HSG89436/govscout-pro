@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI RFP Analyzer — Understand Federal Solicitations Fast | GovScout Pro</title>
+<meta name="description" content="Upload a federal RFP or solicitation and get an instant AI breakdown: requirements, red flags, compliance checklist, competition level, and bid/no-bid recommendation.">
+<meta property="og:title" content="AI RFP Analyzer — GovScout Pro">
+<meta property="og:description" content="Stop drowning in 200-page PDFs. Upload your federal solicitation and get a plain-English breakdown, red flag list, and bid/no-bid score in minutes.">
+<meta property="og:url" content="https://govscout.pro/ai-rfp-analyzer">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://govscout.pro/ai-rfp-analyzer">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "GovScout Pro — AI RFP Analyzer",
+  "url": "https://govscout.pro",
+  "description": "AI-powered federal RFP and solicitation analyzer. Upload any solicitation for an instant breakdown of requirements, compliance obligations, red flags, and bid/no-bid scoring.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "GovScout Pro", "url": "https://govscout.pro" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What file types can I upload for RFP analysis?", "acceptedAnswer": { "@type": "Answer", "text": "GovScout Pro supports PDF, DOCX, and TXT file uploads. Upload the solicitation document, Statement of Work, Performance Work Statement, and any amendments. Marcus reads all of it." } },
+    { "@type": "Question", "name": "Does GovScout Pro store my uploaded documents?", "acceptedAnswer": { "@type": "Answer", "text": "No. When you upload a document, your browser sends it directly to your chosen AI provider (OpenAI, Anthropic, Groq, or Gemini). GovScout Pro's servers never receive or store your documents." } },
+    { "@type": "Question", "name": "Can Marcus tell me whether to bid on an opportunity?", "acceptedAnswer": { "@type": "Answer", "text": "Marcus provides a bid/no-bid analysis based on your profile, the opportunity requirements, competition level, and your certifications. He will not make the final decision for you, but his analysis gives you a clear picture of fit, risk, and resources required." } }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{--transition:0.3s ease;}
+[data-theme="dark"]{--bg:#05070f;--bg2:#090c18;--surface:#0e1225;--s2:#131829;--border:#1e2a42;--txt:#eef2ff;--txt2:#8a9cc8;--txt3:#4a5a82;--gold:#f5a623;--gold3:rgba(245,166,35,.12);--cyan:#38bdf8;--green:#4ade80;--green2:rgba(74,222,128,.1);--red:#f87171;--red2:rgba(248,113,113,.1);--nav-bg:rgba(5,7,15,.92);}
+[data-theme="light"]{--bg:#f8f7f2;--bg2:#f0ede4;--surface:#ffffff;--s2:#f5f3ed;--border:#ddd8cc;--txt:#1a1810;--txt2:#4a4535;--txt3:#7a7060;--gold:#c47d0e;--gold3:rgba(196,125,14,.1);--cyan:#0369a1;--green:#16a34a;--green2:rgba(22,163,74,.08);--red:#dc2626;--red2:rgba(220,38,38,.08);--nav-bg:rgba(248,247,242,.95);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--txt);font-family:'Space Grotesk',sans-serif;line-height:1.6;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--nav-bg);border-bottom:1px solid var(--border);backdrop-filter:blur(20px);height:60px;display:flex;align-items:center;padding:0 32px;}
+.nav-logo{font-family:'Fraunces',serif;font-weight:900;font-size:18px;color:var(--txt);text-decoration:none;}
+.nav-logo .accent{color:var(--gold);}
+.nav-spacer{flex:1;}
+.nav-link{font-family:'DM Mono',monospace;font-size:12px;color:var(--txt2);text-decoration:none;padding:6px 12px;}
+.nav-link:hover{color:var(--gold);}
+.nav-cta{background:var(--gold);color:#05070f;font-family:'DM Mono',monospace;font-size:11px;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none;margin-left:8px;}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:8px;width:34px;height:34px;cursor:pointer;color:var(--txt2);font-size:14px;margin-left:8px;}
+.hero{padding:120px 24px 80px;text-align:center;max-width:900px;margin:0 auto;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(36px,6vw,64px);line-height:1.05;color:var(--txt);margin-bottom:20px;}
+h1 em{color:var(--gold);font-style:italic;}
+.hero-sub{font-size:18px;color:var(--txt2);max-width:640px;margin:0 auto 40px;line-height:1.7;}
+.btn-primary{display:inline-block;background:var(--gold);color:#05070f;font-family:'DM Mono',monospace;font-weight:700;font-size:14px;padding:14px 32px;border-radius:10px;text-decoration:none;}
+.btn-secondary{display:inline-block;border:1px solid var(--border);color:var(--txt2);font-family:'DM Mono',monospace;font-size:13px;padding:12px 24px;border-radius:10px;text-decoration:none;margin-left:12px;}
+.proof-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;padding:32px 24px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:0 0 80px;}
+.proof-item{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--txt3);display:flex;align-items:center;gap:6px;}
+.proof-dot{width:6px;height:6px;border-radius:50%;background:var(--green);}
+section{padding:72px 24px;max-width:1100px;margin:0 auto;}
+.section-alt{background:var(--bg2);padding:72px 24px;margin:0;}
+.section-alt .inner{max-width:1100px;margin:0 auto;}
+.section-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(28px,4vw,44px);color:var(--txt);line-height:1.1;margin-bottom:16px;}
+h2 em{color:var(--gold);font-style:italic;}
+.section-lead{font-size:17px;color:var(--txt2);line-height:1.75;max-width:680px;margin-bottom:48px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;}
+.card-icon{font-size:28px;margin-bottom:14px;}
+.card-title{font-size:16px;font-weight:700;color:var(--txt);margin-bottom:8px;}
+.card-body{font-size:14px;color:var(--txt2);line-height:1.7;}
+.output-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+.output-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;}
+.output-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:2px 8px;border-radius:100px;margin-bottom:10px;display:inline-block;}
+.output-tag.green{background:var(--green2);color:var(--green);border:1px solid rgba(74,222,128,.2);}
+.output-tag.gold{background:var(--gold3);color:var(--gold);border:1px solid rgba(245,166,35,.2);}
+.output-tag.red{background:var(--red2);color:var(--red);border:1px solid rgba(248,113,113,.2);}
+.output-tag.cyan{background:rgba(56,189,248,.1);color:var(--cyan);border:1px solid rgba(56,189,248,.2);}
+.output-item h3{font-size:15px;font-weight:700;color:var(--txt);margin-bottom:6px;}
+.output-item p{font-size:13px;color:var(--txt2);line-height:1.6;}
+.workflow{counter-reset:step;display:flex;flex-direction:column;gap:24px;max-width:700px;}
+.step{display:flex;gap:20px;align-items:flex-start;}
+.step-num{counter-increment:step;min-width:36px;height:36px;border-radius:50%;background:var(--gold3);border:1px solid rgba(245,166,35,.3);color:var(--gold);font-family:'DM Mono',monospace;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.step-num::before{content:counter(step);}
+.step-content h3{font-size:16px;font-weight:700;color:var(--txt);margin-bottom:6px;}
+.step-content p{font-size:14px;color:var(--txt2);line-height:1.7;}
+.faq-list{display:flex;flex-direction:column;gap:2px;max-width:760px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{padding:18px 0;font-size:15px;font-weight:600;color:var(--txt);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.faq-arrow{color:var(--txt3);font-size:12px;transition:transform .2s;}
+.faq-item.open .faq-arrow{transform:rotate(180deg);}
+.faq-a{max-height:0;overflow:hidden;font-size:14px;color:var(--txt2);line-height:1.8;transition:max-height .3s ease,padding .3s;}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:16px;}
+.cta-block{text-align:center;padding:80px 24px;border-top:1px solid var(--border);}
+.cta-sub{font-size:16px;color:var(--txt2);margin:12px 0 32px;}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24px;text-align:center;font-family:'DM Mono',monospace;font-size:11px;color:var(--txt3);line-height:2.4;}
+footer a{color:var(--txt3);text-decoration:none;margin:0 8px;}
+footer a:hover{color:var(--gold);}
+
+/* ── Language toggle ── */
+.gs-lang-toggle{display:flex;align-items:center;gap:3px;margin-left:8px;}
+.gs-lang-btn{background:transparent;border:1px solid rgba(138,156,200,.35);color:#8a9cc8;font-size:10px;font-weight:700;letter-spacing:.06em;padding:4px 9px;border-radius:5px;cursor:pointer;transition:all .15s;font-family:inherit;}
+.gs-lang-btn:hover{border-color:#f5a623;color:#f5a623;}
+.gs-lang-active{background:rgba(245,166,35,.12);border-color:#f5a623 !important;color:#f5a623 !important;}
+/* Hide Google's injected toolbar */
+.goog-te-banner-frame{display:none!important;}
+.goog-te-menu-value:hover{text-decoration:none!important;}
+body{top:0!important;position:static!important;}
+#goog-gt-tt{display:none!important;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="https://govscout.pro" class="nav-logo">GOV<span class="accent">SCOUT</span> PRO</a>
+  <div class="nav-spacer"></div>
+  <a href="https://govscout.pro" class="nav-link">Home</a>
+  <a href="https://govscout.pro/alerts.html" class="nav-link">Alerts</a>
+  <a href="https://govscout.pro/app" class="nav-cta">Launch App →</a>
+  <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">☀️</button>
+  <div class="gs-lang-toggle"><button id="gs-lang-en" class="gs-lang-btn gs-lang-active" onclick="setLang('en')">EN</button><button id="gs-lang-es" class="gs-lang-btn" onclick="setLang('es')">ES</button></div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="eyebrow">// AI RFP ANALYZER</div>
+  <h1>Read Any RFP<br>in <em>Minutes, Not Hours.</em></h1>
+  <p class="hero-sub">Upload a federal solicitation — PDF, DOCX, or TXT — and Marcus breaks it down in plain English. Requirements, red flags, compliance checklist, competition analysis, and a bid/no-bid recommendation. No more 200-page PDF marathons.</p>
+  <div>
+    <a href="https://govscout.pro/app" class="btn-primary">Analyze an RFP — $9/month</a>
+    <a href="https://govscout.pro" class="btn-secondary">Learn More</a>
+  </div>
+</div>
+
+<!-- PROOF STRIP -->
+<div class="proof-strip">
+  <div class="proof-item"><div class="proof-dot"></div>PDF, DOCX, TXT uploads</div>
+  <div class="proof-item"><div class="proof-dot"></div>Plain-English requirements</div>
+  <div class="proof-item"><div class="proof-dot"></div>Red flag detection</div>
+  <div class="proof-item"><div class="proof-dot"></div>Bid / No-bid scoring</div>
+  <div class="proof-item"><div class="proof-dot"></div>Compliance checklist</div>
+  <div class="proof-item"><div class="proof-dot"></div>Your docs never stored</div>
+</div>
+
+<!-- PROBLEM -->
+<section>
+  <div class="section-eyebrow">// THE PROBLEM</div>
+  <h2>Federal RFPs Are Written<br><em>To Confuse You.</em></h2>
+  <p class="section-lead">The average federal solicitation runs 50–200 pages. It's full of FAR and DFARS clause references, performance work statements written in bureaucratic language, and buried requirements that can disqualify your bid if you miss them. Most small businesses don't have the staff — or the experience — to decode this efficiently.</p>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">📋</div>
+      <div class="card-title">Buried compliance requirements</div>
+      <div class="card-body">FAR clauses, insurance minimums, bonding requirements, and mandatory forms are scattered throughout. Missing any one of them can get your bid disqualified before it's even read.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎯</div>
+      <div class="card-title">No way to quickly assess fit</div>
+      <div class="card-body">Without reading the entire document, you can't tell if the opportunity is actually appropriate for your business — or if the incumbent has it locked up before you start.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🚩</div>
+      <div class="card-title">Hidden red flags</div>
+      <div class="card-body">Unrealistic timelines, scope creep language, unusual insurance requirements, or past performance thresholds that eliminate most competitors — these only show up if you read carefully.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<div class="section-alt">
+<div class="inner">
+  <div class="section-eyebrow">// WHAT MARCUS DELIVERS</div>
+  <h2>Everything You Need<br><em>To Make the Call</em></h2>
+  <p class="section-lead">Upload the solicitation and Marcus produces a complete analysis — not a summary, a full breakdown you can actually act on.</p>
+  <div class="output-grid">
+    <div class="output-item">
+      <div class="output-tag green">Plain English</div>
+      <h3>What the agency actually wants</h3>
+      <p>Marcus translates the Statement of Work and Performance Work Statement into plain language — what they need, when they need it, and what success looks like.</p>
+    </div>
+    <div class="output-item">
+      <div class="output-tag gold">Requirements</div>
+      <h3>Technical and staffing requirements</h3>
+      <p>Extracted list of technical capabilities, minimum staffing levels, certifications, clearances, and experience requirements the agency is looking for.</p>
+    </div>
+    <div class="output-item">
+      <div class="output-tag red">Red Flags</div>
+      <h3>Risks and disqualifiers</h3>
+      <p>Unusual clauses, unrealistic timelines, aggressive liquidated damages, bonding requirements, past performance thresholds — Marcus flags them before you waste time bidding.</p>
+    </div>
+    <div class="output-item">
+      <div class="output-tag green">Compliance</div>
+      <h3>Compliance checklist</h3>
+      <p>Every form, certification, and submission requirement pulled into a checklist. Check items off as you build your bid package so nothing falls through the cracks.</p>
+    </div>
+    <div class="output-item">
+      <div class="output-tag cyan">Competition</div>
+      <h3>Competition and incumbent analysis</h3>
+      <p>Marcus evaluates the set-aside type, estimated competition level, and — when information is available — whether there's a likely incumbent and what that means for your chances.</p>
+    </div>
+    <div class="output-item">
+      <div class="output-tag gold">Bid/No-Bid</div>
+      <h3>Bid / No-bid recommendation</h3>
+      <p>Based on your profile, the opportunity requirements, and competition level, Marcus gives you a clear recommendation with his reasoning — so you can decide faster.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- HOW TO USE IT -->
+<section>
+  <div class="section-eyebrow">// HOW TO USE IT</div>
+  <h2>Four Steps to a<br><em>Complete RFP Analysis</em></h2>
+  <div class="workflow">
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <h3>Find your opportunity on SAM.gov</h3>
+        <p>Search for the contract on SAM.gov and download the solicitation package — typically a PDF or DOCX of the RFP/RFQ/IFB and any amendments. Download all attachments if you want a complete analysis.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <h3>Upload the solicitation to GovScout Pro</h3>
+        <p>Open the GovScout Pro app and upload your document in the Document Analysis tab. Marcus accepts PDF, DOCX, and TXT. You can upload multiple documents for a single opportunity — solicitation, PWS, amendments.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <h3>Ask Marcus your questions</h3>
+        <p>Once your document is loaded, ask Marcus anything: "What are the key technical requirements?", "Are there any red flags I should know about?", "What past performance do I need to qualify?", "Should I bid on this?" He reads the whole document and gives you specific, grounded answers — not generic advice.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <h3>Get your compliance checklist and bid/no-bid decision</h3>
+        <p>Ask Marcus to generate a compliance checklist and a bid/no-bid analysis. Take the checklist into your proposal build and use the analysis to decide whether to commit resources to the pursuit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<div class="section-alt">
+<div class="inner">
+  <div class="section-eyebrow">// FAQ</div>
+  <h2>Common <em>Questions</em></h2>
+  <div class="faq-list">
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What file types can I upload?<div class="faq-arrow">▾</div></div><div class="faq-a">GovScout Pro supports PDF, DOCX, and TXT file uploads. For a complete analysis, upload the solicitation document, Statement of Work, Performance Work Statement, and any amendments. Marcus reads everything you give him.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Does GovScout Pro store my uploaded documents?<div class="faq-arrow">▾</div></div><div class="faq-a">No. When you upload a document, your browser sends it directly to your chosen AI provider (OpenAI, Anthropic, Groq, or Gemini). GovScout Pro's servers never receive, see, or store your documents. This is by design — your sensitive bid documents stay between you and your AI provider.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Does Marcus guarantee accurate analysis?<div class="faq-arrow">▾</div></div><div class="faq-a">Marcus is an AI assistant — not a contracting officer or attorney. His analysis is a starting point and research aid, not a final legal or compliance determination. Always review AI-generated analysis against the original solicitation before making final decisions or submitting any bid.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can Marcus tell me whether to bid?<div class="faq-arrow">▾</div></div><div class="faq-a">Yes — Marcus provides a bid/no-bid analysis based on your profile, the opportunity requirements, competition level, and your certifications. He gives you his reasoning so you can make an informed decision. The final call is always yours.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do I need my own AI key?<div class="faq-arrow">▾</div></div><div class="faq-a">Yes. GovScout Pro connects to your own AI provider account (OpenAI, Anthropic/Claude, Groq, or Google Gemini) using an API key you supply. This means your documents go directly to your provider — not through our servers. New accounts at most providers include free credits to get started.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How much does it cost?<div class="faq-arrow">▾</div></div><div class="faq-a">$9/month for full access. Cancel anytime through your PayPal account or by emailing sharriman2002@gmail.com. No contracts, no runaround.</div></div>
+  </div>
+</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-block">
+  <div class="section-eyebrow">// GET STARTED</div>
+  <h2>Stop Reading RFPs.<br><em>Start Analyzing Them.</em></h2>
+  <p class="cta-sub">$9/month. Cancel anytime. Your documents never touch our servers.</p>
+  <a href="https://govscout.pro/app" class="btn-primary">Analyze Your First RFP — $9/month</a>
+  <div style="margin-top:24px;font-family:'DM Mono',monospace;font-size:11px;color:var(--txt3);">
+    Also useful: <a href="/sam-gov-contract-search-ai" style="color:var(--txt3);">SAM.gov AI Search</a> &nbsp;·&nbsp; <a href="/government-contract-bid-package-builder" style="color:var(--txt3);">Bid Package Builder</a> &nbsp;·&nbsp; <a href="/alerts.html" style="color:var(--txt3);">Daily Contract Alerts</a>
+  </div>
+</div>
+
+<footer>
+  <div>GovScout Pro &nbsp;·&nbsp; Harriman Solution Group &nbsp;·&nbsp; Reno, NV &nbsp;·&nbsp; SDVOSB · CAGE: 9YZ59</div>
+  <div>
+    <a href="/">Home</a>
+    <a href="/sam-gov-contract-search-ai">SAM.gov AI Search</a>
+    <a href="/ai-rfp-analyzer">RFP Analyzer</a>
+    <a href="/government-contract-bid-package-builder">Bid Package Builder</a>
+    <a href="/alerts.html">Alerts</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="mailto:sharriman2002@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+function toggleTheme(){const h=document.documentElement,d=h.getAttribute('data-theme')==='dark';h.setAttribute('data-theme',d?'light':'dark');document.getElementById('themeBtn').textContent=d?'🌙':'☀️';localStorage.setItem('fs_theme',d?'light':'dark');}
+(function(){const s=localStorage.getItem('fs_theme');if(s){document.documentElement.setAttribute('data-theme',s);const b=document.getElementById('themeBtn');if(b)b.textContent=s==='light'?'🌙':'☀️';}})();
+function toggleFaq(el){const item=el.closest('.faq-item'),was=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!was)item.classList.add('open');}
+</script>
+
+<div id="gs_translate_el" style="display:none"></div>
+<script src="/lang.js"></script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+</body>
+</html>

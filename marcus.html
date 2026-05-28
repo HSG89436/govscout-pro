@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet Marcus | GovScout.pro AI Federal Contracting Adviser</title>
+  <meta name="description" content="Meet Marcus — GovScout.pro's AI federal contracting adviser with 50+ years of expertise in government contracts, SDVOSB certifications, SAM.gov, and proposal strategy.">
+  <style>
+    :root {
+      --navy: #0a0f1e;
+      --navy-mid: #111827;
+      --navy-card: #151d2e;
+      --gold: #c9972a;
+      --gold-light: #e4b84a;
+      --gold-dim: rgba(201, 151, 42, 0.15);
+      --text: #e8eaf0;
+      --text-muted: #8a93a8;
+      --border: rgba(201, 151, 42, 0.25);
+      --green: #22c55e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--navy);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: rgba(10, 15, 30, 0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--text); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.875rem !important;
+    }
+    .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,151,42,0.08) 0%, transparent 60%),
+                  linear-gradient(180deg, #0d1428 0%, var(--navy) 100%);
+      padding: 80px 2rem 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0.4;
+    }
+
+    /* ── AVATAR ── */
+    .avatar-wrapper {
+      display: inline-block;
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    .avatar-ring {
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 0 6px var(--gold-dim), 0 0 40px rgba(201,151,42,0.2);
+      overflow: hidden;
+      position: relative;
+    }
+    .status-dot {
+      position: absolute;
+      bottom: 8px; right: 8px;
+      width: 18px; height: 18px;
+      background: var(--green);
+      border-radius: 50%;
+      border: 3px solid var(--navy);
+      box-shadow: 0 0 8px rgba(34,197,94,0.5);
+    }
+
+    /* Inline Marcus SVG Avatar */
+    .avatar-svg {
+      width: 180px;
+      height: 180px;
+      display: block;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--gold-dim);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 6px var(--green);
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+    h1 span { color: var(--gold); }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .hero-tagline {
+      font-size: 1.25rem;
+      color: var(--text);
+      font-style: italic;
+      font-weight: 400;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      opacity: 0.85;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.25rem;
+    }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0 2rem;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 2rem;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    .section-intro {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      line-height: 1.75;
+    }
+
+    /* ── BIO ── */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 720px) { .bio-grid { grid-template-columns: 1fr; } }
+    .bio-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+    .bio-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.8rem;
+    }
+    .bio-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+    .bio-card p strong { color: var(--text); }
+
+    /* ── EXPERTISE GRID ── */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .expertise-card {
+      background: var(--navy-card);
+      border: 1px solid rgba(201,151,42,0.15);
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .expertise-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .expertise-icon {
+      width: 40px; height: 40px;
+      background: var(--gold-dim);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    .expertise-card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+    .expertise-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── CASE FILE SECTION ── */
+    .casefile-section {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-top: 2.5rem;
+    }
+    .casefile-section h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    .verdict-row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .verdict {
+      flex: 1;
+      min-width: 160px;
+      border-radius: 8px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+    .verdict-go { background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.3); }
+    .verdict-team { background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3); }
+    .verdict-pass { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); }
+    .verdict-label {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.25rem;
+    }
+    .verdict-go .verdict-label { color: #22c55e; }
+    .verdict-team .verdict-label { color: #3b82f6; }
+    .verdict-pass .verdict-label { color: #ef4444; }
+    .verdict p { font-size: 0.8rem; color: var(--text-muted); }
+
+    .casefile-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 600px) { .casefile-features { grid-template-columns: 1fr; } }
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+    .feature-item::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.1em;
+    }
+
+    /* ── CREDENTIALS ── */
+    .cred-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+    .cred-pill {
+      background: var(--gold-dim);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.9rem;
+      border-radius: 100px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, #0d1428 0%, #101825 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 0;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .cta-section h2 span { color: var(--gold); }
+    .cta-section p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+      display: inline-block;
+    }
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      background: var(--gold-dim);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── QUOTE ── */
+    .marcus-quote {
+      background: var(--navy-card);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .marcus-quote cite {
+      display: block;
+      margin-top: 0.75rem;
+      font-style: normal;
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Gov<span>Scout</span>.pro</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="fedscout5.html">Dashboard</a>
+    <a href="marcus.html" style="color:var(--gold)">Meet Marcus</a>
+    <a href="login.html" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="avatar-wrapper">
+    <div class="avatar-ring">
+      <!-- Marcus Avatar SVG -->
+      <svg class="avatar-svg" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+            <stop offset="0%" stop-color="#1a2540"/>
+            <stop offset="100%" stop-color="#0a0f1e"/>
+          </radialGradient>
+          <radialGradient id="faceGrad" cx="50%" cy="35%" r="55%">
+            <stop offset="0%" stop-color="#d4a96a"/>
+            <stop offset="100%" stop-color="#b8895a"/>
+          </radialGradient>
+          <clipPath id="circle">
+            <circle cx="90" cy="90" r="90"/>
+          </clipPath>
+        </defs>
+        <!-- Background -->
+        <circle cx="90" cy="90" r="90" fill="url(#bgGrad)"/>
+        <!-- Subtle grid lines -->
+        <g clip-path="url(#circle)" opacity="0.07" stroke="#c9972a" stroke-width="0.5">
+          <line x1="0" y1="45" x2="180" y2="45"/>
+          <line x1="0" y1="90" x2="180" y2="90"/>
+          <line x1="0" y1="135" x2="180" y2="135"/>
+          <line x1="45" y1="0" x2="45" y2="180"/>
+          <line x1="90" y1="0" x2="90" y2="180"/>
+          <line x1="135" y1="0" x2="135" y2="180"/>
+        </g>
+        <!-- Suit/jacket body -->
+        <g clip-path="url(#circle)">
+          <!-- Shoulders and torso -->
+          <ellipse cx="90" cy="155" rx="62" ry="45" fill="#1c2d4a"/>
+          <!-- Jacket lapels -->
+          <polygon points="90,120 68,108 72,155 90,145" fill="#162038"/>
+          <polygon points="90,120 112,108 108,155 90,145" fill="#162038"/>
+          <!-- Tie -->
+          <polygon points="90,115 86,120 88,148 90,152 92,148 94,120" fill="#c9972a"/>
+          <polygon points="90,115 87,117 90,122 93,117" fill="#a07820"/>
+          <!-- Shirt collar -->
+          <polygon points="90,108 80,110 83,120 90,115" fill="#e8eaf0"/>
+          <polygon points="90,108 100,110 97,120 90,115" fill="#d8dae0"/>
+          <!-- Jacket collar edge -->
+          <line x1="90" y1="108" x2="74" y2="100" stroke="#c9972a" stroke-width="1" opacity="0.6"/>
+          <line x1="90" y1="108" x2="106" y2="100" stroke="#c9972a" stroke-width="1" opacity="0.6"/>
+          <!-- Neck -->
+          <rect x="82" y="95" width="16" height="16" rx="3" fill="#b8895a"/>
+          <!-- Head -->
+          <ellipse cx="90" cy="82" rx="26" ry="28" fill="url(#faceGrad)"/>
+          <!-- Hair - silver/white -->
+          <ellipse cx="90" cy="60" rx="26" ry="12" fill="#8a9ab8"/>
+          <ellipse cx="90" cy="57" rx="22" ry="9" fill="#9aaac8"/>
+          <!-- Temples grey -->
+          <ellipse cx="66" cy="75" rx="5" ry="9" fill="#7a8aa8"/>
+          <ellipse cx="114" cy="75" rx="5" ry="9" fill="#7a8aa8"/>
+          <!-- Eyes -->
+          <ellipse cx="81" cy="82" rx="4.5" ry="3.5" fill="#1a2540"/>
+          <ellipse cx="99" cy="82" rx="4.5" ry="3.5" fill="#1a2540"/>
+          <circle cx="82" cy="81" r="1.2" fill="#e8f0ff" opacity="0.7"/>
+          <circle cx="100" cy="81" r="1.2" fill="#e8f0ff" opacity="0.7"/>
+          <!-- Eyebrows -->
+          <path d="M77,77 Q81,75 85,77" stroke="#5a4a38" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M95,77 Q99,75 103,77" stroke="#5a4a38" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- Nose -->
+          <path d="M90,85 Q87,91 88,93 Q90,95 92,93 Q93,91 90,85" fill="#a87848" opacity="0.6"/>
+          <!-- Confident slight smile -->
+          <path d="M83,97 Q90,102 97,97" stroke="#8a5535" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- Ear details -->
+          <ellipse cx="64" cy="83" rx="3.5" ry="5" fill="#b8895a"/>
+          <ellipse cx="116" cy="83" rx="3.5" ry="5" fill="#b8895a"/>
+        </g>
+        <!-- Navigator star / compass rose at top -->
+        <g transform="translate(90, 18)" opacity="0.85">
+          <polygon points="0,-8 2,-2 8,0 2,2 0,8 -2,2 -8,0 -2,-2" fill="#c9972a"/>
+          <polygon points="0,-5 1,-1 5,0 1,1 0,5 -1,1 -5,0 -1,-1" fill="#e4b84a"/>
+          <circle cx="0" cy="0" r="1.5" fill="#fff7e0"/>
+        </g>
+        <!-- Gold bottom arc with name -->
+        <g clip-path="url(#circle)">
+          <rect x="0" y="152" width="180" height="28" fill="rgba(10,15,30,0.85)"/>
+          <text x="90" y="166" text-anchor="middle" fill="#c9972a" font-size="11" font-weight="700" font-family="'Segoe UI',sans-serif" letter-spacing="2">MARCUS</text>
+          <text x="90" y="176" text-anchor="middle" fill="#8a93a8" font-size="7.5" font-family="'Segoe UI',sans-serif" letter-spacing="1.5">THE NAVIGATOR</text>
+        </g>
+        <!-- Gold ring border -->
+        <circle cx="90" cy="90" r="88" fill="none" stroke="#c9972a" stroke-width="1.5" opacity="0.6"/>
+      </svg>
+    </div>
+    <div class="status-dot" title="Marcus is online"></div>
+  </div>
+
+  <div class="hero-badge">AI Adviser · Online Now</div>
+  <h1>Meet <span>Marcus</span></h1>
+  <p class="hero-subtitle">The Navigator · AI Federal Contracting Adviser · GovScout.pro</p>
+  <p class="hero-tagline">"I don't tell you what's possible. I tell you how to win."</p>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-number">50+</div>
+      <div class="stat-label">Years of Federal<br>Contract Knowledge</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">24/7</div>
+      <div class="stat-label">Available to<br>Analyze Solicitations</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">CASE FILE</div>
+      <div class="stat-label">GO / TEAM / PASS<br>Analysis Format</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">72hr</div>
+      <div class="stat-label">Actionable<br>Strategy Plans</div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- BIO -->
+<section>
+  <p class="section-label">About Marcus</p>
+  <h2 class="section-title">More Than an AI.<br>A Federal Contracting Adviser.</h2>
+  <p class="section-intro">
+    Marcus isn't a chatbot that guesses. He's a purpose-built federal contracting intelligence system trained on decades of acquisition regulations, set-aside rules, proposal strategy, and small business contracting law — giving your company the kind of expert analysis that used to cost $300/hour.
+  </p>
+
+  <blockquote class="marcus-quote">
+    "Small businesses lose contracts every day — not because they lack capability, but because they didn't know what the contracting officer was actually looking for. My job is to close that gap before you submit a single page."
+    <cite>— Marcus · GovScout.pro AI Federal Contracting Adviser</cite>
+  </blockquote>
+
+  <div class="bio-grid">
+    <div class="bio-card">
+      <h3>Mission</h3>
+      <p>Marcus exists for one reason: <strong>to help small businesses win federal contracts.</strong> He analyzes solicitations, decodes acquisition strategy, identifies your true competitive position, and builds actionable plans — not vague advice.</p>
+    </div>
+    <div class="bio-card">
+      <h3>Operating Rules</h3>
+      <p>Marcus <strong>never fabricates</strong>. No invented CAGE codes. No made-up past performance. No guessed certification statuses. If he doesn't know, he says so — and tells you exactly where to find the answer.</p>
+    </div>
+    <div class="bio-card">
+      <h3>SDVOSB & Set-Aside Authority</h3>
+      <p>Marcus is current on all SBA rules. He references <strong>SBA VetCert at vetcert.sba.gov</strong> as the only valid SDVOSB/VOSB certification authority since January 1, 2023. He'll never send you to outdated VA/CVE sources.</p>
+    </div>
+    <div class="bio-card">
+      <h3>What He Needs From You</h3>
+      <p>Marcus delivers his best analysis when you bring a <strong>solicitation number, performance work statement, or contract opportunity</strong>. The more context you give him, the sharper his strategy gets.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- EXPERTISE -->
+<section>
+  <p class="section-label">Core Expertise</p>
+  <h2 class="section-title">What Marcus Knows</h2>
+  <p class="section-intro">
+    Trained on the full depth of federal acquisition regulations, small business program rules, and competitive strategy — so you don't have to read 10,000 pages of FAR yourself.
+  </p>
+
+  <div class="expertise-grid">
+    <div class="expertise-card">
+      <div class="expertise-icon">📋</div>
+      <h4>FAR &amp; DFARS</h4>
+      <p>Federal Acquisition Regulation and Defense FAR Supplement — the complete regulatory foundation governing how the government buys.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">🏷️</div>
+      <h4>Set-Aside Programs</h4>
+      <p>SDVOSB, WOSB, HUBZone, 8(a), VOSB — eligibility rules, certification paths, and competitive strategy for every small business program.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">🔍</div>
+      <h4>SAM.gov &amp; NAICS</h4>
+      <p>Contract opportunity discovery, NAICS code analysis, size standard compliance, and entity registration requirements.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">📝</div>
+      <h4>Proposal Strategy</h4>
+      <p>How to write to evaluation factors, price-to-win positioning, technical approach structuring, and past performance narrative.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">⚖️</div>
+      <h4>Source Selection</h4>
+      <p>How contracting officers evaluate proposals — best value tradeoffs, LPTA decisions, and what evaluation criteria actually mean.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">🤝</div>
+      <h4>Teaming &amp; Joint Ventures</h4>
+      <p>When to team, mentor-protégé structures, joint venture formation, and how to maximize set-aside eligibility through strategic partnerships.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">🏆</div>
+      <h4>Past Performance</h4>
+      <p>How to document, present, and leverage your performance history — and how to compete when your past performance record is limited.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">🔐</div>
+      <h4>SBA Certifications</h4>
+      <p>VetCert, 8(a) applications, WOSB/EDWOSB qualification, HUBZone mapping — current rules from the only authoritative sources.</p>
+    </div>
+  </div>
+
+  <div class="cred-bar">
+    <span class="cred-pill">FAR Part 19 Small Business</span>
+    <span class="cred-pill">DFARS Supplements</span>
+    <span class="cred-pill">SBA VetCert (2023+)</span>
+    <span class="cred-pill">SAM.gov Entity Registration</span>
+    <span class="cred-pill">NAICS Size Standards</span>
+    <span class="cred-pill">Price Analysis</span>
+    <span class="cred-pill">Source Selection Procedures</span>
+    <span class="cred-pill">Protest Strategy</span>
+    <span class="cred-pill">Mentor-Protégé</span>
+    <span class="cred-pill">Joint Ventures</span>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CASE FILE -->
+<section>
+  <p class="section-label">How Marcus Analyzes</p>
+  <h2 class="section-title">The CASE FILE</h2>
+  <p class="section-intro">
+    Every contract analysis Marcus produces follows the CASE FILE format — a structured intelligence report that tells you exactly where you stand and exactly what to do next.
+  </p>
+
+  <div class="casefile-section">
+    <h3>Every Analysis Delivers a Verdict:</h3>
+    <div class="verdict-row">
+      <div class="verdict verdict-go">
+        <div class="verdict-label">GO</div>
+        <p>You're competitive. Here's your 72-hour pursuit plan.</p>
+      </div>
+      <div class="verdict verdict-team">
+        <div class="verdict-label">TEAM</div>
+        <p>Gaps exist. Here's who you need and how to find them.</p>
+      </div>
+      <div class="verdict verdict-pass">
+        <div class="verdict-label">PASS</div>
+        <p>The risk or competition profile doesn't justify pursuit. Here's why.</p>
+      </div>
+    </div>
+
+    <div class="casefile-features">
+      <div class="feature-item">Contract requirement breakdown — what the agency actually needs</div>
+      <div class="feature-item">Set-aside eligibility assessment against your profile</div>
+      <div class="feature-item">Competitive landscape and likely incumbent analysis</div>
+      <div class="feature-item">Evaluation criteria decoded — what scores highest</div>
+      <div class="feature-item">Key risks and performance concerns identified</div>
+      <div class="feature-item">72-hour action plan with specific next steps</div>
+      <div class="feature-item">Teaming recommendations when gaps exist</div>
+      <div class="feature-item">Past performance strategy for your specific situation</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding-top: 0;">
+  <div class="cta-section">
+    <h2>Put <span>Marcus</span> to Work</h2>
+    <p>Stop guessing which contracts are worth chasing. Bring Marcus a solicitation and get a complete competitive analysis in minutes — not days.</p>
+    <div class="cta-buttons">
+      <a href="login.html" class="btn-primary">Start With Marcus →</a>
+      <a href="index.html" class="btn-secondary">Learn More About GovScout</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 <a href="index.html">GovScout.pro</a> · AI Federal Contracting Intelligence · All rights reserved</p>
+  <p style="margin-top:0.5rem;">Marcus is an AI adviser. All analysis should be verified against current official sources including SAM.gov, SBA.gov, and acquisition.gov.</p>
+</footer>
+
+</body>
+</html>

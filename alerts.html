@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contract Alerts — GovScout Pro</title>
+<meta name="description" content="Get daily federal contract alerts delivered to your email and Telegram. Never miss a SAM.gov opportunity that matches your certifications and keywords.">
+<meta property="og:title" content="Federal Contract Alerts — GovScout Pro">
+<meta property="og:description" content="Daily SAM.gov alerts by email and Telegram. Scored GO, TEAM, or filtered automatically. Free with your GovScout Pro account.">
+<meta property="og:url" content="https://govscout.pro/alerts">
+<meta property="og:site_name" content="GovScout Pro">
+<link rel="canonical" href="https://govscout.pro/alerts">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&display=swap" rel="stylesheet">
+<style>
+:root { --transition: 0.3s ease; }
+[data-theme="dark"] {
+  --bg:#05070f; --bg2:#090c18; --surface:#0e1225; --s2:#131829; --s3:#18202f;
+  --border:#1e2a42; --b2:#263347; --txt:#eef2ff; --txt2:#8a9cc8; --txt3:#4a5a82; --txt4:#2a3558;
+  --gold:#f5a623; --gold2:#ffc04a; --gold3:rgba(245,166,35,.12);
+  --cyan:#38bdf8; --cyan2:rgba(56,189,248,.1);
+  --green:#4ade80; --green2:rgba(74,222,128,.1);
+  --red:#f87171; --purple:#c084fc;
+  --card-bg:rgba(14,18,37,.8);
+  --nav-bg:rgba(5,7,15,.92);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--txt);font-family:'Space Grotesk',sans-serif;line-height:1.6;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--nav-bg);border-bottom:1px solid var(--border);backdrop-filter:blur(12px);padding:0 24px;}
+.nav-inner{max-width:1140px;margin:0 auto;height:58px;display:flex;align-items:center;gap:16px;}
+.nav-logo{font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--gold);letter-spacing:1px;text-decoration:none;line-height:1;}
+.nav-logo .accent{color:var(--txt);}
+.nav-logo small{display:block;font-family:'DM Mono',monospace;font-size:9px;color:var(--txt3);letter-spacing:2px;font-weight:400;margin-top:2px;}
+.nav-spacer{flex:1;}
+.nav-link{font-family:'DM Mono',monospace;font-size:11px;color:var(--txt2);text-decoration:none;padding:6px 10px;border-radius:4px;letter-spacing:0.5px;transition:var(--transition);}
+.nav-link:hover{color:var(--txt);background:var(--gold3);}
+.nav-launch{background:var(--gold);color:#000;font-family:'DM Mono',monospace;font-size:12px;font-weight:700;padding:8px 18px;border-radius:6px;text-decoration:none;letter-spacing:0.5px;transition:var(--transition);}
+.nav-launch:hover{background:var(--gold2);}
+
+/* HERO */
+.hero{padding:120px 24px 60px;text-align:center;background:radial-gradient(ellipse 80% 50% at 50% -10%, rgba(245,166,35,.12), transparent);}
+.hero-tag{display:inline-block;background:var(--gold3);color:var(--gold);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;padding:6px 14px;border-radius:20px;border:1px solid rgba(245,166,35,.25);margin-bottom:20px;}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(32px,5vw,56px);font-weight:900;line-height:1.1;margin-bottom:18px;}
+.hero h1 em{color:var(--gold);font-style:normal;}
+.hero p{color:var(--txt2);font-size:17px;max-width:580px;margin:0 auto 36px;}
+
+/* HOW IT WORKS */
+.how{max-width:900px;margin:0 auto;padding:0 24px 60px;}
+.section-label{font-family:'DM Mono',monospace;font-size:11px;color:var(--txt3);letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;text-align:center;}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+.step{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:24px;position:relative;}
+.step-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--txt3);letter-spacing:2px;margin-bottom:12px;}
+.step h3{font-size:15px;font-weight:600;color:var(--txt);margin-bottom:8px;}
+.step p{color:var(--txt2);font-size:13px;line-height:1.6;}
+
+/* SCORING LEGEND */
+.scoring{max-width:700px;margin:0 auto 60px;padding:0 24px;}
+.score-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.score-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px;}
+.score-badge{font-family:'DM Mono',monospace;font-size:11px;font-weight:700;letter-spacing:1.5px;padding:4px 10px;border-radius:4px;display:inline-block;margin-bottom:10px;}
+.badge-go{background:rgba(74,222,128,.15);color:var(--green);}
+.badge-team{background:rgba(251,191,36,.12);color:#fbbf24;}
+.badge-pass{background:rgba(248,113,113,.1);color:var(--red);}
+.score-card h4{font-size:14px;color:var(--txt);margin-bottom:6px;}
+.score-card p{color:var(--txt2);font-size:13px;line-height:1.5;}
+
+/* FORM */
+.form-wrap{max-width:640px;margin:0 auto 80px;padding:0 24px;}
+.form-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:40px;}
+.form-card h2{font-family:'Fraunces',serif;font-size:24px;font-weight:700;margin-bottom:6px;}
+.form-card .sub{color:var(--txt2);font-size:14px;margin-bottom:28px;}
+.form-group{margin-bottom:20px;}
+label{display:block;font-family:'DM Mono',monospace;font-size:11px;color:var(--txt3);letter-spacing:1px;margin-bottom:8px;}
+label span.req{color:var(--gold);}
+input,select,textarea{width:100%;background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;color:var(--txt);font-family:'Space Grotesk',sans-serif;font-size:14px;outline:none;transition:border-color var(--transition);}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);}
+input::placeholder,textarea::placeholder{color:var(--txt3);}
+select option{background:var(--s2);}
+.form-hint{color:var(--txt3);font-size:12px;margin-top:6px;line-height:1.4;}
+.form-hint a{color:var(--txt2);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:500px){.form-row{grid-template-columns:1fr;}}
+
+/* Telegram help box */
+.tg-help{background:var(--cyan2);border:1px solid rgba(56,189,248,.2);border-radius:8px;padding:16px;margin-top:8px;}
+.tg-help p{color:var(--txt2);font-size:13px;line-height:1.6;margin:0;}
+.tg-help strong{color:var(--cyan);}
+.tg-help code{background:var(--s3);padding:2px 6px;border-radius:3px;font-family:'DM Mono',monospace;font-size:12px;}
+
+/* Cert checkboxes */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;}
+.cert-item{display:flex;align-items:center;gap:8px;background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;cursor:pointer;transition:border-color var(--transition);}
+.cert-item:hover{border-color:var(--b2);}
+.cert-item input[type="checkbox"]{width:auto;background:none;border:none;accent-color:var(--gold);cursor:pointer;}
+.cert-item span{font-size:13px;color:var(--txt2);}
+
+.submit-btn{width:100%;background:var(--gold);color:#000;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;padding:16px;border:none;border-radius:8px;cursor:pointer;margin-top:8px;transition:background var(--transition),transform var(--transition);}
+.submit-btn:hover{background:var(--gold2);transform:translateY(-1px);}
+.submit-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+
+/* Status messages */
+.status{display:none;padding:16px;border-radius:8px;font-size:14px;margin-top:16px;text-align:center;}
+.status.success{display:block;background:var(--green2);border:1px solid rgba(74,222,128,.25);color:var(--green);}
+.status.error{display:block;background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.25);color:var(--red);}
+
+/* FOOTER */
+footer{background:var(--s2);border-top:1px solid var(--border);padding:32px 24px;text-align:center;}
+.footer-logo{font-family:'Fraunces',serif;font-size:16px;color:var(--gold);margin-bottom:12px;}
+.footer-logo span{color:var(--txt);}
+.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;font-size:13px;color:var(--txt3);}
+.footer-links a{color:var(--txt3);text-decoration:none;}
+.footer-links a:hover{color:var(--txt2);}
+.footer-copy{color:var(--txt4);font-size:12px;margin-top:16px;}
+
+/* ── Language toggle ── */
+.gs-lang-toggle{display:flex;align-items:center;gap:3px;margin-left:8px;}
+.gs-lang-btn{background:transparent;border:1px solid rgba(138,156,200,.35);color:#8a9cc8;font-size:10px;font-weight:700;letter-spacing:.06em;padding:4px 9px;border-radius:5px;cursor:pointer;transition:all .15s;font-family:inherit;}
+.gs-lang-btn:hover{border-color:#f5a623;color:#f5a623;}
+.gs-lang-active{background:rgba(245,166,35,.12);border-color:#f5a623 !important;color:#f5a623 !important;}
+/* Hide Google's injected toolbar */
+.goog-te-banner-frame{display:none!important;}
+.goog-te-menu-value:hover{text-decoration:none!important;}
+body{top:0!important;position:static!important;}
+#goog-gt-tt{display:none!important;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">GOV<span class="accent">SCOUT</span> PRO<small>CONTRACT ALERTS</small></a>
+    <div class="nav-spacer"></div>
+    <a href="/" class="nav-link">HOME</a>
+    <a href="/blog.html" class="nav-link">BLOG</a>
+    <a href="/app" class="nav-launch">OPEN APP →</a>
+  </div>
+  <div class="gs-lang-toggle"><button id="gs-lang-en" class="gs-lang-btn gs-lang-active" onclick="setLang('en')">EN</button><button id="gs-lang-es" class="gs-lang-btn" onclick="setLang('es')">ES</button></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">📡 LIVE SAM.GOV FEED</div>
+  <h1>Never Miss a <em>Federal Contract</em><br>That Fits Your Business</h1>
+  <p>Daily email and Telegram alerts — scored and filtered for your certifications and keywords. You sleep, we watch SAM.gov.</p>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="section-label">How It Works</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">STEP 01</div>
+      <h3>Tell Us What You Chase</h3>
+      <p>Enter your keywords (catering, consulting, porta-potties), certifications, and SAM.gov API key.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">STEP 02</div>
+      <h3>We Scan Every Morning</h3>
+      <p>Every day at 9am UTC we query SAM.gov for new opportunities posted in the last 24 hours that match your profile.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">STEP 03</div>
+      <h3>Scored Leads Hit Your Inbox</h3>
+      <p>Each contract is scored GO, TEAM, or filtered out — so you see only the leads worth your time.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">STEP 04</div>
+      <h3>Telegram Ping (Optional)</h3>
+      <p>Get a quick mobile summary on Telegram the same morning. One tap to open the full breakdown.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SCORING -->
+<section class="scoring">
+  <div class="section-label">Lead Scoring</div>
+  <div class="score-cards">
+    <div class="score-card">
+      <div class="score-badge badge-go">🟢 GO</div>
+      <h4>Cert Match</h4>
+      <p>The set-aside matches your certification. This is the highest-priority lead — bid it directly.</p>
+    </div>
+    <div class="score-card">
+      <div class="score-badge badge-team">🟡 TEAM</div>
+      <h4>Open Competition</h4>
+      <p>No set-aside — any business can compete. Good for teaming or subcontracting with a prime.</p>
+    </div>
+  </div>
+  <p style="color:var(--txt3);font-size:13px;margin-top:12px;text-align:center;">Cert-mismatch leads (e.g., 8(a) only when you're SDVOSB) are automatically filtered out — not sent.</p>
+</section>
+
+<!-- SIGNUP FORM -->
+<section class="form-wrap">
+  <div class="form-card">
+    <h2>Set Up Your Alerts</h2>
+    <p class="sub">Free with your GovScout Pro account. No extra charge.</p>
+
+    <form id="alertForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label>YOUR NAME</label>
+          <input type="text" id="name" placeholder="Steve" autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label>EMAIL <span class="req">*</span></label>
+          <input type="email" id="email" placeholder="you@example.com" required autocomplete="email">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>KEYWORDS — What contracts do you chase? <span class="req">*</span></label>
+        <input type="text" id="keywords" placeholder="catering, food service, management consulting, porta-potty" required>
+        <div class="form-hint">Comma-separated. Think about what you'd type into SAM.gov search.</div>
+      </div>
+
+      <div class="form-group">
+        <label>YOUR CERTIFICATIONS</label>
+        <div class="cert-grid">
+          <label class="cert-item"><input type="checkbox" name="cert" value="SDVOSB"><span>SDVOSB</span></label>
+          <label class="cert-item"><input type="checkbox" name="cert" value="VOSB"><span>VOSB</span></label>
+          <label class="cert-item"><input type="checkbox" name="cert" value="8(a)"><span>SBA 8(a)</span></label>
+          <label class="cert-item"><input type="checkbox" name="cert" value="WOSB"><span>WOSB</span></label>
+          <label class="cert-item"><input type="checkbox" name="cert" value="HUBZone"><span>HUBZone</span></label>
+          <label class="cert-item"><input type="checkbox" name="cert" value="Small Business"><span>Small Business</span></label>
+        </div>
+        <div class="form-hint">Checked certs are used to score GO (cert match) vs. TEAM (open comp).</div>
+      </div>
+
+      <div class="form-group">
+        <label>SAM.GOV API KEY <span style="color:var(--txt3);">(optional — we have a shared key)</span></label>
+        <input type="text" id="samApiKey" placeholder="Optional — leave blank to use our shared SAM.gov access">
+        <div class="form-hint">Leave blank to use GovScout Pro's shared SAM.gov access. Have your own? Paste it here for dedicated rate limits. Free at <a href="https://sam.gov/profile/details" target="_blank">sam.gov/profile/details</a> → API Keys.</div>
+      </div>
+
+      <div class="form-group">
+        <label>TELEGRAM CHAT ID <span style="color:var(--txt3);">(optional — for mobile alerts)</span></label>
+        <input type="text" id="telegramChatId" placeholder="e.g. 123456789">
+        <div class="tg-help">
+          <p><strong>To get your Chat ID:</strong><br>
+          1. Open Telegram and search for <code>@GovScoutProAlertsBot</code><br>
+          2. Tap <strong>Start</strong> or send <code>/start</code><br>
+          3. The bot replies instantly with your Chat ID<br>
+          4. Copy and paste it in the field above</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>ALERT FREQUENCY</label>
+        <select id="frequency">
+          <option value="daily" selected>Daily (every morning)</option>
+          <option value="weekly">Weekly digest (coming soon)</option>
+        </select>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">Activate My Alerts →</button>
+      <div class="status" id="statusMsg"></div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">GOV<span>SCOUT</span> PRO</div>
+  <div class="footer-links">
+    <a href="https://govscout.pro/privacy.html">Privacy</a>
+    <a href="https://govscout.pro/terms.html">Terms</a>
+    <a href="https://govscout.pro/roadmap.html">Roadmap</a>
+    <a href="https://govscout.pro/blog.html">Blog</a>
+    <a href="https://govscout.pro/alerts">Alerts</a>
+  </div>
+  <div class="footer-copy">© 2026 GovScout Pro · CAGE: 9YZ59 · Reno, NV · stevenh89436@gmail.com</div>
+</footer>
+
+<script>
+document.getElementById('alertForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const btn    = document.getElementById('submitBtn');
+  const status = document.getElementById('statusMsg');
+  btn.disabled = true;
+  btn.textContent = 'Activating…';
+  status.className = 'status';
+  status.textContent = '';
+
+  // Gather certifications
+  const certs = Array.from(document.querySelectorAll('input[name="cert"]:checked')).map(c => c.value);
+
+  const payload = {
+    name:           document.getElementById('name').value.trim(),
+    email:          document.getElementById('email').value.trim(),
+    keywords:       document.getElementById('keywords').value.trim(),
+    certifications: certs,
+    samApiKey:      document.getElementById('samApiKey').value.trim() || null,
+    telegramChatId: document.getElementById('telegramChatId').value.trim() || null,
+    frequency:      document.getElementById('frequency').value
+  };
+
+  try {
+    const res  = await fetch('/.netlify/functions/alert-subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+
+    if (res.ok && data.success) {
+      status.className = 'status success';
+      status.textContent = '✅ ' + data.message;
+      document.getElementById('alertForm').reset();
+    } else {
+      status.className = 'status error';
+      status.textContent = '❌ ' + (data.error || 'Something went wrong. Please try again.');
+      btn.disabled = false;
+      btn.textContent = 'Activate My Alerts →';
+    }
+  } catch (err) {
+    status.className = 'status error';
+    status.textContent = '❌ Network error. Please try again.';
+    btn.disabled = false;
+    btn.textContent = 'Activate My Alerts →';
+  }
+});
+</script>
+
+
+<div id="gs_translate_el" style="display:none"></div>
+<script src="/lang.js"></script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+</body>
+</html>
